@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Requerimientos';
+  faTrash =faTrash;
 }
