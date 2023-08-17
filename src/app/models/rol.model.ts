@@ -1,5 +1,6 @@
 export interface Rol {
-
+id: number,
+nombre: string,
+activo: boolean
 }
 
-//video 8 minuto 1:38

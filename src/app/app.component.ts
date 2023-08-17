@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
+import { CrudService } from './services/crud.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Requerimientos';
-  faTrash =faTrash;
+
+  constructor(private crudService:CrudService){
+  }
+  ngOnInit(): void {
+    this.crudService.getRoles().subscribe((res)=>{
+      console.log(res);
+    })
+  }
 }
