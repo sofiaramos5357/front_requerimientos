@@ -1,1 +1,54 @@
 <p>tabla-config-usuarios works!</p>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Identidad</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Estado</th>
+                            <th class="text-right">Rol</th>
+                            <th class="text-right">Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let usuario of usuarios">
+                            <td class="text-center">{{usuario.Identidad}}</td>
+                            <td >{{usuario.Nombre}}</td>
+                            <td >{{usuario.Correo}}</td>
+                            <td *ngIf="usuario.Activo==true">Activo</td>
+                            <td *ngIf="usuario.Activo==false">Inactivo</td>
+                            <td class="text-right">
+                                <ng-container *ngFor="let rol of roles">
+                                    <ng-container *ngIf="rol.Id === usuario.RolId">
+                                        {{rol.Nombre}}
+                                    </ng-container>
+                                </ng-container>
+                            </td>
+                            <td class="td-actions text-right">
+                                <button type="button" rel="tooltip" class="btn btn-info btn-just-icon btn-sm" data-original-title="" title="">
+                                    <i class="material-icons">person</i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-danger btn-just-icon btn-sm" data-original-title="" title="">
+                                    <i class="material-icons">close</i>
+                                </button>
+                            </td>
+                        </tr>                 
+                    </tbody>
+                </table>
+                </div>
+
+                
+                               

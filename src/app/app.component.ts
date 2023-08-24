@@ -14,5 +14,8 @@ export class AppComponent implements OnInit{
     this.crudService.getRoles().subscribe((res)=>{
       console.log(res);
     })
+    this.crudService.getUsuarios().subscribe((res)=>{
+      console.log(res);
+    })
   }
 }

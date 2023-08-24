@@ -3,34 +3,38 @@ import { Rol } from '../models/rol.model';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs';
+import { Usuario } from '../models/usuario.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
 
-  private RestApi: string='http://localhost:8090/api/rol'
+  private RestApi: string='http://localhost:8090/api'
   httpHeaders= new HttpHeaders().set('content-type','application/json')
 
   constructor(private httpClient:HttpClient) { }
 
+//-----------Roles-----------------------
   getRoles(){
-    return this.httpClient.get(this.RestApi, {headers:this.httpHeaders})
+    return this.httpClient.get(`${this.RestApi}/rol`, {headers:this.httpHeaders})
   }
 
   getRol(id:any){
-    return this.httpClient.get(`this.RestApi/${id}`,{headers: this.httpHeaders}).pipe(
+    return this.httpClient.get(`${this.RestApi}/rol/${id}`,{headers: this.httpHeaders}).pipe(
       map((res:any)=>{
         return res || {}
       })
     )
   }
+  
   crearRol(data:Rol){
-    return this.httpClient.post(this.RestApi, data,{headers: this.httpHeaders})
+    return this.httpClient.post(`${this.RestApi}/rol/crear`, data,{headers: this.httpHeaders})
     .pipe(catchError(this.handleError))
   }
-  modificarRol(id:any, data:any){
-    return this.httpClient.put(`this.RestApi/${id}`,data,{headers: this.httpHeaders})
+  //diferente en el back
+  modificarRol(data:any){
+    return this.httpClient.put(`${this.RestApi}/rol/modificar`,data,{headers: this.httpHeaders})
     .pipe(catchError(this.handleError))
   }
 
@@ -45,6 +49,28 @@ export class CrudService {
       errorMsg
     })
   }
-  
+//-----------Usuarios-----------------------
+getUsuarios(){
+  return this.httpClient.get(`${this.RestApi}/usuario`, {headers:this.httpHeaders})
+}
+
+getUsuario(id:any){
+  return this.httpClient.get(`${this.RestApi}/usuario/${id}`,{headers: this.httpHeaders}).pipe(
+    map((res:any)=>{
+      return res || {}
+    })
+  )
+}
+
+crearUsuario(data:Usuario){
+  return this.httpClient.post(`${this.RestApi}/usuario/crear`, data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError))
+}
+
+modificarUsuario(data:any){
+  return this.httpClient.put(`${this.RestApi}/usuario/modificar`,data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError))
+}
+
 
 }

@@ -10,6 +10,7 @@ import { TablaConfigUsuariosComponent } from './components/tabla-config-usuarios
 import { FormularioCreacionUsuarioComponent } from './components/formulario-creacion-usuario/formulario-creacion-usuario.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { FormularioEditarUsuarioComponent } from './components/formulario-editar-usuario/formulario-editar-usuario.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     InicioElaboradorComponent,
     ConfigUsuarioComponent,
     TablaConfigUsuariosComponent,
-    FormularioCreacionUsuarioComponent
+    FormularioCreacionUsuarioComponent,
+    FormularioEditarUsuarioComponent
   ],
   imports: [
     BrowserModule,
