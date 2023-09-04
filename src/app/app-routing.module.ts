@@ -14,7 +14,8 @@ import { RequerimientoCambioDetalleComponent } from './pages/elaborador/requerim
 import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
-  {path: '',component:InicioAdminComponent},
+  {path: '',component:LoginComponent},
+  {path: 'home',component:InicioAdminComponent},
   {path: 'modificar', component:ConfigUsuarioComponent},
   {path: 'crearsolicitud', component:CrearSolicitudComponent},
   {path: 'crearusuario', component:CrearUsuarioComponent},
@@ -29,7 +30,7 @@ const routes: Routes = [
   {path: 'requerimientoDetalle', component:RequerimientoCambioDetalleComponent},
 
   //funciona raro
-  {path: 'login', component:LoginComponent},
+  //{path: 'login', component:LoginComponent},
 
 ];
 
