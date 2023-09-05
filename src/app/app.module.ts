@@ -13,7 +13,7 @@ import { FormularioEditarUsuarioComponent } from './components/formulario-editar
 import { CrearSolicitudComponent } from './pages/administrador/crear-solicitud/crear-solicitud.component';
 import { ModificacionUsuarioComponent } from './pages/administrador/modificacion-usuario/modificacion-usuario.component';
 import { HistorialComponent } from './pages/administrador/historial/historial.component';
-import { CrearUsuarioComponent } from './pages/administrador/crear-usuario/crear-usuario.component';
+import { CrearUsuarioComponent } from './pages/public/crear-usuario/crear-usuario.component';
 import { DocumentoComponent } from './pages/administrador/documento/documento.component';
 import { RequerimientoCambioComponent } from './pages/elaborador/requerimiento-cambio/requerimiento-cambio.component';
 import { RequerimientoCambioDetalleComponent } from './pages/elaborador/requerimiento-cambio-detalle/requerimiento-cambio-detalle.component';
@@ -25,8 +25,11 @@ import { TablaInicialComponent } from './components/tabla-inicial/tabla-inicial.
 import { FormularioRequerimientoComponent } from './components/formulario-requerimiento/formulario-requerimiento.component';
 import { FormularioRequerimientoDetalleComponent } from './components/formulario-requerimiento-detalle/formulario-requerimiento-detalle.component';
 import { ConfigUsuarioElabComponent } from './pages/elaborador/config-usuario-elab/config-usuario-elab.component';
-import { LoginComponent } from './pages/login/login.component';
-
+import { LoginComponent } from './pages/public/login/login.component';
+import { FormularioLoginComponent } from './components/formulario-login/formulario-login.component';
+import { FormularioRecuperarContrasenaComponent } from './components/formulario-recuperar-contrasena/formulario-recuperar-contrasena.component';
+import { RecuperarContrasenaComponent } from './pages/public/recuperar-contrasena/recuperar-contrasena.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,11 @@ import { LoginComponent } from './pages/login/login.component';
     FormularioRequerimientoComponent,
     FormularioRequerimientoDetalleComponent,
     ConfigUsuarioElabComponent,
-    LoginComponent
+    LoginComponent,
+    FormularioLoginComponent,
+    FormularioRecuperarContrasenaComponent,
+    RecuperarContrasenaComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

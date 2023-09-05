@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfigUsuarioComponent } from './pages/administrador/config-usuario/config-usuario.component';
 import { InicioAdminComponent } from './pages/administrador/inicio-admin/inicio-admin.component';
-import { CrearUsuarioComponent } from './pages/administrador/crear-usuario/crear-usuario.component';
+import { CrearUsuarioComponent } from './pages/public/crear-usuario/crear-usuario.component';
 import { CrearSolicitudComponent } from './pages/administrador/crear-solicitud/crear-solicitud.component';
 import { DocumentoComponent } from './pages/administrador/documento/documento.component';
 import { HistorialComponent } from './pages/administrador/historial/historial.component';
@@ -11,7 +11,8 @@ import { ConfigUsuarioElabComponent } from './pages/elaborador/config-usuario-el
 import { InicioElaboradorComponent } from './pages/elaborador/inicio-elaborador/inicio-elaborador.component';
 import { RequerimientoCambioComponent } from './pages/elaborador/requerimiento-cambio/requerimiento-cambio.component';
 import { RequerimientoCambioDetalleComponent } from './pages/elaborador/requerimiento-cambio-detalle/requerimiento-cambio-detalle.component';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './pages/public/login/login.component';
+import { RecuperarContrasenaComponent } from './pages/public/recuperar-contrasena/recuperar-contrasena.component';
 
 const routes: Routes = [
   {path: '',component:LoginComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'documento', component:DocumentoComponent},
   {path: 'historial', component:HistorialComponent},
   {path: 'editarUsuario', component:ModificacionUsuarioComponent},
+  {path: 'recuperarcontrasena', component:RecuperarContrasenaComponent},
   {path: '**',redirectTo:''},
 
   {path: 'configusuario', component:ConfigUsuarioElabComponent},
