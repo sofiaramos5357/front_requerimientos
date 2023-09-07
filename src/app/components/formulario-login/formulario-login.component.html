@@ -1,23 +1,40 @@
 <p>formulario-login works!</p>
+<form (submit)="signUp()">
+  <div class="d-grid gap-2 col-2 mx-auto mt-5">
+    <label for="exampleInputEmail1" class="form-label">Correo</label>
+    <input
+      type="email"
+      [(ngModel)]="usuario.correo"
+      class="form-control"
+      id="correo"
+      name="correo"
+    />
+  </div>
 
-<form>
-    <div class="d-grid gap-2 col-2 mx-auto mt-5">
-      <label for="exampleInputEmail1" class="form-label">Correo</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    </div>
-  
-    <div class="d-grid gap-2 col-2 mx-auto mt-4">
-      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" />
-    </div>
-  
-    <a class="d-grid gap-2 col-1 mx-auto mt-4" href="/recuperarcontrasena">Recuperar Contraseña</a>
-  
-    <div class="d-grid gap-2 col-1 mx-auto mt-4">
-      <button type="submit" class="btn btn-secondary">
-        <a class="nav-link" href="/crearusuario">Registrarse</a></button>
-      <button type="submit" class="btn btn-primary">
-        <a class="nav-link" href="/home">Entrar</a></button>
-    </div>
-  </form>
-   
+  <div class="d-grid gap-2 col-2 mx-auto mt-4">
+    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+    <input
+      type="password"
+      [(ngModel)]="usuario.contrasena"
+      class="form-control"
+      id="contrasena"
+      name="contrasena"
+    />
+  </div>
+
+  <a class="d-grid gap-2 col-1 mx-auto mt-4" href="/recuperarcontrasena"
+    >Recuperar Contraseña</a
+  >
+
+  <div class="d-grid gap-2 col-1 mx-auto mt-4">
+    <button type="submit" class="btn btn-primary" routerLink="/home" (click)="signUp()">
+      <a class="nav-link">Entrar</a>
+    </button>
+  </div>
+</form>
+
+<div class="d-grid gap-2 col-1 mx-auto mt-4">
+  <button type="button" class="btn btn-secondary" routerLink="/crearusuario">
+    <a class="nav-link">Registrarse</a>
+  </button>
+</div>

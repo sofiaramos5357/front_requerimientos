@@ -31,6 +31,8 @@ import { FormularioRecuperarContrasenaComponent } from './components/formulario-
 import { RecuperarContrasenaComponent } from './pages/public/recuperar-contrasena/recuperar-contrasena.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +66,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
