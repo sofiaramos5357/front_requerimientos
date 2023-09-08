@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-formulario-login',
@@ -6,17 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formulario-login.component.css']
 })
 export class FormularioLoginComponent implements OnInit {
-constructor(){}
+
+constructor(private authService: AuthService){}
 
   ngOnInit(): void {
   }
   
   usuario={
-    correo:'',
-    contrasena:''
+    Correo:'',
+    Contrasena:''
   }
   
 signUp(){
+  this.authService.signUp(this.usuario)
+  .subscribe(
+    res=> {
+      console.log(res)
+    },
+    err=>console.log(err)
+  )
   console.log(this.usuario)
 }
   

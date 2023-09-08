@@ -11,6 +11,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   signUp(usuario){
-    
+    return this.http.post<any>(this.URL + `/login`, usuario);
   }
 }

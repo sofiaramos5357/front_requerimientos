@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class FormularioCrearUsuarioComponent {
 
+  usuarioRegistrar={
+    Identidad:'',
+    Nombre:'',
+    Apellido:'',
+    Correo:'',
+    Contrasena:'',
+  }
+
+  registrar(){
+    console.log(this.usuarioRegistrar)
+  }
 }
