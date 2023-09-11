@@ -70,8 +70,8 @@ getUsuario(id:any){
   )
 }
 
-crearUsuario(data:Usuario){
-  return this.httpClient.post(`${this.RestApi}/usuario/crear`, data,{headers: this.httpHeaders})
+crearUsuario(data:any){
+  return this.httpClient.post(`${this.RestApi}/registro`, data,{headers: this.httpHeaders})
   .pipe(catchError(this.handleError))
 }
 
@@ -234,6 +234,7 @@ modificarTipoObjeto(data:any){
   return this.httpClient.put(`${this.RestApi}/tipoobjeto/modificar`,data,{headers: this.httpHeaders})
   .pipe(catchError(this.handleError))
 }
+
 
 
 }

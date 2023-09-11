@@ -25,13 +25,10 @@ signUp(){
   this.authService.signUp(this.usuario)
   .subscribe(
     res=> {
-      console.log(res.token);
       localStorage.setItem('token', res.token);
     this.router.navigate(['/home']);
     },
     err=>console.log(err)
   )
-  console.log(this.usuario)
 }
-  
 }

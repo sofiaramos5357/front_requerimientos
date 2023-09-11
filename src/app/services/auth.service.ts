@@ -30,4 +30,11 @@ export class AuthService {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
+
+
+  //-------------------------enviar contrasena------------------------
+enviarContrasena(usuario){
+  return this.http.post<any>(this.URL + `/recuperarcontrasena`, usuario);
 }
+}
+

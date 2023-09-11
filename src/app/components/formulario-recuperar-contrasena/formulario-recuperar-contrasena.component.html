@@ -3,12 +3,10 @@
 <form>
     <div class="d-grid gap-2 col-2 mx-auto mt-5">
         <label for="exampleInputEmail1" class="form-label">Ingrese su correo</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+        <input type="email" class="form-control" id="Correo" name="Correo" [(ngModel)]="usuario.Correo" aria-describedby="emailHelp"/>
     </div>
-
     <div class="d-grid gap-2 col-1 mx-auto mt-4">
-      <button type="submit" class="btn btn-primary" >
-        <a class="nav-link" href="/login">Enviar</a></button>
+      <button type="button" class="btn btn-primary" (click)="enviarCorreo()">Enviar</button>
     </div>
   </form>
    

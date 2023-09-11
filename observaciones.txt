@@ -116,3 +116,14 @@
                     </tbody>
                 </table>
                 </div>
+
+
+correcciones y observaciones
+
+-en la base de datos en la tabla usuario el activo, idrol,id no estan automaticos
+
+-en el registro no muestra el response del servidor cuando da error
+
+-en el registro hacer nombres de usuarios random
+
+-el envio de la contrasena no se realiza
