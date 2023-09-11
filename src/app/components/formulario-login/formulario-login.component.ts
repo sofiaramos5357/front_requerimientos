@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-formulario-login',
   templateUrl: './formulario-login.component.html',
@@ -8,7 +8,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class FormularioLoginComponent implements OnInit {
 
-constructor(private authService: AuthService){}
+constructor(
+  private authService: AuthService,
+  private router: Router,
+  ){}
 
   ngOnInit(): void {
   }
@@ -22,7 +25,9 @@ signUp(){
   this.authService.signUp(this.usuario)
   .subscribe(
     res=> {
-      console.log(res)
+      console.log(res.token);
+      localStorage.setItem('token', res.token);
+    this.router.navigate(['/home']);
     },
     err=>console.log(err)
   )

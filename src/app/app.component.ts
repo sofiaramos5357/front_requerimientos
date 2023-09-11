@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from './services/crud.service';
+import { AuthService } from './services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +9,7 @@ import { CrudService } from './services/crud.service';
 export class AppComponent implements OnInit{
   title = 'Requerimientos';
 
-  constructor(private crudService:CrudService){
+  constructor(private crudService:CrudService, private authService:AuthService){
   }
   ngOnInit(): void {
     this.crudService.getRoles().subscribe((res)=>{

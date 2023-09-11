@@ -8,7 +8,7 @@ import { InicioElaboradorComponent } from './pages/elaborador/inicio-elaborador/
 import { ConfigUsuarioComponent } from './pages/administrador/config-usuario/config-usuario.component';
 import { TablaConfigUsuariosComponent } from './components/tabla-config-usuarios/tabla-config-usuarios.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormularioEditarUsuarioComponent } from './components/formulario-editar-usuario/formulario-editar-usuario.component';
 import { CrearSolicitudComponent } from './pages/administrador/crear-solicitud/crear-solicitud.component';
 import { ModificacionUsuarioComponent } from './pages/administrador/modificacion-usuario/modificacion-usuario.component';
@@ -32,7 +32,9 @@ import { RecuperarContrasenaComponent } from './pages/public/recuperar-contrasen
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 import { FormsModule } from '@angular/forms';
-
+import { AuthGuard } from './auth.guard';
+import { HttpInterceptor } from '@angular/common/http';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +71,14 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

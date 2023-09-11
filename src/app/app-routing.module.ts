@@ -14,9 +14,11 @@ import { RequerimientoCambioDetalleComponent } from './pages/elaborador/requerim
 import { LoginComponent } from './pages/public/login/login.component';
 import { RecuperarContrasenaComponent } from './pages/public/recuperar-contrasena/recuperar-contrasena.component';
 
+import { AuthGuard } from './auth.guard';
+
 const routes: Routes = [
   {path: '',component:LoginComponent},
-  {path: 'home',component:InicioAdminComponent},
+  {path: 'home',component:InicioAdminComponent, canActivate: [AuthGuard]},
   {path: 'modificar', component:ConfigUsuarioComponent},
   {path: 'crearsolicitud', component:CrearSolicitudComponent},
   {path: 'crearusuario', component:CrearUsuarioComponent},
