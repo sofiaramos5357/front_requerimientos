@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import * as alertifyjs from 'alertifyjs';
 
 @Component({
   selector: 'app-formulario-recuperar-contrasena',
@@ -18,14 +19,15 @@ export class FormularioRecuperarContrasenaComponent {
   };
 
   enviarCorreo(){
-    this.authService.enviarContrasena(this.usuario.Correo).subscribe(
-      (response) => {
-        console.log(response);
-        //this.router.navigate(['/login']);
+    this.authService.enviarContrasena(this.usuario).subscribe(
+      (res) => {
+        this.router.navigate(['/login']);
+        alertifyjs.success(res.message)
+
       },
       (error) => {
-        console.error(error);
-
+        //alertifyjs.error(error)
+        //console.log(error);
       }
     );
   }

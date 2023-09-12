@@ -72,7 +72,7 @@ getUsuario(id:any){
 
 crearUsuario(data:any){
   return this.httpClient.post(`${this.RestApi}/registro`, data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+  .pipe(catchError(this.handleError),map((response: any) => response));
 }
 
 modificarUsuario(data:any){

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+
+import * as alertifyjs from 'alertifyjs';
+
 @Component({
   selector: 'app-formulario-login',
   templateUrl: './formulario-login.component.html',
@@ -27,8 +30,9 @@ signUp(){
     res=> {
       localStorage.setItem('token', res.token);
     this.router.navigate(['/home']);
-    },
-    err=>console.log(err)
+    //alertifyjs.success(res.token)
+    //console.log(res)
+    }
   )
 }
 }

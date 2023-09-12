@@ -12,11 +12,11 @@ export class AppComponent implements OnInit{
   constructor(private crudService:CrudService, private authService:AuthService){
   }
   ngOnInit(): void {
-    this.crudService.getRoles().subscribe((res)=>{
-      console.log(res);
-    })
-    this.crudService.getUsuarios().subscribe((res)=>{
-      console.log(res);
-    })
+    //this.crudService.getRoles().subscribe((res)=>{
+      //console.log(res);
+    //})
+    //this.crudService.getUsuarios().subscribe((res)=>{
+      //console.log(res);
+    //})
   }
 }

@@ -21,6 +21,8 @@ export class TablaConfigUsuariosComponent implements OnInit{
 
   usuarios: Usuario[] = [];
   roles: Rol[] = [];
+  itemsPerPage: number = 10; // Número de elementos por página
+  currentPage: number = 1;  // Página actual
 
 
   constructor(private crudService:CrudService){
@@ -37,5 +39,17 @@ export class TablaConfigUsuariosComponent implements OnInit{
     })
 
   }
-
+  getUsersForPage(): Usuario[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.usuarios.slice(startIndex, endIndex);
+  }
+  getTotalPages(): number {
+    return Math.ceil(this.usuarios.length / this.itemsPerPage);
+  }
+  
+  getPages(): number[] {
+    return Array(this.getTotalPages()).fill(0).map((_, index) => index + 1);
+  }  
+  
 }

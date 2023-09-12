@@ -122,8 +122,7 @@ correcciones y observaciones
 
 -en la base de datos en la tabla usuario el activo, idrol,id no estan automaticos
 
--en el registro no muestra el response del servidor cuando da error
-
 -en el registro hacer nombres de usuarios random
 
--el envio de la contrasena no se realiza
+-si obtengo la informacion de un jwt, cuando actualizo la informacion en la base de datos no se ve reflajada en el token 
+creo que es mejor solicitarla al backend mediante una ruta donde por el id que tiene el token mande la informacion
