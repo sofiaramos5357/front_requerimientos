@@ -124,5 +124,3 @@ correcciones y observaciones
 
 -en el registro hacer nombres de usuarios random
 
--si obtengo la informacion de un jwt, cuando actualizo la informacion en la base de datos no se ve reflajada en el token 
-creo que es mejor solicitarla al backend mediante una ruta donde por el id que tiene el token mande la informacion
