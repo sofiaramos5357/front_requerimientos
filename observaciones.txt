@@ -118,9 +118,17 @@
                 </div>
 
 
-correcciones y observaciones
+correcciones 
 
 -en la base de datos en la tabla usuario el activo, idrol,id no estan automaticos
 
 -en el registro hacer nombres de usuarios random
 
+-pensar en que es mejor halar los datos activos desde el backend y no estar clasificando en el fronted
+
+
+
+
+observaciones
+
+-las variables deben ser iguales a como estan declaradas en la base de datos si no las funcionciones http no sabran cual dato es cual

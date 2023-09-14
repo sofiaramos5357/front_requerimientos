@@ -15,6 +15,10 @@ export class NavbarComponent implements OnInit {
   datosUsuario: Usuario;
 
   ngOnInit(): void {
+    this.DatosUsuario()
+  }
+
+  DatosUsuario(){
     this.datosUsuarioService.DatosUsuario().subscribe(
       (response) => {
           this.datosUsuario = response[0];

@@ -1,31 +1,26 @@
 
 <form>
     <div class="d-grid gap-2 col-2 mx-auto mt-5">
-        <label for="exampleInputEmail1" class="form-label">Descripcion</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+        <label for="exampleInputEmail1" class="form-label">Descripción</label>
+        <textarea class="form-control" id="textAreaExample" rows="4" [(ngModel)]="requerimiento.Descripcion" name="descripcion"></textarea>
     
         <label for="exampleInputEmail1" class="form-label">Objetivo</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+        <textarea class="form-control" id="textAreaExample" rows="4" [(ngModel)]="requerimiento.Objetivo" name="objetivo"></textarea>
 
         <label for="exampleInputEmail1" class="form-label">Sistema</label>
-        <select class="form-select" aria-label="Default select example" >
-        <option selected>Seleccione el sistema</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="requerimiento.SistemaId" name="selectedSistema">
+          <option *ngFor="let sistema of sistemas" [value]="sistema.Id">{{ sistema.Nombre }}</option>
         </select>
+        
 
         <label for="exampleInputEmail1" class="form-label">Elaborador</label>
-        <select class="form-select" aria-label="Default select example">
-        <option selected>Seleccione el usuario elaborador</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="requerimiento.UsuarioIdElaborador" name="selectedElaborador">
+          <option *ngFor="let usuario of usuarios" [value]="usuario.Id">{{usuario.Nombre}} {{usuario.Apellido}}</option>
         </select>
     
-    
-        <button type="submit" class="btn btn-primary mt-5" >
-        <a class="nav-link" href="/home">Crear solicitud</a></button>
+        <button type="submit" class="btn btn-primary mt-5" [disabled]="!camposLlenos()" (click)="crearRequerimiento()">Crear solicitud</button>
+
+        <!--<div class="h2" *ngFor="let DatosUsuarios of DatosUsuario">{{DatosUsuarios.Id}}</div>-->
         
     </div>
 </form>

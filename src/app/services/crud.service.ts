@@ -11,6 +11,7 @@ import { Sistema } from '../models/sistema.model';
 import { RequerimientoDetalle } from '../models/requerimiento-detalle.model';
 import { TipoCambio } from '../models/tipo-cambio.model';
 import { TipoObjeto } from '../models/tipo-objeto.model';
+import { CrearRequerimiento } from '../models/crear-requerimiento.model';
 
 
 @Injectable({
@@ -25,7 +26,11 @@ export class CrudService {
 
 //-----------Roles-----------------------
   getRoles(){
-    return this.httpClient.get(`${this.RestApi}/rol`, {headers:this.httpHeaders})
+    return this.httpClient.get(`${this.RestApi}/rol`, {headers:this.httpHeaders}).pipe(
+      map((res:Rol)=>{
+        return res || {}
+      })
+    )
   }
 
   getRol(id:any){
@@ -59,7 +64,11 @@ export class CrudService {
   }
 //-----------Usuarios-----------------------
 getUsuarios(){
-  return this.httpClient.get(`${this.RestApi}/usuario`, {headers:this.httpHeaders})
+  return this.httpClient.get(`${this.RestApi}/usuario`, {headers:this.httpHeaders}).pipe(
+    map((res:Usuario)=>{
+      return res || {}
+    })
+  )
 }
 
 getUsuario(id:any){
@@ -115,9 +124,9 @@ getRequerimiento(id:any){
   )
 }
 
-crearRequerimiento(data:Requerimiento){
+crearRequerimiento(data:CrearRequerimiento){
   return this.httpClient.post(`${this.RestApi}/requerimientocambio/crear`, data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+  .pipe(catchError(this.handleError),map((response: any) => response));
 }
 
 modificarRequerimiento(data:any){
@@ -149,7 +158,13 @@ modificarRequerimientoEstado(data:any){
 //---------------------Sistema-----------------------------------------------------------------
 getSistemas(){
   return this.httpClient.get(`${this.RestApi}/sistema`, {headers:this.httpHeaders})
+  .pipe(
+    map((res:Sistema)=>{
+      return res || {}
+    })
+  )
 }
+
 
 getSistema(id:any){
   return this.httpClient.get(`${this.RestApi}/sistema/${id}`,{headers: this.httpHeaders}).pipe(
