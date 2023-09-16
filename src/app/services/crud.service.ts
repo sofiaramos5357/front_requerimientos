@@ -85,9 +85,10 @@ crearUsuario(data:any){
 }
 
 modificarUsuario(data:any){
-  return this.httpClient.put(`${this.RestApi}/usuario/modificar`,data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+  return this.httpClient.post(`${this.RestApi}/usuario/guardarcambios`,data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response))
 }
+
 
 //---------------------documentos-----------------------------------------------------------------
 getDocumentos(){

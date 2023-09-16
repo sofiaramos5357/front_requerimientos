@@ -1,14 +1,11 @@
-
 <head>
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
-  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
 </head>
-<body>
-  <div class="container">
+
+<body class="mt-5" >
+  <div class="container d-flex justify-content-center align-items-center vh-50">
     <div class="row">
-      <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+      <div class="col-lg-12 col-md-10 ml-auto mr-auto">
         <div class="table-responsive">
           <table class="table">
             <thead>
@@ -36,48 +33,18 @@
                   </ng-container>
                 </td>
                 <td class="td-actions text-right">
-                  <!--
-                  <button
-                    type="button"
-                    rel="tooltip"
-                    class="btn btn-info btn-just-icon btn-sm"
-                    data-original-title=""
-                    title=""
-                  >
-                    <i class="material-icons">person</i>
-                  </button>
-                -->
-                  <button
-                    type="button"
-                    rel="tooltip"
-                    class="btn btn-success btn-just-icon btn-sm"
-                    data-original-title=""
-                    title=""
-                  >
+                  <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm"
+                    data-original-title="" data-bs-toggle="modal" data-bs-target="#exampleModal" title=""
+                    (click)="abrirModal(usuario)">
                     <i class="material-icons">edit</i>
                   </button>
-                  <!--
-                  <button
-                    type="button"
-                    rel="tooltip"
-                    class="btn btn-danger btn-just-icon btn-sm"
-                    data-original-title=""
-                    title=""
-                  >
-                    <i class="material-icons">close</i>
-                  </button>
-                  -->
                 </td>
               </tr>
             </tbody>
           </table>
-          
         </div>
-        
       </div>
-      
-    </div>
-    <nav aria-label="Page navigation example">
+      <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item" [class.disabled]="currentPage === 1">
             <a class="page-link" (click)="currentPage = currentPage - 1" aria-label="Previous">
@@ -92,8 +59,55 @@
               <span aria-hidden="true">&raquo;</span></a>
         </ul>
       </nav>
+    </div>
   </div>
-
-  
-
 </body>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Configuración</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center align-middle">
+
+        <div class="h2">Usuario</div>
+        <br>
+        <div id="usuario" class="h4">{{ usuarioActual.Nombre }} {{ usuarioActual.Apellido }}</div>
+        <br>
+        <div class="h2">Estado</div>
+        <br>
+        <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+          <input type="radio" class="btn-check" name="vbtn-radioa" id="vbtn-radio1" [(ngModel)]="usuarioActual.Activo"
+            [value]="true" autocomplete="off">
+          <label class="btn btn-outline-danger" for="vbtn-radio1">Activo</label>
+          <input type="radio" class="btn-check" name="vbtn-radioa" id="vbtn-radio2" [(ngModel)]="usuarioActual.Activo"
+            [value]="false" autocomplete="off">
+          <label class="btn btn-outline-danger" for="vbtn-radio2">Inactivo</label>
+        </div>
+        <br>
+        <br>
+        <div class="h2">Rol</div>
+        <br>
+        <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+          <input type="radio" class="btn-check" name="vbtn-radiob" id="vbtn-radio3" [(ngModel)]="usuarioActual.RolId"
+            [value]="1" autocomplete="off">
+          <label class="btn btn-outline-danger" for="vbtn-radio3">Administrador</label>
+          <input type="radio" class="btn-check" name="vbtn-radiob" id="vbtn-radio4" [(ngModel)]="usuarioActual.RolId"
+            [value]="2" autocomplete="off">
+          <label class="btn btn-outline-danger" for="vbtn-radio4">Elaborador</label>
+        </div>
+      </div>
+      <br>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrarModal()">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>

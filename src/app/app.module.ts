@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioAdminComponent } from './pages/administrador/inicio-admin/inicio-admin.component';
 import { InicioElaboradorComponent } from './pages/elaborador/inicio-elaborador/inicio-elaborador.component';
-import { ConfigUsuarioComponent } from './pages/administrador/config-usuario/config-usuario.component';
+import { ConfigUsuarioComponent } from './pages/administrador/usuarios/usuarios.component';
 import { TablaConfigUsuariosComponent } from './components/administrador/tabla-config-usuarios/tabla-config-usuarios.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';

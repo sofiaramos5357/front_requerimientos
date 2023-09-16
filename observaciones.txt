@@ -126,6 +126,13 @@ correcciones
 
 -pensar en que es mejor halar los datos activos desde el backend y no estar clasificando en el fronted
 
+-anadir en el guard una funcion que me permita cerrar la sesion si el estado y rol del 
+token es diferente con los datos del mismo usuario recibidos por el backend ya que al momento 
+de estar logueado en el usuario y por otra ventana se le cambia el rol no muestra bien la informa
+por lo que cuando se le cambie el rol se le pediria que iniciara sesion
+
+-en unos controller quitar la contrasena que se trae del usuario
+
 
 
 

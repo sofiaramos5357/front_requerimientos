@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConfigUsuarioComponent } from './pages/administrador/config-usuario/config-usuario.component';
+import { ConfigUsuarioComponent } from './pages/administrador/usuarios/usuarios.component';
 import { CrearUsuarioComponent } from './pages/public/crear-usuario/crear-usuario.component';
 import { CrearSolicitudComponent } from './pages/administrador/crear-solicitud/crear-solicitud.component';
 import { DocumentoComponent } from './pages/administrador/documento/documento.component';
@@ -26,7 +26,7 @@ const routes: Routes = [
   {path: '',component:LoginComponent},
 
   //admin
-  {path: 'modificar', component:ConfigUsuarioComponent},
+  {path: 'usuarios', component:ConfigUsuarioComponent, canActivate: [AuthGuard]},
   {path: 'crearsolicitud', component:CrearSolicitudComponent},
   {path: 'documento', component:DocumentoComponent},
   {path: 'historial', component:HistorialComponent},
