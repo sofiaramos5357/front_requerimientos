@@ -1,50 +1,81 @@
-<div class="d-grid gap-2 col-6 mx-auto mt-5">
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+</head>
+<h2 class="h2 text-center mt-5">Requerimientos en proceso</h2>
 
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  
-</div>
+<body class="mt-5">
+  <div class="container d-flex justify-content-center align-items-center vh-50">
+    <div class="row">
+      <div class="col-lg-12 col-md-10 ml-auto mr-auto">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr class="text-center">
+                <th >#Requerimiento</th>
+                <th>Sistema</th>
+                <th>Estado</th>
+                <th>Creador</th>
+                <th >Elaborador</th>
+                <th >Ver</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr *ngFor="let requerimiento of getUsersForPage()">
+                <td>{{ requerimiento.Id }}</td>
+                <td >
+                  <ng-container *ngFor="let sistema of sistemas">
+                    <ng-container *ngIf="sistema.Id ===  requerimiento.SistemaId">
+                      {{ sistema.Nombre }}
+                    </ng-container>
+                  </ng-container>
+                </td>
+                <td>
+                  <ng-container *ngFor="let estados of estado">
+                    <ng-container *ngIf="estados.Id ===  requerimiento.RequerimientoEstadoId">
+                      {{ estados.Nombre }}
+                    </ng-container>
+                  </ng-container>
+                </td>
+                <td>
+                  <ng-container *ngFor="let usuario of usuarios">
+                    <ng-container *ngIf="usuario.Id ===  requerimiento.UsuarioIdCreador">
+                      {{ usuario.Nombre }} {{ usuario.Apellido }}
+                    </ng-container>
+                  </ng-container>
+                </td>
+                <td>
+                  <ng-container *ngFor="let usuario of usuarios">
+                    <ng-container *ngIf="usuario.Id ===  requerimiento.UsuarioIdElaborador">
+                      {{ usuario.Nombre }} {{ usuario.Apellido }}
+                    </ng-container>
+                  </ng-container>
+
+                </td>
+                <td class="td-actions text-right">
+                  <button type="button" class="btn btn-warning btn-just-icon btn-sm" (click)="verRequerimiento(requerimiento)">
+                    <i class="material-icons">visibility</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="currentPage = currentPage - 1" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item" *ngFor="let page of getPages()">
+            <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+            <a class="page-link" (click)="currentPage = currentPage + 1" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span></a>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</body>

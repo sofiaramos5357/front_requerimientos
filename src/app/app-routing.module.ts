@@ -14,6 +14,7 @@ import { LoginComponent } from './pages/public/login/login.component';
 import { RecuperarContrasenaComponent } from './pages/public/recuperar-contrasena/recuperar-contrasena.component';
 import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './pages/home/home/home.component';
+import { VisualizarRequerimientoComponent } from './pages/administrador/visualizar-requerimiento/visualizar-requerimiento.component';
 
 const routes: Routes = [
 
@@ -31,6 +32,8 @@ const routes: Routes = [
   {path: 'documento', component:DocumentoComponent},
   {path: 'historial', component:HistorialComponent},
   {path: 'editarUsuario', component:ModificacionUsuarioComponent},
+  {path: 'visualizarreq', component:VisualizarRequerimientoComponent},
+
 
   //elaborador
   {path: 'configusuario', component:ConfigUsuarioElabComponent},

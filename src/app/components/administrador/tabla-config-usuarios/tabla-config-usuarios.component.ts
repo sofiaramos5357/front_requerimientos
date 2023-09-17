@@ -4,7 +4,6 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { CrudService } from 'src/app/services/crud.service';
 import * as alertifyjs from 'alertifyjs';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-tabla-config-usuarios',

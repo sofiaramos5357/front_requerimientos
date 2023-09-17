@@ -12,6 +12,7 @@ import { RequerimientoDetalle } from '../models/requerimiento-detalle.model';
 import { TipoCambio } from '../models/tipo-cambio.model';
 import { TipoObjeto } from '../models/tipo-objeto.model';
 import { CrearRequerimiento } from '../models/crear-requerimiento.model';
+import { RequerimientoCreado } from '../models/requerimiento-creado';
 
 
 @Injectable({
@@ -113,8 +114,12 @@ modificarDocumento(data:any){
   .pipe(catchError(this.handleError))
 }
 //---------------------Requerimiento-----------------------------------------------------------------
-getRequerimientos(){
-  return this.httpClient.get(`${this.RestApi}/requerimientocambio`, {headers:this.httpHeaders})
+getRequerimientoscreadas(){
+  return this.httpClient.get(`${this.RestApi}/creadas`, {headers:this.httpHeaders}).pipe(
+    map((res:RequerimientoCreado)=>{
+      return res || {}
+    })
+  )
 }
 
 getRequerimiento(id:any){
@@ -136,12 +141,16 @@ modificarRequerimiento(data:any){
 }
 //---------------------RequerimientoEstado-----------------------------------------------------------------
 getRequerimientosEstados(){
-  return this.httpClient.get(`${this.RestApi}/requerimientoestado`, {headers:this.httpHeaders})
+  return this.httpClient.get(`${this.RestApi}/requerimientoestado`, {headers:this.httpHeaders}).pipe(
+    map((res:RequerimientoEstado)=>{
+      return res || {}
+    })
+  )
 }
 
 getRequerimientoEstado(id:any){
   return this.httpClient.get(`${this.RestApi}/requerimientoestado/${id}`,{headers: this.httpHeaders}).pipe(
-    map((res:any)=>{
+    map((res:RequerimientoEstado)=>{
       return res || {}
     })
   )

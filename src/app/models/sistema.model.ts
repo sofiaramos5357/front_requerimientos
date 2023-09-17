@@ -1,6 +1,6 @@
 export interface Sistema {
     Id: number;
     Nombre: string;
-    Version: number;
+    VersionSistema: number;
     Activo: boolean;
 }

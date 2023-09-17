@@ -36,6 +36,8 @@ import { AuthGuard } from './auth.guard';
 import { HttpInterceptor } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { HomeComponent } from './pages/home/home/home.component';
+import { VisualizarRequerimientoComponent } from './pages/administrador/visualizar-requerimiento/visualizar-requerimiento.component';
+import { FormularioVisualizarReqComponent } from './components/administrador/formulario-visualizar-req/formulario-visualizar-req.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +66,9 @@ import { HomeComponent } from './pages/home/home/home.component';
     FormularioRecuperarContrasenaComponent,
     RecuperarContrasenaComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    VisualizarRequerimientoComponent,
+    FormularioVisualizarReqComponent
   ],
   imports: [
     BrowserModule,
