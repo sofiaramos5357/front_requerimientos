@@ -7,4 +7,10 @@ export interface RequerimientoCreado    {
     SistemaId: number,
     UsuarioIdElaborador: number,
     RequerimientoEstadoId:number
+    NombreCreador:String,
+    ApellidoCreador:String,
+    NombreSistema:String,
+	NombreElaborador:String,
+    ApellidoElaborador:String,
+	Estado:String
 }

@@ -115,7 +115,7 @@ modificarDocumento(data:any){
 }
 //---------------------Requerimiento-----------------------------------------------------------------
 getRequerimientoscreadas(){
-  return this.httpClient.get(`${this.RestApi}/creadas`, {headers:this.httpHeaders}).pipe(
+  return this.httpClient.get(`${this.RestApi}/creados`, {headers:this.httpHeaders}).pipe(
     map((res:RequerimientoCreado)=>{
       return res || {}
     })

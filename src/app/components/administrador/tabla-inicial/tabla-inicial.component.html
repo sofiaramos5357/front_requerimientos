@@ -16,44 +16,25 @@
                 <th>Estado</th>
                 <th>Creador</th>
                 <th >Elaborador</th>
-                <th >Ver</th>
+                <th >Opcion</th>
               </tr>
             </thead>
             <tbody class="text-center">
               <tr *ngFor="let requerimiento of getUsersForPage()">
                 <td>{{ requerimiento.Id }}</td>
-                <td >
-                  <ng-container *ngFor="let sistema of sistemas">
-                    <ng-container *ngIf="sistema.Id ===  requerimiento.SistemaId">
-                      {{ sistema.Nombre }}
-                    </ng-container>
-                  </ng-container>
-                </td>
-                <td>
-                  <ng-container *ngFor="let estados of estado">
-                    <ng-container *ngIf="estados.Id ===  requerimiento.RequerimientoEstadoId">
-                      {{ estados.Nombre }}
-                    </ng-container>
-                  </ng-container>
-                </td>
-                <td>
-                  <ng-container *ngFor="let usuario of usuarios">
-                    <ng-container *ngIf="usuario.Id ===  requerimiento.UsuarioIdCreador">
-                      {{ usuario.Nombre }} {{ usuario.Apellido }}
-                    </ng-container>
-                  </ng-container>
-                </td>
-                <td>
-                  <ng-container *ngFor="let usuario of usuarios">
-                    <ng-container *ngIf="usuario.Id ===  requerimiento.UsuarioIdElaborador">
-                      {{ usuario.Nombre }} {{ usuario.Apellido }}
-                    </ng-container>
-                  </ng-container>
+                <td >{{ requerimiento.NombreSistema }}</td>
+                <td>{{ requerimiento.Estado }}</td>
+                <td>{{ requerimiento.NombreCreador }} {{ requerimiento.ApellidoCreador }}</td>
+                <td>{{ requerimiento.NombreElaborador }} {{ requerimiento.ApellidoElaborador }}</td>
 
-                </td>
-                <td class="td-actions text-right">
-                  <button type="button" class="btn btn-warning btn-just-icon btn-sm" (click)="verRequerimiento(requerimiento)">
+                <td *ngIf="datosUsuario && datosUsuario.Id !== requerimiento.UsuarioIdCreador" class="td-actions text-right">
+                  <button type="button" class="btn btn-success btn-just-icon btn-sm" (click)="verRequerimiento(requerimiento)" >
                     <i class="material-icons">visibility</i>
+                  </button>
+                </td>
+                <td *ngIf="datosUsuario && datosUsuario.Id === requerimiento.UsuarioIdCreador" class="td-actions text-right">
+                  <button type="button" class="btn btn-warning btn-just-icon btn-sm" (click)="verRequerimiento(requerimiento)" >
+                    <i class="material-icons">edit</i>
                   </button>
                 </td>
               </tr>
