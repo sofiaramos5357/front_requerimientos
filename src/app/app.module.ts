@@ -38,6 +38,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { HomeComponent } from './pages/home/home/home.component';
 import { VisualizarRequerimientoComponent } from './pages/administrador/visualizar-requerimiento/visualizar-requerimiento.component';
 import { FormularioVisualizarReqComponent } from './components/administrador/formulario-visualizar-req/formulario-visualizar-req.component';
+import { EditarRequerimientoComponent } from './pages/administrador/editar-requerimiento/editar-requerimiento.component';
+import { FormularioEditarReqComponent } from './components/administrador/formulario-editar-req/formulario-editar-req.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +70,9 @@ import { FormularioVisualizarReqComponent } from './components/administrador/for
     NavbarComponent,
     HomeComponent,
     VisualizarRequerimientoComponent,
-    FormularioVisualizarReqComponent
+    FormularioVisualizarReqComponent,
+    EditarRequerimientoComponent,
+    FormularioEditarReqComponent
   ],
   imports: [
     BrowserModule,

@@ -139,6 +139,9 @@ esto puede ser en el componente global y que compruebe el activo con la funcion 
 
 -trabajar en las versiones del sistema al finalizar
 
+-en la tabla inicial corregir el metodo crud para que no jale todos los requerimientos creados, solo serian los que no esten en terminado o eliminado
+
+-hacer rutas para traer solo datos activos
 
 
 

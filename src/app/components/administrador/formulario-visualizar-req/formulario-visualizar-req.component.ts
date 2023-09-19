@@ -12,14 +12,14 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 })
 export class FormularioVisualizarReqComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private datosUsuarioService: DatosUsuarioService) { }
+  constructor(private route: ActivatedRoute,private datosUsuarioService: DatosUsuarioService) { }
 
-  datosUsuario: Usuario
   datosRuta: RequerimientoCreado
+  datosUsuario: Usuario
+
 
   ngOnInit() {
     this.obtenerDatosRuta()
-    this.DatosUsuario()
   }
 
   obtenerDatosRuta() {
@@ -47,21 +47,11 @@ export class FormularioVisualizarReqComponent implements OnInit {
     this.datosUsuarioService.DatosUsuario().subscribe(
       (response) => {
         this.datosUsuario = response[0];
-        this.comprobarUsuario()
       },
       (error) => {
         console.error('Error al obtener los datos del usuario:', error);
       }
     );
   }
-
-  comprobarUsuario(){
-    if (this.datosUsuario.Id === this.datosRuta.Id)
-      return true
-    else
-      return false
-  }
-
-  
 
 }

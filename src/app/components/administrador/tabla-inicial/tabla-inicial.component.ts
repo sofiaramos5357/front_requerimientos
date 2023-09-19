@@ -30,11 +30,12 @@ export class TablaInicialComponent implements OnInit {
   }
 
   requerimientosCreadod() {
-    this.crudService.getRequerimientoscreadas().subscribe((res: RequerimientoCreado[]) => {
-      //console.log(res);
-      this.requerimientos = res
-    })
+      this.crudService.getRequerimientoscreadas().subscribe((res: RequerimientoCreado[]) => {
+        // Filtrar los elementos que no tienen estadoId igual a 5 o 6
+        this.requerimientos = res.filter(requerimiento => requerimiento.RequerimientoEstadoId !== 5 && requerimiento.RequerimientoEstadoId !== 6);
+      });
   }
+  
   getUsersForPage(): RequerimientoCreado[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
@@ -50,9 +51,16 @@ export class TablaInicialComponent implements OnInit {
 
   verRequerimiento(requerimiento) {
     if (requerimiento !== null && requerimiento !== undefined) {
+      if(this.datosUsuario.Id !== requerimiento.UsuarioIdCreador || requerimiento.RequerimientoEstadoId!==1){ 
       this.router.navigate(['/visualizarreq'], {
         queryParams: { requerimiento: JSON.stringify(requerimiento) }
       });
+    }
+    if(this.datosUsuario.Id === requerimiento.UsuarioIdCreador && requerimiento.RequerimientoEstadoId===1){
+      this.router.navigate(['/editarrequerimiento'], {
+        queryParams: { requerimiento: JSON.stringify(requerimiento)
+      }});
+    }
     } else {
       console.error("El objeto 'requerimiento' está vacío o no está definido.");
     }
