@@ -37,7 +37,7 @@ import { HttpInterceptor } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { HomeComponent } from './pages/home/home/home.component';
 import { VisualizarRequerimientoComponent } from './pages/administrador/visualizar-requerimiento/visualizar-requerimiento.component';
-import { FormularioVisualizarReqComponent } from './components/administrador/formulario-visualizar-req/formulario-visualizar-req.component';
+import { FormularioVisualizarReqComponent } from './components/shared/formulario-visualizar-req/formulario-visualizar-req.component';
 import { EditarRequerimientoComponent } from './pages/administrador/editar-requerimiento/editar-requerimiento.component';
 import { FormularioEditarReqComponent } from './components/administrador/formulario-editar-req/formulario-editar-req.component';
 import { TablaInicialElabComponent } from './components/elaborador/tabla-inicial-elab/tabla-inicial-elab.component';

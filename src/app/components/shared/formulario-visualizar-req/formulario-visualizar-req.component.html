@@ -1,26 +1,20 @@
 <body class="mt-5">
   <div class="container justify-content-center align-items-center">
     <h2 class="text-right">
-      Informacion de la solicitud de requerimiento
-      <div
-        class="d-md-flex justify-content-md-end"
-        *ngIf="datosRuta.RequerimientoEstadoId === 1"
-      >
-        <button
-          class="btn btn-primary text-white me-md-10 btn-lg"
-          type="button"
+      Información de la solicitud de requerimiento
+      <div class="d-md-flex justify-content-md-end" >
+        <button class="btn btn-primary text-white me-md-10 btn-lg" type="button" 
         >
+        <!--*ngIf="datosRuta.RequerimientoEstadoId === 2 enable"-->
           Ficha tecnica
         </button>
       </div>
-
       <!--boton para eliminar el requerimiento cuando ya cambio de estado y lo solicito la misma persona que esta logueada
             <div class=" d-md-flex justify-content-md-end" *ngIf="datosUsuario && datosUsuario.Id === datosRuta.UsuarioIdCreador">
                         <button type="button" class="btn btn-lg btn-danger">Eliminar</button>
             </div>
         -->
     </h2>
-
     <h4 class="form-floating mb-3"># Requerimiento</h4>
     <div class="form-floating mb-3">
       <input

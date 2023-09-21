@@ -30,11 +30,11 @@ export class FormularioVisualizarReqComponent implements OnInit {
       if (requerimientoParam) {
         try {
           const requerimiento = JSON.parse(requerimientoParam);
-          // Ahora puedes utilizar los datos de requerimiento en este componente
+          // utilizar los datos de requerimiento en este componente
           this.datosRuta = requerimiento
         } catch (error) {
           console.error("Error al analizar JSON:", error);
-          // Maneja el error de análisis JSON de acuerdo a tus necesidades
+          // Maneja el error de análisis JSON 
         }
       } else {
         console.error("El parámetro 'requerimiento' es undefined o null");

@@ -122,9 +122,9 @@ getRequerimientoscreadas(){
   )
 }
 
-getRequerimiento(id:any){
-  return this.httpClient.get(`${this.RestApi}/requerimientocambio/${id}`,{headers: this.httpHeaders}).pipe(
-    map((res:any)=>{
+getRequerimientosAsignados(Id:any){
+  return this.httpClient.get(`${this.RestApi}/requerimientocambio/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:RequerimientoCreado)=>{
       return res || {}
     })
   )
@@ -144,6 +144,8 @@ eliminarRequerimiento(data:any){
   return this.httpClient.post(`${this.RestApi}/requerimientocambio/eliminar`,data,{headers: this.httpHeaders})
   .pipe(catchError(this.handleError),map((response: any) => response));
 }
+
+
 
 //---------------------RequerimientoEstado-----------------------------------------------------------------
 getRequerimientosEstados(){
