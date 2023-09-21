@@ -40,6 +40,7 @@ import { VisualizarRequerimientoComponent } from './pages/administrador/visualiz
 import { FormularioVisualizarReqComponent } from './components/administrador/formulario-visualizar-req/formulario-visualizar-req.component';
 import { EditarRequerimientoComponent } from './pages/administrador/editar-requerimiento/editar-requerimiento.component';
 import { FormularioEditarReqComponent } from './components/administrador/formulario-editar-req/formulario-editar-req.component';
+import { TablaInicialElabComponent } from './components/elaborador/tabla-inicial-elab/tabla-inicial-elab.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,8 @@ import { FormularioEditarReqComponent } from './components/administrador/formula
     VisualizarRequerimientoComponent,
     FormularioVisualizarReqComponent,
     EditarRequerimientoComponent,
-    FormularioEditarReqComponent
+    FormularioEditarReqComponent,
+    TablaInicialElabComponent
   ],
   imports: [
     BrowserModule,

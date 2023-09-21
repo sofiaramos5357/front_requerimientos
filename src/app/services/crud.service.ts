@@ -136,9 +136,15 @@ crearRequerimiento(data:CrearRequerimiento){
 }
 
 modificarRequerimiento(data:any){
-  return this.httpClient.put(`${this.RestApi}/requerimientocambio/modificar`,data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+  return this.httpClient.post(`${this.RestApi}/requerimientocambio/modificarinformacioninicial`,data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
 }
+
+eliminarRequerimiento(data:any){
+  return this.httpClient.post(`${this.RestApi}/requerimientocambio/eliminar`,data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
 //---------------------RequerimientoEstado-----------------------------------------------------------------
 getRequerimientosEstados(){
   return this.httpClient.get(`${this.RestApi}/requerimientoestado`, {headers:this.httpHeaders}).pipe(
