@@ -13,6 +13,7 @@ import { TipoCambio } from '../models/tipo-cambio.model';
 import { TipoObjeto } from '../models/tipo-objeto.model';
 import { CrearRequerimiento } from '../models/crear-requerimiento.model';
 import { RequerimientoCreado } from '../models/requerimiento-creado';
+import { FichaTecnica } from '../models/ficha-tecnica.model';
 
 
 @Injectable({
@@ -145,7 +146,10 @@ eliminarRequerimiento(data:any){
   .pipe(catchError(this.handleError),map((response: any) => response));
 }
 
-
+registrarFichaTecnica(data:FichaTecnica){
+  return this.httpClient.post(`${this.RestApi}/requerimientocambio/datosprevios`, data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
 
 //---------------------RequerimientoEstado-----------------------------------------------------------------
 getRequerimientosEstados(){
@@ -226,6 +230,11 @@ modificarRequerimientoDetalle(data:any){
 //---------------------TipoCambio-----------------------------------------------------------------
 getTipoCambios(){
   return this.httpClient.get(`${this.RestApi}/tipocambio`, {headers:this.httpHeaders})
+  .pipe(
+    map((res:TipoCambio)=>{
+      return res || {}
+    })
+  )
 }
 
 getTipoCambio(id:any){

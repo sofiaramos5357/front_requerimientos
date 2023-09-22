@@ -41,6 +41,8 @@ import { FormularioVisualizarReqComponent } from './components/shared/formulario
 import { EditarRequerimientoComponent } from './pages/administrador/editar-requerimiento/editar-requerimiento.component';
 import { FormularioEditarReqComponent } from './components/administrador/formulario-editar-req/formulario-editar-req.component';
 import { TablaInicialElabComponent } from './components/elaborador/tabla-inicial-elab/tabla-inicial-elab.component';
+import { FormularioFichaTecnicaComponent } from './components/elaborador/formulario-ficha-tecnica/formulario-ficha-tecnica.component';
+import { FichaTecnicaComponent } from './pages/elaborador/ficha-tecnica/ficha-tecnica.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +76,9 @@ import { TablaInicialElabComponent } from './components/elaborador/tabla-inicial
     FormularioVisualizarReqComponent,
     EditarRequerimientoComponent,
     FormularioEditarReqComponent,
-    TablaInicialElabComponent
+    TablaInicialElabComponent,
+    FormularioFichaTecnicaComponent,
+    FichaTecnicaComponent
   ],
   imports: [
     BrowserModule,

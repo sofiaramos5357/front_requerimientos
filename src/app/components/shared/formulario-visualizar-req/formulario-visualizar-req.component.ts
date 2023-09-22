@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RequerimientoCreado } from 'src/app/models/requerimiento-creado';
 import { Usuario } from 'src/app/models/usuario.model';
+import { Router } from '@angular/router';
 
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
@@ -12,7 +13,7 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 })
 export class FormularioVisualizarReqComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private datosUsuarioService: DatosUsuarioService) { }
+  constructor(private route: ActivatedRoute,private datosUsuarioService: DatosUsuarioService,private router: Router) { }
 
   datosRuta: RequerimientoCreado
   datosUsuario: Usuario
@@ -52,6 +53,12 @@ export class FormularioVisualizarReqComponent implements OnInit {
         console.error('Error al obtener los datos del usuario:', error);
       }
     );
+  }
+
+  envioIdReq(requerimiento) {
+      this.router.navigate(['/fichatecnica'], {
+        queryParams: { requerimiento: JSON.stringify(requerimiento) }
+      });
   }
 
 }

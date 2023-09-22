@@ -16,6 +16,7 @@ import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './pages/home/home/home.component';
 import { VisualizarRequerimientoComponent } from './pages/administrador/visualizar-requerimiento/visualizar-requerimiento.component';
 import { EditarRequerimientoComponent } from './pages/administrador/editar-requerimiento/editar-requerimiento.component';
+import { FichaTecnicaComponent } from './pages/elaborador/ficha-tecnica/ficha-tecnica.component';
 
 const routes: Routes = [
 
@@ -43,6 +44,8 @@ const routes: Routes = [
   {path: 'inicioElab', component:InicioElaboradorComponent},
   {path: 'requerimiento', component:RequerimientoCambioComponent},
   {path: 'requerimientoDetalle', component:RequerimientoCambioDetalleComponent},
+  {path: 'fichatecnica', component:FichaTecnicaComponent},
+
 
   //redirigir al login cuando se ponga una ruta no valida
   {path: '**',redirectTo:''},
