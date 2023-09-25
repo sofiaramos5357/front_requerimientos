@@ -37,12 +37,17 @@ import { HttpInterceptor } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { HomeComponent } from './pages/home/home/home.component';
 import { VisualizarRequerimientoComponent } from './pages/administrador/visualizar-requerimiento/visualizar-requerimiento.component';
-import { FormularioVisualizarReqComponent } from './components/shared/formulario-visualizar-req/formulario-visualizar-req.component';
+import { FormularioVisualizarReqComponent } from './components/administrador/formulario-visualizar-req/formulario-visualizar-req.component';
 import { EditarRequerimientoComponent } from './pages/administrador/editar-requerimiento/editar-requerimiento.component';
 import { FormularioEditarReqComponent } from './components/administrador/formulario-editar-req/formulario-editar-req.component';
-import { TablaInicialElabComponent } from './components/elaborador/tabla-inicial-elab/tabla-inicial-elab.component';
+import { TablaInicialElabComponent } from './components/elaborador/tabla-req-asignados/tabla-inicial-elab.component';
 import { FormularioFichaTecnicaComponent } from './components/elaborador/formulario-ficha-tecnica/formulario-ficha-tecnica.component';
 import { FichaTecnicaComponent } from './pages/elaborador/ficha-tecnica/ficha-tecnica.component';
+import { FormularioReqAsignadoComponent } from './components/elaborador/formulario-req-asignado/formulario-req-asignado.component';
+import { RequerimientoAsignadoComponent } from './pages/elaborador/requerimiento-asignado/requerimiento-asignado.component';
+import { TablaReqProcesoComponent } from './components/elaborador/tabla-req-proceso/tabla-req-proceso.component';
+import { FormularioModificarFichaComponent } from './components/elaborador/formulario-modificar-ficha/formulario-modificar-ficha.component';
+import { ModificarFichaComponent } from './pages/elaborador/modificar-ficha/modificar-ficha.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +83,12 @@ import { FichaTecnicaComponent } from './pages/elaborador/ficha-tecnica/ficha-te
     FormularioEditarReqComponent,
     TablaInicialElabComponent,
     FormularioFichaTecnicaComponent,
-    FichaTecnicaComponent
+    FichaTecnicaComponent,
+    FormularioReqAsignadoComponent,
+    RequerimientoAsignadoComponent,
+    TablaReqProcesoComponent,
+    FormularioModificarFichaComponent,
+    ModificarFichaComponent
   ],
   imports: [
     BrowserModule,

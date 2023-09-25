@@ -31,7 +31,7 @@ export class TablaInicialElabComponent implements OnInit {
         this.requerimientos = res
       });
   }
-  
+
   getUsersForPage(): RequerimientoCreado[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
@@ -48,7 +48,7 @@ export class TablaInicialElabComponent implements OnInit {
   verRequerimiento(requerimiento) {
     if (requerimiento !== null && requerimiento !== undefined) {
       if(this.datosUsuario.Id !== requerimiento.UsuarioIdCreador || requerimiento.RequerimientoEstadoId!==1){ 
-      this.router.navigate(['/visualizarreq'], {
+      this.router.navigate(['/requerimientoasignado'], {
         queryParams: { requerimiento: JSON.stringify(requerimiento) }
       });
     }} else {

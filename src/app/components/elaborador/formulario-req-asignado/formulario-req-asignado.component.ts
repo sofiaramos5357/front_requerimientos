@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 @Component({
-  selector: 'app-formulario-visualizar-req',
-  templateUrl: './formulario-visualizar-req.component.html',
-  styleUrls: ['./formulario-visualizar-req.component.css']
+  selector: 'app-formulario-req-asignado',
+  templateUrl: './formulario-req-asignado.component.html',
+  styleUrls: ['./formulario-req-asignado.component.css']
 })
-export class FormularioVisualizarReqComponent implements OnInit {
+export class FormularioReqAsignadoComponent implements OnInit{
 
   constructor(private route: ActivatedRoute,private datosUsuarioService: DatosUsuarioService,private router: Router) { }
 
@@ -60,5 +60,4 @@ export class FormularioVisualizarReqComponent implements OnInit {
         queryParams: { requerimiento: JSON.stringify(requerimiento) }
       });
   }
-
 }

@@ -14,6 +14,7 @@ import { TipoObjeto } from '../models/tipo-objeto.model';
 import { CrearRequerimiento } from '../models/crear-requerimiento.model';
 import { RequerimientoCreado } from '../models/requerimiento-creado';
 import { FichaTecnica } from '../models/ficha-tecnica.model';
+import { DatosFichaTecnica } from '../models/datos-ficha-tecnica.model';
 
 
 @Injectable({
@@ -148,6 +149,26 @@ eliminarRequerimiento(data:any){
 
 registrarFichaTecnica(data:FichaTecnica){
   return this.httpClient.post(`${this.RestApi}/requerimientocambio/datosprevios`, data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
+getRequerimientosProceso(Id:any){
+  return this.httpClient.get(`${this.RestApi}/requerimientoproceso/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:RequerimientoCreado)=>{
+      return res || {}
+    })
+  )
+}
+getFichaTecnica(Id:any){
+  return this.httpClient.get(`${this.RestApi}/datosfichatecnica/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:DatosFichaTecnica)=>{
+      return res || {}
+    })
+  )
+}
+
+eliminarFichaTecnica(Id:any){
+  return this.httpClient.post(`${this.RestApi}/fichatecnica/eliminar/${Id}`,{headers: this.httpHeaders})
   .pipe(catchError(this.handleError),map((response: any) => response));
 }
 

@@ -2,13 +2,14 @@
   <div class="container justify-content-center align-items-center">
     <h2 class="text-right">
       Información de la solicitud de requerimiento
-      <div class="d-md-flex justify-content-md-end" >
+
+     <!--<div class="d-md-flex justify-content-md-end" >
         <button class="btn btn-primary text-white me-md-10 btn-lg" type="button" (click)="envioIdReq(datosRuta.Id)"      >
-        <!--*ngIf="datosRuta.RequerimientoEstadoId === 2 enable"-->
+        *ngIf="datosRuta.RequerimientoEstadoId === 2 enable"
           Ingresar ficha técnica
         </button>
       </div>
-      <!--boton para eliminar el requerimiento cuando ya cambio de estado y lo solicito la misma persona que esta logueada
+      boton para eliminar el requerimiento cuando ya cambio de estado y lo solicito la misma persona que esta logueada
             <div class=" d-md-flex justify-content-md-end" *ngIf="datosUsuario && datosUsuario.Id === datosRuta.UsuarioIdCreador">
                         <button type="button" class="btn btn-lg btn-danger">Eliminar</button>
             </div>

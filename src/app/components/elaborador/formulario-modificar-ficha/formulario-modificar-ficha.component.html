@@ -1,0 +1,54 @@
+<h2 class="text-center mt-5">Modificar ficha técnica</h2>
+
+<form>
+  <div class="d-grid gap-2 col-2 mx-auto mt-4">
+    <div class="border text-center">
+      <label class="text-center col-10">#Requerimiento: {{ datosRuta }}</label>
+    </div>
+  </div>
+  <div class="d-grid gap-2 col-2 mx-auto mt-4">
+    <label for="exampleInputEmail1" class="form-label"
+      >Tiempo estimado en horas</label
+    >
+    <div class="form-outline">
+      <input
+        type="number"
+        id="TiempoEstimadoHrs"
+        name="TiempoEstimadoHrs"
+        class="form-control"
+        [(ngModel)]="fichaTecnica.TiempoEstimadoHrs"
+      />
+    </div>
+
+    <label for="exampleInputEmail1" class="form-label">Tipo de cambio</label>
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      id="TipoCambioId"
+      name="TipoCambioId"
+      [(ngModel)]="fichaTecnica.TipoCambioId"
+    >
+      <option *ngFor="let tipoCambios of tipoCambios" [value]="tipoCambios.Id">
+        {{ tipoCambios.Nombre }}
+      </option>
+    </select>
+
+
+    <label for="exampleInputEmail1" class="form-label">Observaciones</label>
+    <textarea
+      class="form-control"
+      id="Observaciones"
+      rows="4"
+      name="Observaciones"
+      [(ngModel)]="fichaTecnica.Observaciones"
+    ></textarea>
+
+    <button type="submit" class="btn btn-primary mt-5" (click)="guardarFichaTecnica()" >
+      Guardar cambios
+    </button>
+    <button type="submit" class="btn btn-danger mt-4" (click)="eliminarFichaTecnica()" >
+        Eliminar ficha tecnica
+      </button>
+  </div>
+</form>
+
