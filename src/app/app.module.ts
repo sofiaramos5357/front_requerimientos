@@ -48,6 +48,7 @@ import { RequerimientoAsignadoComponent } from './pages/elaborador/requerimiento
 import { TablaReqProcesoComponent } from './components/elaborador/tabla-req-proceso/tabla-req-proceso.component';
 import { FormularioModificarFichaComponent } from './components/elaborador/formulario-modificar-ficha/formulario-modificar-ficha.component';
 import { ModificarFichaComponent } from './pages/elaborador/modificar-ficha/modificar-ficha.component';
+import { ElementosReDetalleComponent } from './components/elaborador/elementos-re-detalle/elementos-re-detalle.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +89,8 @@ import { ModificarFichaComponent } from './pages/elaborador/modificar-ficha/modi
     RequerimientoAsignadoComponent,
     TablaReqProcesoComponent,
     FormularioModificarFichaComponent,
-    ModificarFichaComponent
+    ModificarFichaComponent,
+    ElementosReDetalleComponent
   ],
   imports: [
     BrowserModule,

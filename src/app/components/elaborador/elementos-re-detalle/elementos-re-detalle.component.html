@@ -1,0 +1,59 @@
+<div class="container justify-content-center align-items-center">
+  <h2 class="text-center mt-5">Ingresar detalles del requerimiento</h2>
+
+  <div class="d-grid gap-2 col-2 mx-auto mt-4">
+    <div class="border text-center">
+      <label class="text-center col-10"
+        >#Requerimiento: {{ datosRuta.Id }}</label
+      >
+    </div>
+  </div>
+  <table class="table table-borderless mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Sistema</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Objetivo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>
+          <textarea
+            class="form-control"
+            id="Observaciones"
+            name="Observaciones"
+            [(ngModel)]="datosRuta.Objetivo"
+          ></textarea>
+        </th>
+        <td>
+          <textarea
+            class="form-control"
+            id="Observaciones"
+            name="Observaciones"
+            [(ngModel)]="datosRuta.Descripcion"
+          ></textarea>
+        </td>
+        <td>
+          <textarea
+            class="form-control"
+            id="Observaciones"
+            name="Observaciones"
+            [(ngModel)]="datosRuta.Objetivo"
+          ></textarea>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <nav class="navbar navbar-light mt-5" style="background-color: #fde3ed;">
+    <div class="container-fluid">
+      <a class="navbar-brand">Ingrese las actividades realizadas</a>
+          <button class="btn btn-outline-danger" type="submit">Agregar actividad</button>
+    </div>
+  </nav>
+
+
+
+
+</div>

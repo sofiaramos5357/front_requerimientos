@@ -44,11 +44,11 @@ const routes: Routes = [
   //elaborador
   {path: 'configusuario', component:ConfigUsuarioElabComponent},
   {path: 'inicioElab', component:InicioElaboradorComponent},
-  {path: 'requerimiento', component:RequerimientoCambioComponent},
   {path: 'requerimientoDetalle', component:RequerimientoCambioDetalleComponent},
   {path: 'fichatecnica', component:FichaTecnicaComponent},
   {path: 'requerimientoasignado', component:RequerimientoAsignadoComponent},
   {path: 'modificarficha', component:ModificarFichaComponent},
+  {path: 'reqdetalle', component:RequerimientoCambioComponent},
 
 
 

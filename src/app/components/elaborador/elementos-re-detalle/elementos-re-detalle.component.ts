@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 @Component({
-  selector: 'app-formulario-req-asignado',
-  templateUrl: './formulario-req-asignado.component.html',
-  styleUrls: ['./formulario-req-asignado.component.css']
+  selector: 'app-elementos-re-detalle',
+  templateUrl: './elementos-re-detalle.component.html',
+  styleUrls: ['./elementos-re-detalle.component.css']
 })
-export class FormularioReqAsignadoComponent implements OnInit{
+export class ElementosReDetalleComponent implements OnInit{
 
   constructor(private route: ActivatedRoute,private router: Router) { }
 
@@ -20,6 +20,7 @@ export class FormularioReqAsignadoComponent implements OnInit{
   ngOnInit() {
     this.obtenerDatosRuta()
   }
+
 
   obtenerDatosRuta() {
     // Recupera los datos pasados a través de los parámetros de la ruta
@@ -40,13 +41,5 @@ export class FormularioReqAsignadoComponent implements OnInit{
         // Maneja el caso en el que el parámetro 'requerimiento' no esté definido
       }
     });
-  }
-
-
-
-  envioIdReq(requerimiento) {
-      this.router.navigate(['/fichatecnica'], {
-        queryParams: { requerimiento: JSON.stringify(requerimiento) }
-      });
   }
 }
