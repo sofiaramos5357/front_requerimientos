@@ -1,5 +1,4 @@
 export interface RequerimientoDetalle {
-    Id: number;
     TipoObjetoId: number;
     Objeto: string;
     Ubicacion: string;
@@ -7,4 +6,5 @@ export interface RequerimientoDetalle {
     Observaciones: string;
     FechaRegistro: Date;
     RequerimientoCambioId: number;
+    NombreObjeto:string
 }

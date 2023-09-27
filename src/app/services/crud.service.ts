@@ -241,7 +241,7 @@ getRequerimientoDetalle(id:any){
 
 crearRequerimientoDetalle(data:RequerimientoDetalle){
   return this.httpClient.post(`${this.RestApi}/requerimientocambiodetalle/crear`, data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+  .pipe(catchError(this.handleError),map((response: any) => response));
 }
 
 modificarRequerimientoDetalle(data:any){
@@ -278,6 +278,11 @@ modificarTipoCambio(data:any){
 //---------------------TipoObjeto-----------------------------------------------------------------
 getTipoObjetos(){
   return this.httpClient.get(`${this.RestApi}/tipoobjeto`, {headers:this.httpHeaders})
+  .pipe(
+    map((res:TipoObjeto)=>{
+      return res || {}
+    })
+  )
 }
 
 getTipoObjeto(id:any){

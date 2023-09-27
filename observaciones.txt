@@ -143,6 +143,8 @@ esto puede ser en el componente global y que compruebe el activo con la funcion 
 
 -hacer rutas para traer solo datos activos
 
+-hacer una ventana emergente para confirmar eliminacion de algo
+
 
 
 observaciones
