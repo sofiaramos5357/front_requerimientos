@@ -145,8 +145,14 @@ esto puede ser en el componente global y que compruebe el activo con la funcion 
 
 -hacer una ventana emergente para confirmar eliminacion de algo
 
+-hacer que del backend se envien 5 registros para las tablas y no cargar todos los registros en el fronted
+
+-hacer datetime los campos de la bd y varchar max
+
 
 
 observaciones
 
 -las variables deben ser iguales a como estan declaradas en la base de datos si no las funcionciones http no sabran cual dato es cual
+
+-si el id no esta en el query no sera afectado aunque el modelo lo incluya

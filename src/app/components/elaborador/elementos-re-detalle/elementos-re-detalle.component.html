@@ -1,5 +1,8 @@
 <head>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
+  />
 </head>
 
 <div class="container justify-content-center align-items-center">
@@ -69,71 +72,101 @@
     </div>
   </nav>
 
-<div class="di" *ngIf="detalles.length !==0">
-  <body class="mt-5" >
-    <div class="container justify-content-center align-items-center vh-50">
-      <div class="row">
-        <div class="col-lg-12 col-md-10 ml-auto mr-auto">
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr class="text-center">
-                  <th >#Detalle</th>
-                  <th>Tipo de objeto</th>
-                  <th>Objeto</th>
-                  <th >Editar</th>
-                  <th >Eliminar</th>
-                </tr>
-              </thead>
-              <tbody class="text-center">
-                <tr *ngFor="let detalles of getUsersForPage(); let i = index">
-                  <td>{{ i + numDetalle + 1 }}</td>
-                  <td >{{ detalles.NombreObjeto }}</td>
-                  <td>{{ detalles.Objeto }}</td>
+  <div class="di" *ngIf="detalles.length !== 0">
+    <body class="mt-5">
+      <div class="container justify-content-center align-items-center vh-50">
+        <div class="row">
+          <div class="col-lg-12 col-md-10 ml-auto mr-auto">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr class="text-center">
+                    <th>#Detalle</th>
+                    <th>Tipo de objeto</th>
+                    <th>Objeto</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody class="text-center">
+                  <tr *ngFor="let detalles of getUsersForPage(); let i = index">
+                    <td>{{ i + numDetalle + 1 }}</td>
+                    <td>{{ detalles.NombreObjeto }}</td>
+                    <td>{{ detalles.Objeto }}</td>
 
-                  <td  class="td-actions text-right">
-                    <button type="button" class="btn btn-warning btn-just-icon btn-sm">
-                      <i class="material-icons">edit</i>
-                    </button>
-                  </td>
+                    <td class="td-actions text-right">
+                      <button
+                        type="button"
+                        class="btn btn-warning btn-just-icon btn-sm"
+                        (click)="abrirModal(detalles)"
+                        data-original-title=""
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2"
+                        title=""
+                      >
+                        <i class="material-icons">edit</i>
+                      </button>
+                    </td>
 
-                  <td  class="td-actions text-right">
-                    <button type="button" class="btn btn-danger btn-just-icon btn-sm">
-                      <i class="material-icons">delete</i>
-                    </button>
-                  </td>
-                  
-                </tr>
-              </tbody>
-            </table>
+                    <td class="td-actions text-right">
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-just-icon btn-sm"
+                        (click)="eliminarDetalle(detalles.Id)"
+                      >
+                        <i class="material-icons">delete</i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item" [class.disabled]="currentPage === 1">
+                <a
+                  class="page-link"
+                  (click)="currentPage = currentPage - 1"
+                  aria-label="Previous"
+                >
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item" *ngFor="let page of getPages()">
+                <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+              </li>
+              <li
+                class="page-item"
+                [class.disabled]="currentPage === getTotalPages()"
+              >
+                <a
+                  class="page-link"
+                  (click)="currentPage = currentPage + 1"
+                  aria-label="Next"
+                >
+                  <span aria-hidden="true">&raquo;</span></a
+                >
+              </li>
+            </ul>
+          </nav>
         </div>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item" [class.disabled]="currentPage === 1">
-              <a class="page-link" (click)="currentPage = currentPage - 1" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item" *ngFor="let page of getPages()">
-              <a class="page-link" (click)="currentPage = page">{{ page }}</a>
-            </li>
-            <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
-              <a class="page-link" (click)="currentPage = currentPage + 1" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span></a>
-          </ul>
-        </nav>
       </div>
-    </div>
-  </body>
-</div>
+    </body>
+  </div>
 
-<div class="text-center">
-  <button type="submit" class="btn btn-primary btn-lg mt-5" *ngIf="detalles.length !==0">Enviar requerimiento a revisión</button>
-</div>
+  <div class="text-center">
+    <button
+      type="submit"
+      class="btn btn-primary btn-lg mt-5"
+      *ngIf="detalles.length !== 0"
+      (click)="enviarReq()"
+    >
+      Enviar requerimiento a revisión
+    </button>
+  </div>
 
-
-  <!-- Modal -->
+  <!-- Modal agregar detalle -->
   <div
     class="modal fade"
     id="exampleModal"
@@ -223,6 +256,7 @@
             type="button"
             class="btn btn-primary"
             (click)="crearDetalle()"
+            [disabled]="!camposLlenos()"
           >
             Guardar actividad
           </button>
@@ -231,5 +265,106 @@
     </div>
   </div>
 
+  <!-- Modal editar detalle-->
+  <div
+    class="modal fade"
+    id="exampleModal2"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Editar actividad
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-center align-middle">
+          <label for="exampleInputEmail1" class="form-label"
+            >Tipo de objeto</label
+          >
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            name="selectedSistema"
+            [(ngModel)]="detalleActual.TipoObjetoId"
+          >
+            <option
+              *ngFor="let tipoObjeto of tipoObjetos"
+              [value]="tipoObjeto.Id"
+            >
+              {{ tipoObjeto.Nombre }}
+            </option>
+          </select>
 
+          <label for="exampleInputEmail1" class="form-label">Objeto</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Objeto"
+            name="Objeto"
+            [(ngModel)]="detalleActual.Objeto"
+          />
+
+          <label for="exampleInputEmail1" class="form-label">Ubicación</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Ubicación"
+            name="Ubicación"
+            [(ngModel)]="detalleActual.Ubicacion"
+          />
+
+          <label for="exampleInputEmail1" class="form-label">Actividad</label>
+          <textarea
+            class="form-control"
+            id="Actividad"
+            rows="4"
+            name="Actividad"
+            [(ngModel)]="detalleActual.Actividad"
+          ></textarea>
+
+          <label for="exampleInputEmail1" class="form-label"
+            >Observaciones</label
+          >
+          <textarea
+            class="form-control"
+            id="Observaciones"
+            rows="4"
+            name="Observaciones"
+            [(ngModel)]="detalleActual.Observaciones"
+          ></textarea>
+        </div>
+        <br />
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="guardarCambio()"
+            [disabled]="
+              detalleActual.Actividad === '' ||
+              detalleActual.Ubicacion === '' ||
+              detalleActual.Objeto === ''
+            "
+          >
+            Guardar cambios
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

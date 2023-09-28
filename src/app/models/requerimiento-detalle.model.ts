@@ -1,4 +1,5 @@
 export interface RequerimientoDetalle {
+    Id:number,
     TipoObjetoId: number;
     Objeto: string;
     Ubicacion: string;

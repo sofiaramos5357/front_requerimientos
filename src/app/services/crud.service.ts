@@ -172,6 +172,20 @@ eliminarFichaTecnica(Id:any){
   .pipe(catchError(this.handleError),map((response: any) => response));
 }
 
+pendienteRevisar(Id:any){
+  return this.httpClient.post(`${this.RestApi}/requerimientocambio/pendienterevisar/${Id}`,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
+getPendienteRevisar(Id:number){
+  return this.httpClient.get(`${this.RestApi}/reqpendienterevision/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:RequerimientoCreado)=>{
+      return res || {}
+    })
+  )
+  
+}
+
 //---------------------RequerimientoEstado-----------------------------------------------------------------
 getRequerimientosEstados(){
   return this.httpClient.get(`${this.RestApi}/requerimientoestado`, {headers:this.httpHeaders}).pipe(
@@ -245,9 +259,15 @@ crearRequerimientoDetalle(data:RequerimientoDetalle){
 }
 
 modificarRequerimientoDetalle(data:any){
-  return this.httpClient.put(`${this.RestApi}/requerimientocambiodetalle/modificar`,data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+  return this.httpClient.post(`${this.RestApi}/requerimientocambiodetalle/modificar`,data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response))
 }
+
+eliminarRequerimientoDetalle(id:any){
+  return this.httpClient.delete(`${this.RestApi}/eliminar/${id}`,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response))
+}
+
 //---------------------TipoCambio-----------------------------------------------------------------
 getTipoCambios(){
   return this.httpClient.get(`${this.RestApi}/tipocambio`, {headers:this.httpHeaders})
