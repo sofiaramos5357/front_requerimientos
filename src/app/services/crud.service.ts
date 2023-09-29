@@ -186,6 +186,11 @@ getPendienteRevisar(Id:number){
   
 }
 
+estadoIniciado(Id:any){
+  return this.httpClient.post(`${this.RestApi}/estadoiniciado/${Id}`,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
 //---------------------RequerimientoEstado-----------------------------------------------------------------
 getRequerimientosEstados(){
   return this.httpClient.get(`${this.RestApi}/requerimientoestado`, {headers:this.httpHeaders}).pipe(

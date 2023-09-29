@@ -47,6 +47,7 @@ export class ElementosReDetalleComponent implements OnInit {
     this.ObtenerTipoObjeto();
     this.detallesCreados();
     this.mensajeAlmacenado();
+   
   }
 
   obtenerDatosRuta() {
@@ -108,6 +109,7 @@ export class ElementosReDetalleComponent implements OnInit {
         // Filtrar los elementos que no tienen estadoId igual a 5 o 6
         this.detalles = res;
         //console.log(this.detalles);
+        this.estadoIniciado(this.detalles)
       });
   }
 
@@ -180,8 +182,10 @@ export class ElementosReDetalleComponent implements OnInit {
         console.log('Detalle eliminado', res);
         //console.log(this.requerimiento)
         localStorage.setItem('mensaje', res.message);
+
+
         window.location.reload();
-        alertifyjs.success(res.message);
+        //alertifyjs.success(res.message);
       },
       (error) => {
         // Manejar errores aquí
@@ -189,11 +193,11 @@ export class ElementosReDetalleComponent implements OnInit {
         //alertifyjs.error(error)
       }
     );
-
+    
     //console.log(this.requerimientoDetalle);
   }
 
-  enviarReq(){
+  enviarReq() {
     this.crudService.pendienteRevisar(this.datosRuta.Id).subscribe(
       (res) => {
         // Aquí puedes manejar la respuesta del backend si es necesario
@@ -210,7 +214,25 @@ export class ElementosReDetalleComponent implements OnInit {
     );
 
     //console.log(this.requerimientoDetalle);
-
   }
 
+  //si el requerimiento esta en estado revision y la persona lo edita de forma que si elimina todas las actividades el requerimiento volvera al estado anterior iniciado
+  estadoIniciado(detalles) {
+    if (detalles.length === 0 && this.datosRuta.RequerimientoEstadoId===3) {
+      this.crudService.estadoIniciado(this.datosRuta.Id).subscribe(
+        (res) => {
+          // Aquí puedes manejar la respuesta del backend si es necesario
+          //console.log('Requerimiento enviado a revisión', res);
+          //console.log(this.requerimiento)
+          alertifyjs.success(res.message);
+        },
+        (error) => {
+          // Manejar errores aquí
+          //console.error('Error en el registro', error.mensaje);
+          //alertifyjs.error(error)
+        }
+      );
+      //console.log(this.requerimientoDetalle);
+    }
+  }
 }

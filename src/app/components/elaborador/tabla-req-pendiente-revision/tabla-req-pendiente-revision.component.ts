@@ -65,4 +65,34 @@ export class TablaReqPendienteRevisionComponent implements OnInit {
       .map((_, index) => index + 1);
   }
 
+  enviarReq(requerimiento) {
+    if (requerimiento !== null && requerimiento !== undefined) {
+      if (
+        this.datosUsuario.Id !== requerimiento.UsuarioIdCreador ||
+        requerimiento.RequerimientoEstadoId !== 1
+      ) {
+        this.router.navigate(['/reqdetalle'], {
+          queryParams: { requerimiento: JSON.stringify(requerimiento) },
+        });
+      }
+    } else {
+      console.error("El objeto 'requerimiento' está vacío o no está definido.");
+    }
+  }
+
+  verRequerimiento(requerimiento) {
+    if (requerimiento !== null && requerimiento !== undefined) {
+      if (
+        this.datosUsuario.Id !== requerimiento.UsuarioIdCreador ||
+        requerimiento.RequerimientoEstadoId !== 1
+      ) {
+        this.router.navigate(['/requerimientoasignado'], {
+          queryParams: { requerimiento: JSON.stringify(requerimiento) },
+        });
+      }
+    } else {
+      console.error("El objeto 'requerimiento' está vacío o no está definido.");
+    }
+  }
+
 }

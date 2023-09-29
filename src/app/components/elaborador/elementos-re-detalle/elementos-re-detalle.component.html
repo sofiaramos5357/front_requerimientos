@@ -159,7 +159,7 @@
     <button
       type="submit"
       class="btn btn-primary btn-lg mt-5"
-      *ngIf="detalles.length !== 0"
+      *ngIf="detalles.length !== 0 && datosRuta.RequerimientoEstadoId===2" 
       (click)="enviarReq()"
     >
       Enviar requerimiento a revisión

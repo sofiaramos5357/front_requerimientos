@@ -149,6 +149,8 @@ esto puede ser en el componente global y que compruebe el activo con la funcion 
 
 -hacer datetime los campos de la bd y varchar max
 
+-en los view de requerimientos agregar que se mire la fecha de creacion
+
 
 
 observaciones
