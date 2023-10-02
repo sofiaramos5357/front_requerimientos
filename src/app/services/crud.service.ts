@@ -191,6 +191,14 @@ estadoIniciado(Id:any){
   .pipe(catchError(this.handleError),map((response: any) => response));
 }
 
+getRequerimientosARevisar(Id:any){
+  return this.httpClient.get(`${this.RestApi}/requerimientoarevisar/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:RequerimientoCreado)=>{
+      return res || {}
+    })
+  )
+}
+
 //---------------------RequerimientoEstado-----------------------------------------------------------------
 getRequerimientosEstados(){
   return this.httpClient.get(`${this.RestApi}/requerimientoestado`, {headers:this.httpHeaders}).pipe(
@@ -252,7 +260,7 @@ getRequerimientosDetalles(){
 
 getRequerimientoDetalle(id:any){
   return this.httpClient.get(`${this.RestApi}/requerimientocambiodetalle/${id}`,{headers: this.httpHeaders}).pipe(
-    map((res:any)=>{
+    map((res:RequerimientoDetalle)=>{
       return res || {}
     })
   )

@@ -84,9 +84,34 @@
           {{ datosRuta.ApellidoElaborador }}</label
         >
       </div>
+      <br />
+
+      <div *ngIf="datosFichaTecnica">
+        <h2 class="text-right">
+          Ficha Tecnica
+        </h2>
+        <br />
+    
+        <h4 class="form-floating mb-3">Tiempo estimado</h4>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+          <label for="floatingInputDisabled">{{ datosFichaTecnica.TiempoEstimadoHrs }}</label>
+        </div>
+        <h4 class="form-floating mb-3">Tipo de cambio</h4>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+          <label for="floatingInputDisabled">{{ datosFichaTecnica.NombreCambio }}</label>
+        </div>
+        <h4 class="form-floating mb-3">Observaciones</h4>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+          <label for="floatingInputDisabled">{{ datosFichaTecnica.Observaciones }}</label>
+        </div>
+        <br />
+        <br />
+      </div>
     </div>
   </body>
-  <br />
   <br />
   <br />
   

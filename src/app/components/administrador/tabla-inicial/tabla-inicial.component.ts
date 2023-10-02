@@ -31,8 +31,7 @@ export class TablaInicialComponent implements OnInit {
 
   requerimientosCreadod() {
       this.crudService.getRequerimientoscreadas().subscribe((res: RequerimientoCreado[]) => {
-        // Filtrar los elementos que no tienen estadoId igual a 5 o 6
-        this.requerimientos = res.filter(requerimiento => requerimiento.RequerimientoEstadoId !== 5 && requerimiento.RequerimientoEstadoId !== 6);
+        this.requerimientos = res
       });
   }
   

@@ -50,6 +50,9 @@ import { FormularioModificarFichaComponent } from './components/elaborador/formu
 import { ModificarFichaComponent } from './pages/elaborador/modificar-ficha/modificar-ficha.component';
 import { ElementosReDetalleComponent } from './components/elaborador/elementos-re-detalle/elementos-re-detalle.component';
 import { TablaReqPendienteRevisionComponent } from './components/elaborador/tabla-req-pendiente-revision/tabla-req-pendiente-revision.component';
+import { TablaRevisarComponent } from './components/administrador/tabla-revisar/tabla-revisar.component';
+import { IngresarRevisionComponent } from './pages/administrador/ingresar-revision/ingresar-revision.component';
+import { ElementosIngresarRevisionComponent } from './components/administrador/elementos-ingresar-revision/elementos-ingresar-revision.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +95,10 @@ import { TablaReqPendienteRevisionComponent } from './components/elaborador/tabl
     FormularioModificarFichaComponent,
     ModificarFichaComponent,
     ElementosReDetalleComponent,
-    TablaReqPendienteRevisionComponent
+    TablaReqPendienteRevisionComponent,
+    TablaRevisarComponent,
+    IngresarRevisionComponent,
+    ElementosIngresarRevisionComponent
   ],
   imports: [
     BrowserModule,

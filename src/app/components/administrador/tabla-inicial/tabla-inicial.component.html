@@ -43,7 +43,7 @@
                 <td
                   *ngIf="
                     datosUsuario &&
-                    datosUsuario.Id !== requerimiento.UsuarioIdCreador
+                    datosUsuario.Id !== requerimiento.UsuarioIdCreador || requerimiento.RequerimientoEstadoId==2
                   "
                   class="td-actions text-right"
                 >
@@ -58,7 +58,7 @@
                 <td
                   *ngIf="
                     datosUsuario &&
-                    datosUsuario.Id === requerimiento.UsuarioIdCreador
+                    datosUsuario.Id === requerimiento.UsuarioIdCreador && requerimiento.RequerimientoEstadoId==1
                   "
                   class="td-actions text-right"
                 >
@@ -107,7 +107,8 @@
   </div>
 </body>
 
-<span class="badge rounded-pill bg-primary">Primary</span>
+
+<!-- <span class="badge rounded-pill bg-primary">Primary</span>
 <span class="badge rounded-pill bg-secondary">Secondary</span>
 <span class="badge rounded-pill bg-success">Success</span>
 <span class="badge rounded-pill bg-danger">Danger</span>
@@ -122,4 +123,5 @@
     99+
     <span class="visually-hidden">unread messages</span>
   </span>
-</button>
+</button> -->
+

@@ -19,6 +19,7 @@ import { EditarRequerimientoComponent } from './pages/administrador/editar-reque
 import { FichaTecnicaComponent } from './pages/elaborador/ficha-tecnica/ficha-tecnica.component';
 import { RequerimientoAsignadoComponent } from './pages/elaborador/requerimiento-asignado/requerimiento-asignado.component';
 import { ModificarFichaComponent } from './pages/elaborador/modificar-ficha/modificar-ficha.component';
+import { IngresarRevisionComponent } from './pages/administrador/ingresar-revision/ingresar-revision.component';
 
 const routes: Routes = [
 
@@ -38,6 +39,8 @@ const routes: Routes = [
   {path: 'editarUsuario', component:ModificacionUsuarioComponent},
   {path: 'visualizarreq', component:VisualizarRequerimientoComponent},
   {path: 'editarrequerimiento', component:EditarRequerimientoComponent},
+  {path: 'ingresarrevision', component:IngresarRevisionComponent},
+
 
 
 

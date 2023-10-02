@@ -4,6 +4,9 @@ import { RequerimientoCreado } from 'src/app/models/requerimiento-creado';
 import { Router } from '@angular/router';
 
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { DatosFichaTecnica } from 'src/app/models/datos-ficha-tecnica.model';
+import { CrudService } from 'src/app/services/crud.service';
+
 
 @Component({
   selector: 'app-formulario-req-asignado',
@@ -12,9 +15,11 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 })
 export class FormularioReqAsignadoComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute,private router: Router) { }
+  constructor(private route: ActivatedRoute,private router: Router, private crudService: CrudService) { }
 
   datosRuta: RequerimientoCreado
+  datosFichaTecnica:DatosFichaTecnica
+
 
 
   ngOnInit() {
@@ -31,6 +36,8 @@ export class FormularioReqAsignadoComponent implements OnInit{
           const requerimiento = JSON.parse(requerimientoParam);
           // utilizar los datos de requerimiento en este componente
           this.datosRuta = requerimiento
+          this.obtenerFichaTecnica(this.datosRuta.Id)
+
         } catch (error) {
           console.error("Error al analizar JSON:", error);
           // Maneja el error de análisis JSON 
@@ -48,5 +55,13 @@ export class FormularioReqAsignadoComponent implements OnInit{
       this.router.navigate(['/fichatecnica'], {
         queryParams: { requerimiento: JSON.stringify(requerimiento) }
       });
+  }
+
+  obtenerFichaTecnica(id){
+    this.crudService.getFichaTecnica(id).subscribe((res: DatosFichaTecnica) => {
+      this.datosFichaTecnica = res[0]
+      //console.log(this.datosFichaTecnica)
+    });
+    
   }
 }

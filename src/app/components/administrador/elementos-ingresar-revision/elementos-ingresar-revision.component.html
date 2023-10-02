@@ -1,0 +1,182 @@
+<body class="mt-5">
+  <h2 class="text-center mt-5">Ingrese detalles de la revision</h2>
+
+  <div class="container justify-content-center align-items-center mt-5">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseOne">
+            Información de la solicitud de requerimiento
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse "
+          aria-labelledby="panelsStayOpen-headingOne">
+          <div class="accordion-body">
+            <h4 class="form-floating mb-3 d-flex justify-content-between align-items-center">
+              <span># Requerimiento</span>
+              <div *ngIf="datosUsuario && datosUsuario.Id === datosRuta.UsuarioIdCreador">
+                <button type="button" class="btn btn-lg btn-danger" (click)="eliminarRequerimiento()">
+                  Eliminar Requerimiento
+                </button>
+              </div>
+            </h4>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com"
+                disabled />
+              <label for="floatingInputDisabled">{{ datosRuta.Id }}</label>
+            </div>
+            <h4 class="form-floating mb-3">Usuario Creador</h4>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com"
+                disabled />
+              <label for="floatingInputDisabled">{{ datosRuta.NombreCreador }} {{ datosRuta.ApellidoCreador }}</label>
+            </div>
+            <h4 class="form-floating mb-3">Descripcion</h4>
+            <div class="form-floating mb-3">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2Disabled"
+                style="height: 100px" disabled>{{ datosRuta.Descripcion }}</textarea>
+            </div>
+            <h4 class="form-floating mb-3">Objetivo</h4>
+            <div class="form-floating mb-3">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2Disabled"
+                style="height: 100px" disabled>{{ datosRuta.Objetivo }}</textarea>
+            </div>
+            <h4 class="form-floating mb-3">Sistema</h4>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com"
+                disabled />
+              <label for="floatingInputDisabled">{{ datosRuta.NombreSistema }}</label>
+            </div>
+            <h4 class="form-floating mb-3">Usuario Elaborador</h4>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com"
+                disabled />
+              <label for="floatingInputDisabled">{{ datosRuta.NombreElaborador }}
+                {{ datosRuta.ApellidoElaborador }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseTwo">
+            Ficha Tecnica
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingTwo">
+          <div class="accordion-body">
+            <h4 class="form-floating mb-3">Tiempo estimado</h4>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com"
+                disabled />
+              <label for="floatingInputDisabled">{{ datosFichaTecnica?.TiempoEstimadoHrs }}</label>
+            </div>
+            <h4 class="form-floating mb-3">Tipo de cambio</h4>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com"
+                disabled />
+              <label for="floatingInputDisabled">{{ datosFichaTecnica?.NombreCambio }}</label>
+            </div>
+            <h4 class="form-floating mb-3">Observaciones</h4>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com"
+                disabled />
+              <label for="floatingInputDisabled">{{ datosFichaTecnica?.Observaciones }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-heading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapse3" aria-expanded="false" aria-controls="panelsStayOpen-collapse3">
+            Actividades realizadas
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapse3" class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-heading3">
+          <div class="accordion-body">
+
+
+              <body class="mt-5">
+                <div class="container justify-content-center align-items-center vh-50">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-10 ml-auto mr-auto">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr class="text-center">
+                              <th>#Detalle</th>
+                              <th>Tipo de objeto</th>
+                              <th>Objeto</th>
+                              <th>Ubicacion</th>
+                              <th>Actividad</th>
+                              <th>Observaciones</th>
+
+                            </tr>
+                          </thead>
+                          <tbody class="text-center">
+                            <tr *ngFor="let detalles of getUsersForPage(); let i = index">
+                              <td>{{ i + numDetalle + 1 }}</td>
+                              <td>{{ detalles.NombreObjeto }}</td>
+                              <td>{{ detalles.Objeto }}</td>
+                              <td>{{ detalles.Ubicacion }}</td>
+                              <td>
+                                <textarea class="form-control" id="textAreaExample" rows="4" name="Actividad"
+                                  disabled>{{detalles.Actividad}}</textarea>
+                              </td>
+                              <td>
+                                <textarea class="form-control" id="textAreaExample" rows="4" name="Observaciones"
+                                  disabled>{{ detalles.Observaciones }}</textarea>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <nav aria-label="Page navigation example">
+                      <ul class="pagination">
+                        <li class="page-item" [class.disabled]="currentPage === 1">
+                          <a class="page-link" (click)="currentPage = currentPage - 1" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li class="page-item" *ngFor="let page of getPages()">
+                          <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+                        </li>
+                        <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+                          <a class="page-link" (click)="currentPage = currentPage + 1" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span></a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </body>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form>
+      <div class="d-grid gap-2 col-2 mx-auto mt-5">
+          <label for="exampleInputEmail1" class="form-label">Observaciones de revision</label>
+          <textarea class="form-control" id="textAreaExample" rows="4" [(ngModel)]="revision.ObservacionesRevision" name="ObservacionesRevision"></textarea>
+
+          <button type="submit" class="btn btn-primary mt-5"  (click)="aprobarRequerimiento()">Aprobar requerimiento</button>
+          <button type="submit" class="btn btn-danger mt-5"  (click)="denegarRequerimiento()">Denegar requerimiento</button>
+
+            
+      </div>
+  </form>
+
+  </div>
+  <br />
+  <br />
+</body>
