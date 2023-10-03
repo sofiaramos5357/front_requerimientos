@@ -15,6 +15,7 @@ import { CrearRequerimiento } from '../models/crear-requerimiento.model';
 import { RequerimientoCreado } from '../models/requerimiento-creado';
 import { FichaTecnica } from '../models/ficha-tecnica.model';
 import { DatosFichaTecnica } from '../models/datos-ficha-tecnica.model';
+import { Revision } from '../models/revision';
 
 
 @Injectable({
@@ -197,6 +198,24 @@ getRequerimientosARevisar(Id:any){
       return res || {}
     })
   )
+}
+
+getRequerimientosADocumentar(Id:any){
+  return this.httpClient.get(`${this.RestApi}/requerimientosdocumentar/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:RequerimientoCreado)=>{
+      return res || {}
+    })
+  )
+}
+
+revisionAprobada(data:Revision){
+  return this.httpClient.post(`${this.RestApi}/requerimientocambio/revisionaprobada`, data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
+revisionDenegada(data:Revision){
+  return this.httpClient.post(`${this.RestApi}/requerimientocambio/revisionadenegada`, data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
 }
 
 //---------------------RequerimientoEstado-----------------------------------------------------------------

@@ -15,7 +15,19 @@
       >
     </div>
   </div>
-  <table class="table table-borderless mt-3">
+
+  <div class="card mt-4 border-danger" *ngIf="datosRuta.RequerimientoEstadoId===7">
+    <div class="card-header text-bg-danger">
+      Requerimiento Denegado
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Observaciones</h5>
+      <p class="card-text">{{datosRuta.ObservacionesRevision}}</p>
+    </div>
+  </div>
+
+
+  <table class="table table-borderless mt-5">
     <thead>
       <tr>
         <th scope="col">Sistema</th>
@@ -159,12 +171,13 @@
     <button
       type="submit"
       class="btn btn-primary btn-lg mt-5"
-      *ngIf="detalles.length !== 0 && datosRuta.RequerimientoEstadoId===2" 
+      *ngIf="detalles.length !== 0 && datosRuta.RequerimientoEstadoId===2 || datosRuta.RequerimientoEstadoId===7" 
       (click)="enviarReq()"
     >
       Enviar requerimiento a revisión
     </button>
   </div>
+  
 
   <!-- Modal agregar detalle -->
   <div

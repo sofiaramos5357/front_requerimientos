@@ -12,5 +12,6 @@ export interface RequerimientoCreado    {
     NombreSistema:String,
 	NombreElaborador:String,
     ApellidoElaborador:String,
-	Estado:String
+	Estado:String,
+    ObservacionesRevision?:string
 }

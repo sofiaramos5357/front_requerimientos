@@ -20,6 +20,7 @@ import { FichaTecnicaComponent } from './pages/elaborador/ficha-tecnica/ficha-te
 import { RequerimientoAsignadoComponent } from './pages/elaborador/requerimiento-asignado/requerimiento-asignado.component';
 import { ModificarFichaComponent } from './pages/elaborador/modificar-ficha/modificar-ficha.component';
 import { IngresarRevisionComponent } from './pages/administrador/ingresar-revision/ingresar-revision.component';
+import { DocumentarRequerimientoComponent } from './pages/administrador/documentar-requerimiento/documentar-requerimiento.component';
 
 const routes: Routes = [
 
@@ -40,6 +41,8 @@ const routes: Routes = [
   {path: 'visualizarreq', component:VisualizarRequerimientoComponent},
   {path: 'editarrequerimiento', component:EditarRequerimientoComponent},
   {path: 'ingresarrevision', component:IngresarRevisionComponent},
+  {path: 'documentar', component:DocumentarRequerimientoComponent},
+
 
 
 

@@ -13,7 +13,19 @@
               </div>
           -->
       </h2>
-      <h4 class="form-floating mb-3"># Requerimiento</h4>
+
+      <div class="card mt-4 border-danger" *ngIf="datosRuta.RequerimientoEstadoId===7">
+        <div class="card-header text-bg-danger">
+          Requerimiento Denegado
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Observaciones</h5>
+          <p class="card-text">{{datosRuta.ObservacionesRevision}}</p>
+        </div>
+      </div>
+
+
+      <h4 class="form-floating mb-3 mt-4"># Requerimiento</h4>
       <div class="form-floating mb-3">
         <input
           type="email"

@@ -19,12 +19,12 @@ import { Revision } from 'src/app/models/revision';
 export class ElementosIngresarRevisionComponent implements OnInit {
 
   constructor(
-    private route: ActivatedRoute, 
-    private datosUsuarioService: DatosUsuarioService, 
-    private router: Router, 
+    private route: ActivatedRoute,
+    private datosUsuarioService: DatosUsuarioService,
+    private router: Router,
     private crudService: CrudService,
-    
-    ) { }
+
+  ) { }
 
   datosRuta: RequerimientoCreado
   datosUsuario: Usuario
@@ -38,10 +38,13 @@ export class ElementosIngresarRevisionComponent implements OnInit {
 
   numDetalle: number = 0;
 
-  revision={
-    FechaRevision:new Date(),
+  revision = {
+    Id: 0,
+    FechaRevision: new Date(),
     UsuarioIdAprobador: 0,
-    ObservacionesRevision:'',
+    ObservacionesRevision: '',
+    NombreAprobador: '',
+    ApellidoAprobador: ''
   }
 
 
@@ -132,10 +135,40 @@ export class ElementosIngresarRevisionComponent implements OnInit {
       .map((_, index) => index + 1);
   }
 
-  
-  aprobarRequerimiento(){
+
+  aprobarRequerimiento() {
+    this.revision.Id = this.datosRuta.Id
+    this.revision.UsuarioIdAprobador=this.datosUsuario.Id
+    //console.log( this.revision);
+    this.crudService.revisionAprobada(this.revision).subscribe(
+      (res) => {
+        alertifyjs.success(res.message)
+        this.router.navigate(['/home']);
+        //console.log('Requerimiento modificado correctamente', res);
+      },
+      (error) => {
+        //     // Manejar errores aquí, si es necesario
+        //     //console.error('Error al modificar usuario', error);
+      }
+    );
   }
-  denegarRequerimiento(){}
+
+  denegarRequerimiento() {
+    this.revision.Id = this.datosRuta.Id
+    this.revision.UsuarioIdAprobador=this.datosUsuario.Id
+    console.log( this.revision);
+    this.crudService.revisionDenegada(this.revision).subscribe(
+      (res) => {
+        alertifyjs.success(res.message)
+        this.router.navigate(['/home']);
+        //console.log('Requerimiento modificado correctamente', res);
+      },
+      (error) => {
+        //     // Manejar errores aquí, si es necesario
+        //     //console.error('Error al modificar usuario', error);
+      }
+    );
+   }
 
 
 }

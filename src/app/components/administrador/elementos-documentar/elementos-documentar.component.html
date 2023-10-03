@@ -1,0 +1,70 @@
+<body class="mt-5">
+    <div class="container justify-content-center align-items-center">
+      <h2 class="text-right">
+        Documentar requerimiento
+        <div class=" d-md-flex justify-content-md-end"
+          *ngIf="datosUsuario && datosUsuario.Id === datosRuta.UsuarioIdCreador">
+          <button type="button" class="btn btn-lg btn-danger" (click)="eliminarRequerimiento()">Eliminar
+            Requerimiento</button>
+        </div>
+      </h2>
+      <h4 class="form-floating mb-3"># Requerimiento</h4>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+        <label for="floatingInputDisabled">{{ datosRuta.Id }}</label>
+      </div>
+      <h4 class="form-floating mb-3">Usuario Creador</h4>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+        <label for="floatingInputDisabled">{{ datosRuta.NombreCreador }} {{ datosRuta.ApellidoCreador }}</label>
+      </div>
+      <h4 class="form-floating mb-3">Descripcion</h4>
+      <div class="form-floating mb-3">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2Disabled"
+          style="height: 100px" disabled>{{ datosRuta.Descripcion }}</textarea>
+      </div>
+      <h4 class="form-floating mb-3">Objetivo</h4>
+      <div class="form-floating mb-3">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2Disabled"
+          style="height: 100px" disabled>{{ datosRuta.Objetivo }}</textarea>
+      </div>
+      <h4 class="form-floating mb-3">Sistema</h4>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+        <label for="floatingInputDisabled">{{ datosRuta.NombreSistema }}</label>
+      </div>
+      <h4 class="form-floating mb-3">Usuario Elaborador</h4>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+        <label for="floatingInputDisabled">{{ datosRuta.NombreElaborador }}
+          {{ datosRuta.ApellidoElaborador }}</label>
+      </div>
+      <br />
+      <br />
+  <div *ngIf="datosFichaTecnica">
+      <h2 class="text-right">
+        Ficha Tecnica
+      </h2>
+      <br />
+  
+      <h4 class="form-floating mb-3">Tiempo estimado</h4>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+        <label for="floatingInputDisabled">{{ datosFichaTecnica.TiempoEstimadoHrs }}</label>
+      </div>
+      <h4 class="form-floating mb-3">Tipo de cambio</h4>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+        <label for="floatingInputDisabled">{{ datosFichaTecnica.NombreCambio }}</label>
+      </div>
+      <h4 class="form-floating mb-3">Observaciones</h4>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+        <label for="floatingInputDisabled">{{ datosFichaTecnica.Observaciones }}</label>
+      </div>
+      <br />
+      <br />
+    </div>
+    </div>
+  </body>
+  

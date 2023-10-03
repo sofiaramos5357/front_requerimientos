@@ -1,0 +1,111 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { RequerimientoCreado } from 'src/app/models/requerimiento-creado';
+import { Usuario } from 'src/app/models/usuario.model';
+import { Router } from '@angular/router';
+import * as alertifyjs from 'alertifyjs';
+
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { CrudService } from 'src/app/services/crud.service';
+import { DatosFichaTecnica } from 'src/app/models/datos-ficha-tecnica.model';
+
+
+import { ElementRef, ViewChild } from '@angular/core';
+//import * as jsPDF from 'jspdf';
+//import html2canvas from 'html2canvas';
+
+@Component({
+  selector: 'app-elementos-documentar',
+  templateUrl: './elementos-documentar.component.html',
+  styleUrls: ['./elementos-documentar.component.css']
+})
+export class ElementosDocumentarComponent implements OnInit {
+
+  constructor(private route: ActivatedRoute,private datosUsuarioService: DatosUsuarioService,private router: Router, private crudService: CrudService) { }
+
+  datosRuta: RequerimientoCreado
+  datosUsuario: Usuario 
+
+
+  datosFichaTecnica:DatosFichaTecnica
+
+
+  ngOnInit() {
+    this.obtenerDatosRuta()
+    this.DatosUsuario()
+  }
+
+  obtenerDatosRuta() {
+    // Recupera los datos pasados a través de los parámetros de la ruta
+    this.route.queryParams.subscribe(params => {
+      const requerimientoParam = params['requerimiento'];
+      //console.log(requerimientoParam);
+      if (requerimientoParam) {
+        try {
+          const requerimiento = JSON.parse(requerimientoParam);
+          // utilizar los datos de requerimiento en este componente
+          this.datosRuta = requerimiento          
+          this.obtenerFichaTecnica(this.datosRuta.Id)
+
+        } catch (error) {
+          console.error("Error al analizar JSON:", error);
+          // Maneja el error de análisis JSON 
+        }
+      } else {
+        console.error("El parámetro 'requerimiento' es undefined o null");
+        // Maneja el caso en el que el parámetro 'requerimiento' no esté definido
+      }
+    });
+  }
+
+  DatosUsuario() {
+    this.datosUsuarioService.DatosUsuario().subscribe(
+      (response) => {
+        this.datosUsuario = response[0];
+      },
+      (error) => {
+        console.error('Error al obtener los datos del usuario:', error);
+      }
+    );
+  }
+
+  eliminarRequerimiento() {
+
+    this.crudService.eliminarRequerimiento(this.datosRuta).subscribe(
+      (res) => {
+        alertifyjs.success(res.message)
+        this.router.navigate(['/home']);
+        //console.log('Requerimiento modificado correctamente', res);
+      },
+      (error) => {
+        //     // Manejar errores aquí, si es necesario
+        //     //console.error('Error al modificar usuario', error);
+      }
+    );
+  }
+
+  obtenerFichaTecnica(id){
+    this.crudService.getFichaTecnica(id).subscribe((res: DatosFichaTecnica) => {
+      this.datosFichaTecnica = res[0]
+      //console.log(this.datosFichaTecnica)
+    });
+    
+  }
+
+
+  // generarPDF() {
+  //   const elementoHTML = this.content.nativeElement;
+
+  //   const pdf = new jsPDF('p', 'mm', 'letter');
+  //   const options = {
+  //     margin: 10,
+  //   };
+
+  //   html2canvas(elementoHTML, options).then(function (canvas) {
+  //     const imageData = canvas.toDataURL('image/png');
+  //     pdf.addImage(imageData, 'PNG', 0, 0, 210, 297);
+  //     pdf.save('documento.pdf');
+  //   });
+  // }
+
+}

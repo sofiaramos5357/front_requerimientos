@@ -53,6 +53,9 @@ import { TablaReqPendienteRevisionComponent } from './components/elaborador/tabl
 import { TablaRevisarComponent } from './components/administrador/tabla-revisar/tabla-revisar.component';
 import { IngresarRevisionComponent } from './pages/administrador/ingresar-revision/ingresar-revision.component';
 import { ElementosIngresarRevisionComponent } from './components/administrador/elementos-ingresar-revision/elementos-ingresar-revision.component';
+import { TablaReqDocumentarComponent } from './components/administrador/tabla-req-documentar/tabla-req-documentar.component';
+import { DocumentarRequerimientoComponent } from './pages/administrador/documentar-requerimiento/documentar-requerimiento.component';
+import { ElementosDocumentarComponent } from './components/administrador/elementos-documentar/elementos-documentar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,7 +101,10 @@ import { ElementosIngresarRevisionComponent } from './components/administrador/e
     TablaReqPendienteRevisionComponent,
     TablaRevisarComponent,
     IngresarRevisionComponent,
-    ElementosIngresarRevisionComponent
+    ElementosIngresarRevisionComponent,
+    TablaReqDocumentarComponent,
+    DocumentarRequerimientoComponent,
+    ElementosDocumentarComponent
   ],
   imports: [
     BrowserModule,
