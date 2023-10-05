@@ -116,6 +116,25 @@ modificarDocumento(data:any){
   return this.httpClient.put(`${this.RestApi}/documento/modificar`,data,{headers: this.httpHeaders})
   .pipe(catchError(this.handleError))
 }
+
+
+
+
+
+
+sendPost(body:FormData){
+  return this.httpClient.post(`${this.RestApi}/guardardocumento`, body,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
+
+
+
+
+
+
+
+
 //---------------------Requerimiento-----------------------------------------------------------------
 getRequerimientoscreadas(){
   return this.httpClient.get(`${this.RestApi}/creados`, {headers:this.httpHeaders}).pipe(

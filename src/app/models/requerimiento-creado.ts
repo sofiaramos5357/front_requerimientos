@@ -13,5 +13,6 @@ export interface RequerimientoCreado    {
 	NombreElaborador:String,
     ApellidoElaborador:String,
 	Estado:String,
-    ObservacionesRevision?:string
+    ObservacionesRevision?:string,
+    FechaEntrega?:string
 }
