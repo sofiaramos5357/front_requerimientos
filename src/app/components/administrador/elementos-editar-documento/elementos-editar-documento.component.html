@@ -1,0 +1,84 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+</head>
+
+<body class="mt-5">
+    <div class="container justify-content-center align-items-center">
+        <h2 class="mb-0 text-center">Modificar documento</h2>
+        <div class="card-body text-primary mt-2">
+            <div class="d-flex align-items-center">
+                <i class="material-icons">info</i>
+                <p class="card-title"> En caso de equivocarse de archivo, este solo podrá ser editado en los primeros 30
+                    minutos después
+                    de ser
+                    subido.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center vh-50 mt-5">
+        <div class="row">
+            <div class="col-lg-12 col-md-10 ml-auto mr-auto">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr class="text-center">
+                                <th>#Requerimiento</th>
+                                <th>Sistema</th>
+                                <th>Estado</th>
+                                <th>Creador</th>
+                                <th>Elaborador</th>
+                                <th>ver documento</th>
+                                <th>Eliminar documento</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr *ngFor="let documentoEdicion of getUsersForPage()">
+                                <td>{{ documentoEdicion.Id }}</td>
+                                <td>{{ documentoEdicion.NombreSistema }}</td>
+                                <td>
+                                    <span class="badge rounded-pill bg-secondary">
+                                        {{ documentoEdicion.Estado }}</span>
+                                </td>
+                                <td>
+                                    {{ documentoEdicion.NombreCreador }}
+                                    {{ documentoEdicion.ApellidoCreador }}
+                                </td>
+                                <td>
+                                    {{ documentoEdicion.NombreElaborador }}
+                                    {{ documentoEdicion.ApellidoElaborador }}
+                                </td>
+                                <td class="td-actions text-right">
+                                    <button type="button" class="btn btn-success btn-just-icon btn-sm"
+                                    (click)="abrirPDF(documentoEdicion.Nombre)" >
+                                        <i class="material-icons">visibility</i>
+                                    </button>
+                                </td>
+                                <td class="td-actions text-right">
+                                    <button type="button" class="btn btn-danger btn-just-icon btn-sm">
+                                        <i class="material-icons">delete</i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item" [class.disabled]="currentPage === 1">
+                        <a class="page-link" (click)="currentPage = currentPage - 1" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item" *ngFor="let page of getPages()">
+                        <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+                    </li>
+                    <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+                        <a class="page-link" (click)="currentPage = currentPage + 1" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>

@@ -83,7 +83,7 @@ export class FormularioCrearSolicitudComponent implements OnInit {
 
   crearRequerimiento() {
     this.requerimiento.UsuarioIdCreador=this.Id
-    //console.log(this.requerimiento)
+    console.log(this.requerimiento)
 
     this.crudService.crearRequerimiento(this.requerimiento).subscribe(
       res => {

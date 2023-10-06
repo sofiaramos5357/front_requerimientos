@@ -89,6 +89,7 @@ export class ElementosReDetalleComponent implements OnInit {
           // Aquí puedes manejar la respuesta del backend si es necesario
           console.log('Detalle de requerimiento creado', res);
           //console.log(this.requerimiento)
+          localStorage.setItem('mensaje', res.message);
           window.location.reload();
           alertifyjs.success(res.message);
         },

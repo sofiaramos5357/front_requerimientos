@@ -37,6 +37,7 @@ export class ElementosDocumentarComponent implements OnInit {
   imageDataUri: string;
 
 
+
   ngOnInit() {
     this.obtenerDatosRuta()
     this.DatosUsuario()
@@ -197,21 +198,32 @@ export class ElementosDocumentarComponent implements OnInit {
   }
 
   private fileTmp:any
+  Fecha: Date = new Date();
 
   getFile($event: any): void{
     const [file]=$event.target.files;
     this.fileTmp={
       fileRaw: file,
-      filename: file.name
-
+      fileName: file.name
     }
   }
 
   sendFile():void{
-    
+    const body=new FormData();
+    body.append('myFile', this.fileTmp.fileRaw,this.fileTmp.fileName)
+    body.append('RequerimientoCambioId', String(this.datosRuta.Id));
+    body.append('Fecha', String(this.Fecha));
+
+    this.crudService.sendPost(body).subscribe(
+      (res) => {
+        alertifyjs.success(res.message)
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        //     // Manejar errores aquí, si es necesario
+        //     //console.error('Error al modificar usuario', error);
+      }
+    );
   }
-
-
-
 
 }

@@ -19,7 +19,6 @@ import { RequerimientoCambioComponent } from './pages/elaborador/requerimiento-c
 import { RequerimientoCambioDetalleComponent } from './pages/elaborador/requerimiento-cambio-detalle/requerimiento-cambio-detalle.component';
 import { FormularioCrearSolicitudComponent } from './components/administrador/formulario-crear-solicitud/formulario-crear-solicitud.component';
 import { FormularioCrearUsuarioComponent } from './components/public/formulario-crear-usuario/formulario-crear-usuario.component';
-import { FormularioDocumentoComponent } from './components/administrador/formulario-documento/formulario-documento.component';
 import { TablaHistorialComponent } from './components/shared/tabla-historial/tabla-historial.component';
 import { TablaInicialComponent } from './components/administrador/tabla-inicial/tabla-inicial.component';
 import { FormularioRequerimientoComponent } from './components/elaborador/formulario-requerimiento/formulario-requerimiento.component';
@@ -56,6 +55,7 @@ import { ElementosIngresarRevisionComponent } from './components/administrador/e
 import { TablaReqDocumentarComponent } from './components/administrador/tabla-req-documentar/tabla-req-documentar.component';
 import { DocumentarRequerimientoComponent } from './pages/administrador/documentar-requerimiento/documentar-requerimiento.component';
 import { ElementosDocumentarComponent } from './components/administrador/elementos-documentar/elementos-documentar.component';
+import { ElementosEditarDocumentoComponent } from './components/administrador/elementos-editar-documento/elementos-editar-documento.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +73,6 @@ import { ElementosDocumentarComponent } from './components/administrador/element
     RequerimientoCambioDetalleComponent,
     FormularioCrearSolicitudComponent,
     FormularioCrearUsuarioComponent,
-    FormularioDocumentoComponent,
     TablaHistorialComponent,
     TablaInicialComponent,
     FormularioRequerimientoComponent,
@@ -104,7 +103,8 @@ import { ElementosDocumentarComponent } from './components/administrador/element
     ElementosIngresarRevisionComponent,
     TablaReqDocumentarComponent,
     DocumentarRequerimientoComponent,
-    ElementosDocumentarComponent
+    ElementosDocumentarComponent,
+    ElementosEditarDocumentoComponent
   ],
   imports: [
     BrowserModule,

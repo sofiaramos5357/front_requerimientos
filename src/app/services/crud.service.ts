@@ -123,16 +123,18 @@ modificarDocumento(data:any){
 
 
 sendPost(body:FormData){
-  return this.httpClient.post(`${this.RestApi}/guardardocumento`, body,{headers: this.httpHeaders})
+  return this.httpClient.post(`${this.RestApi}/guardardocumento`, body)
   .pipe(catchError(this.handleError),map((response: any) => response));
 }
 
 
-
-
-
-
-
+getDocumentosEdicion(Id:any){
+  return this.httpClient.get(`${this.RestApi}/documentoedicion/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:any)=>{
+      return res || {}
+    })
+  )
+}
 
 
 //---------------------Requerimiento-----------------------------------------------------------------
