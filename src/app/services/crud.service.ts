@@ -142,6 +142,16 @@ eliminarDocumento(Id:any){
 }
 
 
+descargarExcel(data: any) {
+  // Realiza una solicitud POST con los datos en el cuerpo
+  return this.httpClient.post(`${this.RestApi}/requerimientoreporte`, data, {
+    headers: this.httpHeaders,
+    responseType: 'blob', // Para indicar que esperamos una respuesta binaria (el archivo Excel)
+  })
+  .pipe(catchError(this.handleError));
+}
+
+
 //---------------------Requerimiento-----------------------------------------------------------------
 getRequerimientoscreadas(){
   return this.httpClient.get(`${this.RestApi}/creados`, {headers:this.httpHeaders}).pipe(

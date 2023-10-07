@@ -12,7 +12,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormularioEditarUsuarioComponent } from './components/shared/formulario-editar-usuario/formulario-editar-usuario.component';
 import { CrearSolicitudComponent } from './pages/administrador/crear-solicitud/crear-solicitud.component';
 import { ModificacionUsuarioComponent } from './pages/administrador/modificacion-usuario/modificacion-usuario.component';
-import { HistorialComponent } from './pages/administrador/historial/historial.component';
 import { CrearUsuarioComponent } from './pages/public/crear-usuario/crear-usuario.component';
 import { DocumentoComponent } from './pages/administrador/documento/documento.component';
 import { RequerimientoCambioComponent } from './pages/elaborador/requerimiento-cambio/requerimiento-cambio.component';
@@ -56,6 +55,8 @@ import { TablaReqDocumentarComponent } from './components/administrador/tabla-re
 import { DocumentarRequerimientoComponent } from './pages/administrador/documentar-requerimiento/documentar-requerimiento.component';
 import { ElementosDocumentarComponent } from './components/administrador/elementos-documentar/elementos-documentar.component';
 import { ElementosEditarDocumentoComponent } from './components/administrador/elementos-editar-documento/elementos-editar-documento.component';
+import { ElementosReportesComponent } from './components/administrador/elementos-reportes/elementos-reportes.component';
+import { ReportesComponent } from './pages/administrador/reportes/reportes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,6 @@ import { ElementosEditarDocumentoComponent } from './components/administrador/el
     FormularioEditarUsuarioComponent,
     CrearSolicitudComponent,
     ModificacionUsuarioComponent,
-    HistorialComponent,
     CrearUsuarioComponent,
     DocumentoComponent,
     RequerimientoCambioComponent,
@@ -104,7 +104,9 @@ import { ElementosEditarDocumentoComponent } from './components/administrador/el
     TablaReqDocumentarComponent,
     DocumentarRequerimientoComponent,
     ElementosDocumentarComponent,
-    ElementosEditarDocumentoComponent
+    ElementosEditarDocumentoComponent,
+    ElementosReportesComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,

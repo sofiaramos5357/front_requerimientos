@@ -4,7 +4,6 @@ import { ConfigUsuarioComponent } from './pages/administrador/usuarios/usuarios.
 import { CrearUsuarioComponent } from './pages/public/crear-usuario/crear-usuario.component';
 import { CrearSolicitudComponent } from './pages/administrador/crear-solicitud/crear-solicitud.component';
 import { DocumentoComponent } from './pages/administrador/documento/documento.component';
-import { HistorialComponent } from './pages/administrador/historial/historial.component';
 import { ModificacionUsuarioComponent } from './components/administrador/modificacion-usuario/modificacion-usuario.component';
 import { ConfigUsuarioElabComponent } from './pages/elaborador/config-usuario-elab/config-usuario-elab.component';
 import { InicioElaboradorComponent } from './pages/elaborador/inicio-elaborador/inicio-elaborador.component';
@@ -21,6 +20,7 @@ import { RequerimientoAsignadoComponent } from './pages/elaborador/requerimiento
 import { ModificarFichaComponent } from './pages/elaborador/modificar-ficha/modificar-ficha.component';
 import { IngresarRevisionComponent } from './pages/administrador/ingresar-revision/ingresar-revision.component';
 import { DocumentarRequerimientoComponent } from './pages/administrador/documentar-requerimiento/documentar-requerimiento.component';
+import { ReportesComponent } from './pages/administrador/reportes/reportes.component';
 
 const routes: Routes = [
 
@@ -35,8 +35,8 @@ const routes: Routes = [
   //admin
   {path: 'usuarios', component:ConfigUsuarioComponent, canActivate: [AuthGuard]},
   {path: 'crearsolicitud', component:CrearSolicitudComponent},
-  {path: 'documento', component:DocumentoComponent},
-  {path: 'historial', component:HistorialComponent},
+  {path: 'documentos', component:DocumentoComponent},
+  {path: 'reportes', component:ReportesComponent},
   {path: 'editarUsuario', component:ModificacionUsuarioComponent},
   {path: 'visualizarreq', component:VisualizarRequerimientoComponent},
   {path: 'editarrequerimiento', component:EditarRequerimientoComponent},
