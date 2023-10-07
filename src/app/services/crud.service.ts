@@ -136,6 +136,11 @@ getDocumentosEdicion(Id:any){
   )
 }
 
+eliminarDocumento(Id:any){
+  return this.httpClient.post(`${this.RestApi}/eliminardocumento/${Id}`,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
 
 //---------------------Requerimiento-----------------------------------------------------------------
 getRequerimientoscreadas(){

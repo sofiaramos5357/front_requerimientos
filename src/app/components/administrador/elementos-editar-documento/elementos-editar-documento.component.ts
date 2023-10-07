@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { RequerimientoCreado } from 'src/app/models/requerimiento-creado';
 import { CrudService } from 'src/app/services/crud.service';
 import { Router } from '@angular/router';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { Usuario } from 'src/app/models/usuario.model';
+import * as alertifyjs from 'alertifyjs';
 
 @Component({
   selector: 'app-elementos-editar-documento',
@@ -67,5 +67,16 @@ abrirPDF(Nombre): void {
 }
 
 
+eliminarDocumento(Id){
+  //console.log(this.datosRuta)
+  this.crudService.eliminarDocumento(Id).subscribe(
+    res => {
+      this.router.navigate(['/home']);
+      alertifyjs.success(res.message)
+    },
+    (error) => {
+    }
+  );
+}
 
 }
