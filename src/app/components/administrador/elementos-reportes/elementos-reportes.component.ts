@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CrudService } from 'src/app/services/crud.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-elementos-reportes',
@@ -8,33 +9,54 @@ import { CrudService } from 'src/app/services/crud.service';
 })
 export class ElementosReportesComponent {
 
-    constructor(
-      private crudService: CrudService,
-    ) {}
+  constructor(
+    private crudService: CrudService,
+    private fb: FormBuilder
+  ) {
+    this.myForm = this.fb.group({
+      fechaInicial: ['', [Validators.required, this.validateDate]],
+      fechaFinal: ['', [Validators.required, this.validateDate]],
+    });
+  }
 
-  fechasCreacion={
-    fechaInicial:"2023-10-05",
-    fechaFinal:"2023-10-05"
+  myForm: FormGroup;
+
+  validateDate(control) {
+    const datePattern = /^(0[1-9]|[1-2]\d|3[0-1])[\/-](0[1-9]|1[0-2])[\/-]\d{4}$/;
+    const validDate = datePattern.test(control.value);
+    return validDate ? null : { invalidDate: true };
   }
 
   descargarExcel() {
+
     // Obtiene los datos para enviar en el cuerpo de la solicitud POST
+    const fechaInicialInput = this.myForm.value.fechaInicial.replace(/\//g, '-');
+    const fechaFinalInput = this.myForm.value.fechaFinal.replace(/\//g, '-');
+
+    // Formatea las fechas en el formato "año-mes-día"
+    const fechaInicial = this.formatFecha(fechaInicialInput);
+    const fechaFinal = this.formatFecha(fechaFinalInput);
+
+    // Obtiene los datos formateados para enviar en el cuerpo de la solicitud POST
     const data = {
-      fechaInicial: "2023-10-05",
-      fechaFinal: "2023-10-05"
+      fechaInicial: fechaInicial,
+      fechaFinal: fechaFinal
     };
-  
+
+    console.log(data);
+
+
     // Llama a la función descargarExcel en el servicio
     this.crudService.descargarExcel(data).subscribe(
       (response: any) => {
         // Crea un objeto Blob a partir de la respuesta
         const blob = new Blob([response], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-  
+
         // Crea un enlace para descargar el archivo
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
         link.download = 'Reporte.xlsx';
-  
+
         // Hace clic en el enlace para iniciar la descarga
         link.click();
       },
@@ -44,5 +66,18 @@ export class ElementosReportesComponent {
       }
     );
   }
-  
+
+  // Función para formatear la fecha en "año-mes-día"
+  formatFecha(fecha: string): string {
+    const fechaPartes = fecha.split('-');
+    if (fechaPartes.length === 3) {
+      const dia = fechaPartes[0];
+      const mes = fechaPartes[1];
+      const anio = fechaPartes[2];
+      return `${anio}-${mes}-${dia}`;
+    } else {
+      // Si la fecha no está en el formato esperado, devolverla sin cambios
+      return fecha;
+    }
+  }
 }

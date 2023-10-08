@@ -57,6 +57,10 @@ import { ElementosDocumentarComponent } from './components/administrador/element
 import { ElementosEditarDocumentoComponent } from './components/administrador/elementos-editar-documento/elementos-editar-documento.component';
 import { ElementosReportesComponent } from './components/administrador/elementos-reportes/elementos-reportes.component';
 import { ReportesComponent } from './pages/administrador/reportes/reportes.component';
+
+
+import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -113,7 +117,8 @@ import { ReportesComponent } from './pages/administrador/reportes/reportes.compo
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthGuard,
