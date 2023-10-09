@@ -21,17 +21,21 @@
     </div>
 
     <label for="exampleInputEmail1" class="form-label">Tipo de cambio</label>
-    <select
-      class="form-select"
-      aria-label="Default select example"
-      id="TipoCambioId"
-      name="TipoCambioId"
-      [(ngModel)]="fichaTecnica.TipoCambioId"
-    >
-      <option *ngFor="let tipoCambios of tipoCambios" [value]="tipoCambios.Id">
-        {{ tipoCambios.Nombre }}
-      </option>
-    </select>
+    <div style="display: flex; align-items: center;">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        id="TipoCambioId"
+        name="TipoCambioId"
+        [(ngModel)]="fichaTecnica.TipoCambioId"
+      >
+        <option *ngFor="let tipoCambios of tipoCambios" [value]="tipoCambios.Id">
+          {{ tipoCambios.Nombre }}
+        </option>
+      </select>
+      <button class="btn btn-danger" style="margin-left: 10px;">+</button>
+    </div>
+    
 
 
     <label for="exampleInputEmail1" class="form-label">Observaciones</label>

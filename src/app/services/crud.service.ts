@@ -148,7 +148,13 @@ descargarExcel(data: any) {
     headers: this.httpHeaders,
     responseType: 'blob', // Para indicar que esperamos una respuesta binaria (el archivo Excel)
   })
-  .pipe(catchError(this.handleError));
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
+existenRegistros(fechaCreacion:any){
+  return this.httpClient.post(`${this.RestApi}/existenRegistros/`,fechaCreacion,{headers: this.httpHeaders})  
+  .pipe(catchError(this.handleError),map((response: any) => response));
+
 }
 
 
