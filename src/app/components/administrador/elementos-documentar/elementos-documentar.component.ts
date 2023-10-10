@@ -213,6 +213,8 @@ export class ElementosDocumentarComponent implements OnInit {
     body.append('myFile', this.fileTmp.fileRaw,this.fileTmp.fileName)
     body.append('RequerimientoCambioId', String(this.datosRuta.Id));
     body.append('Fecha', String(this.Fecha));
+    body.append('SistemaId', String(this.datosRuta.SistemaId));
+
 
     this.crudService.sendPost(body).subscribe(
       (res) => {
