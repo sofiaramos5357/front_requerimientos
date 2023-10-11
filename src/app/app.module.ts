@@ -59,7 +59,10 @@ import { ElementosReportesComponent } from './components/administrador/elementos
 import { ReportesComponent } from './pages/administrador/reportes/reportes.component';
 
 
-import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms';
+import { ObjetoComponent } from './pages/elaborador/objeto/objeto.component';
+import { TablaObjetoComponent } from './components/elaborador/tabla-objeto/tabla-objeto.component';
+import { TablaTipoCambioComponent } from './components/elaborador/tabla-tipo-cambio/tabla-tipo-cambio.component'; // Importa ReactiveFormsModule
 
 @NgModule({
   declarations: [
@@ -110,7 +113,10 @@ import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsMo
     ElementosDocumentarComponent,
     ElementosEditarDocumentoComponent,
     ElementosReportesComponent,
-    ReportesComponent
+    ReportesComponent,
+    ObjetoComponent,
+    TablaObjetoComponent,
+    TablaTipoCambioComponent
   ],
   imports: [
     BrowserModule,

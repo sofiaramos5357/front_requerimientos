@@ -21,6 +21,7 @@ import { ModificarFichaComponent } from './pages/elaborador/modificar-ficha/modi
 import { IngresarRevisionComponent } from './pages/administrador/ingresar-revision/ingresar-revision.component';
 import { DocumentarRequerimientoComponent } from './pages/administrador/documentar-requerimiento/documentar-requerimiento.component';
 import { ReportesComponent } from './pages/administrador/reportes/reportes.component';
+import { ObjetoComponent } from './pages/elaborador/objeto/objeto.component';
 
 const routes: Routes = [
 
@@ -55,6 +56,8 @@ const routes: Routes = [
   {path: 'requerimientoasignado', component:RequerimientoAsignadoComponent},
   {path: 'modificarficha', component:ModificarFichaComponent},
   {path: 'reqdetalle', component:RequerimientoCambioComponent},
+  {path: 'objetos', component:ObjetoComponent},
+
 
 
 

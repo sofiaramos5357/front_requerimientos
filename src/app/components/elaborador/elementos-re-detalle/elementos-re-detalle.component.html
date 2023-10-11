@@ -16,16 +16,16 @@
     </div>
   </div>
 
-  <div class="card mt-4 border-danger" *ngIf="datosRuta.RequerimientoEstadoId===7">
-    <div class="card-header text-bg-danger">
-      Requerimiento Denegado
-    </div>
+  <div
+    class="card mt-4 border-danger"
+    *ngIf="datosRuta.RequerimientoEstadoId === 7"
+  >
+    <div class="card-header text-bg-danger">Requerimiento Denegado</div>
     <div class="card-body">
       <h5 class="card-title">Observaciones</h5>
-      <p class="card-text">{{datosRuta.ObservacionesRevision}}</p>
+      <p class="card-text">{{ datosRuta.ObservacionesRevision }}</p>
     </div>
   </div>
-
 
   <table class="table table-borderless mt-5">
     <thead>
@@ -171,13 +171,15 @@
     <button
       type="submit"
       class="btn btn-primary btn-lg mt-5"
-      *ngIf="detalles.length !== 0 && datosRuta.RequerimientoEstadoId===2 || datosRuta.RequerimientoEstadoId===7" 
+      *ngIf="
+        (detalles.length !== 0 && datosRuta.RequerimientoEstadoId === 2) ||
+        datosRuta.RequerimientoEstadoId === 7
+      "
       (click)="enviarReq()"
     >
       Enviar requerimiento a revisión
     </button>
   </div>
-  
 
   <!-- Modal agregar detalle -->
   <div
@@ -204,20 +206,31 @@
           <label for="exampleInputEmail1" class="form-label"
             >Tipo de objeto</label
           >
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            name="selectedSistema"
-            [(ngModel)]="requerimientoDetalle.TipoObjetoId"
-          >
-            <option
-              *ngFor="let tipoObjeto of tipoObjetos"
-              [value]="tipoObjeto.Id"
+          <div style="display: flex; align-items: center">
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              [(ngModel)]="requerimientoDetalle.TipoObjetoId"
             >
-              {{ tipoObjeto.Nombre }}
-            </option>
-          </select>
-
+              <option
+                *ngFor="let tipoObjeto of tipoObjetos"
+                [value]="tipoObjeto.Id"
+              >
+                {{ tipoObjeto.Nombre }}
+              </option>
+            </select>
+            <button
+              class="btn btn-danger"
+              style="margin-left: 10px"
+              rel="tooltip"
+              data-original-title=""
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal3"
+              title=""
+            >
+              +
+            </button>
+          </div>
           <label for="exampleInputEmail1" class="form-label">Objeto</label>
           <input
             type="text"
@@ -377,6 +390,54 @@
             Guardar cambios
           </button>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal agregar objeto-->
+<div
+  class="modal fade"
+  id="exampleModal3"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel3"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Agregar Tipo de objeto
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body text-center align-middle">
+        <div class="h5">Ingrese tipo de objeto</div>
+        <input
+          type="text"
+          class="form-control"
+          aria-describedby="emailHelp"
+          [(ngModel)]="tipoObjeto.Nombre"
+        />
+      </div>
+      <br />
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="crearTipoObjeto()"
+          [disabled]="tipoObjeto.Nombre === '' "
+        >
+          Guardar
+        </button>
       </div>
     </div>
   </div>

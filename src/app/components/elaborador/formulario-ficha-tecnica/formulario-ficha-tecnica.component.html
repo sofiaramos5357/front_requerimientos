@@ -21,7 +21,7 @@
     </div>
 
     <label for="exampleInputEmail1" class="form-label">Tipo de cambio</label>
-    <div style="display: flex; align-items: center;">
+    <div style="display: flex; align-items: center">
       <select
         class="form-select"
         aria-label="Default select example"
@@ -29,14 +29,25 @@
         name="TipoCambioId"
         [(ngModel)]="fichaTecnica.TipoCambioId"
       >
-        <option *ngFor="let tipoCambios of tipoCambios" [value]="tipoCambios.Id">
+        <option
+          *ngFor="let tipoCambios of tipoCambios"
+          [value]="tipoCambios.Id"
+        >
           {{ tipoCambios.Nombre }}
         </option>
       </select>
-      <button class="btn btn-danger" style="margin-left: 10px;">+</button>
+      <button
+        class="btn btn-danger"
+        style="margin-left: 10px"
+        rel="tooltip"
+        data-original-title=""
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        title=""
+      >
+        +
+      </button>
     </div>
-    
-
 
     <label for="exampleInputEmail1" class="form-label">Observaciones</label>
     <textarea
@@ -47,10 +58,63 @@
       [(ngModel)]="fichaTecnica.Observaciones"
     ></textarea>
 
-    <button type="submit" class="btn btn-primary mt-5" (click)="guardarFichaTecnica()" [disabled]="!camposLlenos()">
+    <button
+      type="submit"
+      class="btn btn-primary mt-5"
+      (click)="guardarFichaTecnica()"
+      [disabled]="!camposLlenos()"
+    >
       Guardar ficha técnica
     </button>
   </div>
 </form>
 
-
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Agregar Tipo de cambio
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body text-center align-middle">
+        <div class="h5">Ingrese tipo de cambio</div>
+        <input
+          type="text"
+          class="form-control"
+          id="tipoCambio"
+          name="tipoCambio"
+          aria-describedby="emailHelp"
+          [(ngModel)]="tipoCambio.Nombre"
+        />
+      </div>
+      <br />
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="!validarTipoCambio()"
+          (click)="guardarTipoCambio()"
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -343,8 +343,8 @@ eliminarRequerimientoDetalle(id:any){
 }
 
 //---------------------TipoCambio-----------------------------------------------------------------
-getTipoCambios(){
-  return this.httpClient.get(`${this.RestApi}/tipocambio`, {headers:this.httpHeaders})
+getTipoCambioActivos(){
+  return this.httpClient.get(`${this.RestApi}/tipocambioactivo`, {headers:this.httpHeaders})
   .pipe(
     map((res:TipoCambio)=>{
       return res || {}
@@ -360,9 +360,10 @@ getTipoCambio(id:any){
   )
 }
 
+
 crearTipoCambio(data:TipoCambio){
   return this.httpClient.post(`${this.RestApi}/tipocambio/crear`, data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+  .pipe(catchError(this.handleError),map((response: any) => response))
 }
 
 modificarTipoCambio(data:any){
@@ -379,9 +380,18 @@ getTipoObjetos(){
   )
 }
 
+getTipoObjetosActivos(){
+  return this.httpClient.get(`${this.RestApi}/tipoobjetoactivo`, {headers:this.httpHeaders})
+  .pipe(
+    map((res:TipoObjeto)=>{
+      return res || {}
+    })
+  )
+}
+
 getTipoObjeto(id:any){
   return this.httpClient.get(`${this.RestApi}/tipoobjeto/${id}`,{headers: this.httpHeaders}).pipe(
-    map((res:any)=>{
+    map((res:TipoObjeto)=>{
       return res || {}
     })
   )
@@ -389,14 +399,23 @@ getTipoObjeto(id:any){
 
 crearTipoObjeto(data:TipoObjeto){
   return this.httpClient.post(`${this.RestApi}/tipoobjeto/crear`, data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+  .pipe(catchError(this.handleError),map((response: any) => response))
 }
 
-modificarTipoObjeto(data:any){
-  return this.httpClient.put(`${this.RestApi}/tipoobjeto/modificar`,data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+modificarTipoObjeto(data:TipoObjeto){
+  return this.httpClient.post(`${this.RestApi}/tipoobjeto/modificar`,data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response))
 }
 
 
+eliminarTipoObjeto(Id:any){
+  return this.httpClient.post(`${this.RestApi}/eliminartipoobjeto/${Id}`,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
+activarTipoObjeto(Id:any){
+  return this.httpClient.post(`${this.RestApi}/activartipoobjeto/${Id}`,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
 
 }

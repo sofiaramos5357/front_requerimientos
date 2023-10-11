@@ -66,7 +66,7 @@ export class FormularioModificarFichaComponent implements OnInit{
   }
 
   obtenerTipoCambio(){
-    this.crudService.getTipoCambios().subscribe((res: TipoCambio[]) => {
+    this.crudService.getTipoCambioActivos().subscribe((res: TipoCambio[]) => {
       //console.log(res);
       this.tipoCambios = res
     })

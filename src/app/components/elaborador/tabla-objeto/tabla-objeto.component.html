@@ -1,0 +1,140 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
+  />
+</head>
+<h2 class="h2 text-center mt-5">Tipos de objetos</h2>
+
+<body class="mt-5">
+  <div class="container d-flex justify-content-center align-items-center vh-50">
+    <div class="row">
+      <div class="col-lg-12 col-md-10 ml-auto mr-auto">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr class="text-center">
+                <th>#Id</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Editar</th>
+                <th>Activo</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr *ngFor="let tipoObjetos of getUsersForPage()">
+                <td>{{ tipoObjetos.Id }}</td>
+                <td>{{ tipoObjetos.Nombre }}</td>
+                <td *ngIf="tipoObjetos.Activo === true">Activo</td>
+                <td *ngIf="tipoObjetos.Activo === false">Desactivado</td>
+                <td class="td-actions text-right">
+                  <button
+                    type="button"
+                    class="btn btn-warning btn-just-icon btn-sm"
+                    data-original-title=""
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    title=""
+                    (click)="getTipoObjeto(tipoObjetos.Id)"
+                  >
+                    <i class="material-icons">edit</i>
+                  </button>
+                </td>
+                <td class="td-actions">
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="flexSwitchCheckChecked"
+                      [checked]="tipoObjetos.Activo === true"
+                      (click)="DesactivaroActivar(tipoObjetos)"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a
+              class="page-link"
+              (click)="currentPage = currentPage - 1"
+              aria-label="Previous"
+            >
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item" *ngFor="let page of getPages()">
+            <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+          </li>
+          <li
+            class="page-item"
+            [class.disabled]="currentPage === getTotalPages()"
+          >
+            <a
+              class="page-link"
+              (click)="currentPage = currentPage + 1"
+              aria-label="Next"
+            >
+              <span aria-hidden="true">&raquo;</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</body>
+
+<!-- Modal editar-->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Editar tipo de objeto
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body text-center align-middle">
+        <div class="h5">Tipo de objeto</div>
+        <input
+          *ngIf="tipoObjeto.length > 0"
+          type="text"
+          class="form-control"
+          [(ngModel)]="tipoObjeto[0].Nombre"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <br />
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          *ngIf="tipoObjeto.length > 0"
+          [disabled]="tipoObjeto[0].Nombre === ''"
+          (click)="modificar()"
+        >
+          Guardar cambios
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

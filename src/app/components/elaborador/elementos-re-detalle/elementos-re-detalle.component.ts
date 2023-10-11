@@ -40,6 +40,12 @@ export class ElementosReDetalleComponent implements OnInit {
     NombreObjeto: '',
   };
 
+  tipoObjeto: TipoObjeto = {
+    Id: 0,
+    Nombre: '',
+    Activo: true,
+  };
+
   detalleActual: any = {};
 
   ngOnInit() {
@@ -47,7 +53,7 @@ export class ElementosReDetalleComponent implements OnInit {
     this.ObtenerTipoObjeto();
     this.detallesCreados();
     this.mensajeAlmacenado();
-   
+
   }
 
   obtenerDatosRuta() {
@@ -73,7 +79,7 @@ export class ElementosReDetalleComponent implements OnInit {
 
   ObtenerTipoObjeto() {
     //obtiene los roles y solo almacena los activos
-    this.crudService.getTipoObjetos().subscribe((res: TipoObjeto[]) => {
+    this.crudService.getTipoObjetosActivos().subscribe((res: TipoObjeto[]) => {
       this.tipoObjetos = res;
       //console.log(this.tipoObjetos.Id)
     });
@@ -110,7 +116,7 @@ export class ElementosReDetalleComponent implements OnInit {
         // Filtrar los elementos que no tienen estadoId igual a 5 o 6
         this.detalles = res;
         //console.log(this.detalles);
-        this.estadoIniciado(this.detalles)
+        this.estadoIniciado(this.detalles);
       });
   }
 
@@ -133,6 +139,7 @@ export class ElementosReDetalleComponent implements OnInit {
   abrirModal(detalle: any) {
     this.detalleActual = { ...detalle };
     // Lógica para abrir el modal
+
   }
 
   guardarCambio() {
@@ -184,7 +191,6 @@ export class ElementosReDetalleComponent implements OnInit {
         //console.log(this.requerimiento)
         localStorage.setItem('mensaje', res.message);
 
-
         window.location.reload();
         //alertifyjs.success(res.message);
       },
@@ -194,7 +200,7 @@ export class ElementosReDetalleComponent implements OnInit {
         //alertifyjs.error(error)
       }
     );
-    
+
     //console.log(this.requerimientoDetalle);
   }
 
@@ -219,7 +225,7 @@ export class ElementosReDetalleComponent implements OnInit {
 
   //si el requerimiento esta en estado revision y la persona lo edita de forma que si elimina todas las actividades el requerimiento volvera al estado anterior iniciado
   estadoIniciado(detalles) {
-    if (detalles.length === 0 && this.datosRuta.RequerimientoEstadoId===3) {
+    if (detalles.length === 0 && this.datosRuta.RequerimientoEstadoId === 3) {
       this.crudService.estadoIniciado(this.datosRuta.Id).subscribe(
         (res) => {
           // Aquí puedes manejar la respuesta del backend si es necesario
@@ -236,4 +242,19 @@ export class ElementosReDetalleComponent implements OnInit {
       //console.log(this.requerimientoDetalle);
     }
   }
+
+  crearTipoObjeto() {
+    this.crudService.crearTipoObjeto(this.tipoObjeto).subscribe(
+      (res) => {
+        //this.router.navigate(['/home']);
+        localStorage.setItem('mensaje', res.message);
+
+        window.location.reload();
+      },
+      (error) => {}
+    );
+  }
+
+
+
 }
