@@ -20,9 +20,6 @@ import { FormularioCrearSolicitudComponent } from './components/administrador/fo
 import { FormularioCrearUsuarioComponent } from './components/public/formulario-crear-usuario/formulario-crear-usuario.component';
 import { TablaHistorialComponent } from './components/shared/tabla-historial/tabla-historial.component';
 import { TablaInicialComponent } from './components/administrador/tabla-inicial/tabla-inicial.component';
-import { FormularioRequerimientoComponent } from './components/elaborador/formulario-requerimiento/formulario-requerimiento.component';
-import { FormularioRequerimientoDetalleComponent } from './components/elaborador/formulario-requerimiento-detalle/formulario-requerimiento-detalle.component';
-import { ConfigUsuarioElabComponent } from './pages/elaborador/config-usuario-elab/config-usuario-elab.component';
 import { LoginComponent } from './pages/public/login/login.component';
 import { FormularioLoginComponent } from './components/public/formulario-login/formulario-login.component';
 import { FormularioRecuperarContrasenaComponent } from './components/public/formulario-recuperar-contrasena/formulario-recuperar-contrasena.component';
@@ -62,7 +59,11 @@ import { ReportesComponent } from './pages/administrador/reportes/reportes.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { ObjetoComponent } from './pages/elaborador/objeto/objeto.component';
 import { TablaObjetoComponent } from './components/elaborador/tabla-objeto/tabla-objeto.component';
-import { TablaTipoCambioComponent } from './components/elaborador/tabla-tipo-cambio/tabla-tipo-cambio.component'; // Importa ReactiveFormsModule
+import { TablaTipoCambioComponent } from './components/elaborador/tabla-tipo-cambio/tabla-tipo-cambio.component';
+import { SistemasComponent } from './pages/administrador/sistemas/sistemas.component';
+import { ElementosSistemasComponent } from './components/administrador/elementos-sistemas/elementos-sistemas.component';
+import { ChangelogComponent } from './pages/administrador/changelog/changelog.component';
+import { ElementosChangelogComponent } from './components/administrador/elementos-changelog/elementos-changelog.component'; // Importa ReactiveFormsModule
 
 @NgModule({
   declarations: [
@@ -82,9 +83,6 @@ import { TablaTipoCambioComponent } from './components/elaborador/tabla-tipo-cam
     FormularioCrearUsuarioComponent,
     TablaHistorialComponent,
     TablaInicialComponent,
-    FormularioRequerimientoComponent,
-    FormularioRequerimientoDetalleComponent,
-    ConfigUsuarioElabComponent,
     LoginComponent,
     FormularioLoginComponent,
     FormularioRecuperarContrasenaComponent,
@@ -116,7 +114,11 @@ import { TablaTipoCambioComponent } from './components/elaborador/tabla-tipo-cam
     ReportesComponent,
     ObjetoComponent,
     TablaObjetoComponent,
-    TablaTipoCambioComponent
+    TablaTipoCambioComponent,
+    SistemasComponent,
+    ElementosSistemasComponent,
+    ChangelogComponent,
+    ElementosChangelogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FichaTecnica } from 'src/app/models/ficha-tecnica.model';
 import { CrudService } from 'src/app/services/crud.service';
 import * as alertifyjs from 'alertifyjs';
 import { TipoCambio } from 'src/app/models/tipo-cambio.model';

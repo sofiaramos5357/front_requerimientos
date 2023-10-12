@@ -1,26 +1,125 @@
-
 <form>
-    <div class="d-grid gap-2 col-2 mx-auto mt-5">
-        <label for="exampleInputEmail1" class="form-label">Descripción</label>
-        <textarea class="form-control" id="textAreaExample" rows="4" [(ngModel)]="requerimiento.Descripcion" name="descripcion"></textarea>
-    
-        <label for="exampleInputEmail1" class="form-label">Objetivo</label>
-        <textarea class="form-control" id="textAreaExample" rows="4" [(ngModel)]="requerimiento.Objetivo" name="objetivo"></textarea>
+  <h2 class="text-center mt-5">Crear requerimiento</h2>
 
-        <label for="exampleInputEmail1" class="form-label">Sistema</label>
-        <select class="form-select" aria-label="Default select example" [(ngModel)]="requerimiento.SistemaId" name="selectedSistema">
-          <option *ngFor="let sistema of sistemas" [value]="sistema.Id">{{ sistema.Nombre }}</option>
-        </select>
-        
+  <div class="d-grid gap-2 col-2 mx-auto mt-5">
+    <label for="exampleInputEmail1" class="form-label">Descripción</label>
+    <textarea
+      class="form-control"
+      id="textAreaExample"
+      rows="4"
+      [(ngModel)]="requerimiento.Descripcion"
+      name="descripcion"
+    ></textarea>
 
-        <label for="exampleInputEmail1" class="form-label">Elaborador</label>
-        <select class="form-select" aria-label="Default select example" [(ngModel)]="requerimiento.UsuarioIdElaborador" name="selectedElaborador">
-          <option *ngFor="let usuario of usuarios" [value]="usuario.Id">{{usuario.Nombre}} {{usuario.Apellido}}</option>
-        </select>
-    
-        <button type="submit" class="btn btn-primary mt-5" [disabled]="!camposLlenos()" (click)="crearRequerimiento()">Crear solicitud</button>
+    <label for="exampleInputEmail1" class="form-label">Objetivo</label>
+    <textarea
+      class="form-control"
+      id="textAreaExample"
+      rows="4"
+      [(ngModel)]="requerimiento.Objetivo"
+      name="objetivo"
+    ></textarea>
 
-        <!--<div class="h2" *ngFor="let DatosUsuarios of DatosUsuario">{{DatosUsuarios.Id}}</div>-->
-        
+    <label for="exampleInputEmail1" class="form-label">Sistema</label>
+
+    <div style="display: flex; align-items: center">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        id="TipoCambioId"
+        name="selectedSistema"
+        [(ngModel)]="requerimiento.SistemaId"
+      >
+        <option *ngFor="let sistema of sistemas" [value]="sistema.Id">
+          {{ sistema.Nombre }}
+        </option>
+      </select>
+      <button
+        class="btn btn-danger"
+        style="margin-left: 10px"
+        rel="tooltip"
+        data-original-title=""
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModalsistemas"
+        title=""
+      >
+        +
+      </button>
     </div>
+
+    <label for="exampleInputEmail1" class="form-label">Elaborador</label>
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      [(ngModel)]="requerimiento.UsuarioIdElaborador"
+      name="selectedElaborador"
+    >
+      <option *ngFor="let usuario of usuarios" [value]="usuario.Id">
+        {{ usuario.Nombre }} {{ usuario.Apellido }}
+      </option>
+    </select>
+
+    <button
+      type="submit"
+      class="btn btn-primary mt-5"
+      [disabled]="!camposLlenos()"
+      (click)="crearRequerimiento()"
+    >
+      Crear solicitud
+    </button>
+
+    <!--<div class="h2" *ngFor="let DatosUsuarios of DatosUsuario">{{DatosUsuarios.Id}}</div>-->
+  </div>
 </form>
+
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModalsistemas"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabelsistemas"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Agregar sistema
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body text-center align-middle">
+        <div class="h5">Ingrese el nombre del sistema</div>
+        <input
+          type="text"
+          class="form-control"
+          id="tipoCambio"
+          name="tipoCambio"
+          aria-describedby="emailHelp"
+          [(ngModel)]="sistema.Nombre"
+
+        />
+      </div>
+      <br />
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="!validarTipoCambio()"
+          (click)="guardarSistema()"
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

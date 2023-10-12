@@ -295,24 +295,38 @@ getSistemas(){
     })
   )
 }
-
-
-getSistema(id:any){
-  return this.httpClient.get(`${this.RestApi}/sistema/${id}`,{headers: this.httpHeaders}).pipe(
-    map((res:any)=>{
+getSistemaActivos(){
+  return this.httpClient.get(`${this.RestApi}/sistemaactivo`, {headers:this.httpHeaders})
+  .pipe(
+    map((res:Sistema)=>{
       return res || {}
     })
   )
 }
-
+getSistema(id:any){
+  return this.httpClient.get(`${this.RestApi}/sistema/${id}`,{headers: this.httpHeaders}).pipe(
+    map((res:Sistema)=>{
+      return res || {}
+    })
+  )
+}
 crearSistema(data:Sistema){
   return this.httpClient.post(`${this.RestApi}/sistema/crear`, data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+  .pipe(catchError(this.handleError),map((response: any) => response))
+}
+modificarSistema(data:Sistema){
+  return this.httpClient.post(`${this.RestApi}/sistema/modificar`,data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response))
 }
 
-modificarSistema(data:any){
-  return this.httpClient.put(`${this.RestApi}/sistema/modificar`,data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+eliminarSistema(Id:any){
+  return this.httpClient.post(`${this.RestApi}/eliminarsistema/${Id}`,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
+activarSistema(Id:any){
+  return this.httpClient.post(`${this.RestApi}/activarsistema/${Id}`,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
 }
 //---------------------RequerimientoDetalle-----------------------------------------------------------------
 getRequerimientosDetalles(){
@@ -354,21 +368,40 @@ getTipoCambioActivos(){
 
 getTipoCambio(id:any){
   return this.httpClient.get(`${this.RestApi}/tipocambio/${id}`,{headers: this.httpHeaders}).pipe(
-    map((res:any)=>{
+    map((res:TipoCambio)=>{
       return res || {}
     })
   )
 }
 
 
+getTipoCambios(){
+  return this.httpClient.get(`${this.RestApi}/tipocambio`, {headers:this.httpHeaders})
+  .pipe(
+    map((res:TipoCambio)=>{
+      return res || {}
+    })
+  )
+}
+
 crearTipoCambio(data:TipoCambio){
   return this.httpClient.post(`${this.RestApi}/tipocambio/crear`, data,{headers: this.httpHeaders})
   .pipe(catchError(this.handleError),map((response: any) => response))
 }
 
-modificarTipoCambio(data:any){
-  return this.httpClient.put(`${this.RestApi}/tipocambio/modificar`,data,{headers: this.httpHeaders})
-  .pipe(catchError(this.handleError))
+modificarTipoCambio(data:TipoCambio){
+  return this.httpClient.post(`${this.RestApi}/tipocambio/modificar`,data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response))
+}
+
+eliminarTipoCambio(Id:any){
+  return this.httpClient.post(`${this.RestApi}/eliminartipocambio/${Id}`,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
+activarTipoCambio(Id:any){
+  return this.httpClient.post(`${this.RestApi}/activartipocambio/${Id}`,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response));
 }
 //---------------------TipoObjeto-----------------------------------------------------------------
 getTipoObjetos(){

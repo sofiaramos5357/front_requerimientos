@@ -35,15 +35,23 @@ export class FormularioCrearSolicitudComponent implements OnInit {
 
   datosRequerimiento: CrearRequerimiento;
 
+  sistema:Sistema={
+    Id: 0,
+    Nombre: '',
+    Activo: true
+  }
+
   ngOnInit(): void {
     this.ObtenerSistemas();
     this.obtenerElaborador();
     this.datosUsuario();
+    this.mensajeAlmacenado();
+
   }
 
   ObtenerSistemas() {
     //obtiene los roles y solo almacena los activos
-    this.crudService.getSistemas().subscribe((res: Sistema[]) => {
+    this.crudService.getSistemaActivos().subscribe((res: Sistema[]) => {
       const sistemasActivos = res.filter((Sistema) => Sistema.Activo === true);
       this.sistemas = sistemasActivos;
       //console.log(this.sistemas)
@@ -101,4 +109,36 @@ export class FormularioCrearSolicitudComponent implements OnInit {
     );
 
   }
+
+
+  validarTipoCambio(): boolean {
+    if (this.sistema !== undefined) {
+      return this.sistema.Nombre.trim() !== '';
+    }
+    return false;
+  }
+
+  mensajeAlmacenado() {
+    // Verificar si hay un mensaje almacenado en el almacenamiento local
+    const mensaje = localStorage.getItem('mensaje');
+    if (mensaje) {
+      // Mostrar el mensaje con alertify o cualquier otro mecanismo de notificación
+      alertifyjs.success(mensaje);
+
+      // Limpiar el mensaje del almacenamiento local
+      localStorage.removeItem('mensaje');
+    }
+  }
+
+  guardarSistema() {
+    this.crudService.crearSistema(this.sistema).subscribe(
+      (res) => {
+        // Almacenar el mensaje en el almacenamiento local antes de recargar
+        localStorage.setItem('mensaje', res.message);
+        window.location.reload();
+      },
+      (error) => {}
+    );
+  }
+
 }

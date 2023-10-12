@@ -2,23 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import * as alertifyjs from 'alertifyjs';
 import { CrudService } from 'src/app/services/crud.service';
 import { TipoObjeto } from 'src/app/models/tipo-objeto.model';
+import { Sistema } from 'src/app/models/sistema.model';
 
 @Component({
-  selector: 'app-tabla-objeto',
-  templateUrl: './tabla-objeto.component.html',
-  styleUrls: ['./tabla-objeto.component.css'],
+  selector: 'app-elementos-sistemas',
+  templateUrl: './elementos-sistemas.component.html',
+  styleUrls: ['./elementos-sistemas.component.css']
 })
-export class TablaObjetoComponent implements OnInit {
+export class ElementosSistemasComponent implements OnInit {
   constructor(
     private crudService: CrudService,
   ) {}
 
-  tipoObjetos: TipoObjeto[] = [];
+  sistemas: Sistema[] = [];
 
   itemsPerPage: number = 5; // Número de elementos por página
   currentPage: number = 1; // Página actual
 
-  tipoObjeto: TipoObjeto[] = [];
+  sistema: Sistema[] = [];
 
 
 
@@ -35,23 +36,23 @@ export class TablaObjetoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTipoObjetos();
+    this.getSistemas();
     this.mensajeAlmacenado();
   }
 
-  getTipoObjetos() {
-    this.crudService.getTipoObjetos().subscribe((res: TipoObjeto[]) => {
-      this.tipoObjetos = res;
+  getSistemas() {
+    this.crudService.getSistemas().subscribe((res: Sistema[]) => {
+      this.sistemas = res;
     });
   }
 
-  getUsersForPage(): TipoObjeto[] {
+  getUsersForPage(): Sistema[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    return this.tipoObjetos.slice(startIndex, endIndex);
+    return this.sistemas.slice(startIndex, endIndex);
   }
   getTotalPages(): number {
-    return Math.ceil(this.tipoObjetos.length / this.itemsPerPage);
+    return Math.ceil(this.sistemas.length / this.itemsPerPage);
   }
 
   getPages(): number[] {
@@ -61,19 +62,19 @@ export class TablaObjetoComponent implements OnInit {
   }
 
 
-  getTipoObjeto(id) {
-    this.crudService.getTipoObjeto(id).subscribe((res: TipoObjeto[]) => {
-      this.tipoObjeto = res;
+  getSistema(id) {
+    this.crudService.getSistema(id).subscribe((res: Sistema[]) => {
+      this.sistema = res;
     });
   }
 
   modificar() {
-    const tipoObjeto: TipoObjeto = {
-      Id: this.tipoObjeto[0].Id,
-      Nombre: this.tipoObjeto[0].Nombre,
+    const sistema: Sistema = {
+      Id: this.sistema[0].Id,
+      Nombre: this.sistema[0].Nombre,
       Activo: false,
     };
-    this.crudService.modificarTipoObjeto(tipoObjeto).subscribe(
+    this.crudService.modificarSistema(sistema).subscribe(
       (res) => {
         localStorage.setItem('mensaje', res.message);
         window.location.reload();
@@ -82,11 +83,11 @@ export class TablaObjetoComponent implements OnInit {
     );
   }
 
-  DesactivaroActivar(tipoObjetos) {
-    let id = tipoObjetos.Id;
+  DesactivaroActivar(sistemas) {
+    let id = sistemas.Id;
   
-    if (tipoObjetos.Activo === true) {
-      this.crudService.eliminarTipoObjeto(id).subscribe(
+    if (sistemas.Activo === true) {
+      this.crudService.eliminarSistema(id).subscribe(
         (res) => {
           localStorage.setItem('mensaje', res.message);
           window.location.reload();
@@ -96,7 +97,7 @@ export class TablaObjetoComponent implements OnInit {
         }
       );
     } else {
-      this.crudService.activarTipoObjeto(id).subscribe(
+      this.crudService.activarSistema(id).subscribe(
         (res) => {
           localStorage.setItem('mensaje', res.message);
           window.location.reload();
@@ -107,5 +108,5 @@ export class TablaObjetoComponent implements OnInit {
       );
     }
   }
-  
+
 }

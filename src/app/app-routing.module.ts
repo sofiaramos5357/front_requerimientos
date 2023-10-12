@@ -4,8 +4,6 @@ import { ConfigUsuarioComponent } from './pages/administrador/usuarios/usuarios.
 import { CrearUsuarioComponent } from './pages/public/crear-usuario/crear-usuario.component';
 import { CrearSolicitudComponent } from './pages/administrador/crear-solicitud/crear-solicitud.component';
 import { DocumentoComponent } from './pages/administrador/documento/documento.component';
-import { ModificacionUsuarioComponent } from './components/administrador/modificacion-usuario/modificacion-usuario.component';
-import { ConfigUsuarioElabComponent } from './pages/elaborador/config-usuario-elab/config-usuario-elab.component';
 import { InicioElaboradorComponent } from './pages/elaborador/inicio-elaborador/inicio-elaborador.component';
 import { RequerimientoCambioComponent } from './pages/elaborador/requerimiento-cambio/requerimiento-cambio.component';
 import { RequerimientoCambioDetalleComponent } from './pages/elaborador/requerimiento-cambio-detalle/requerimiento-cambio-detalle.component';
@@ -22,6 +20,8 @@ import { IngresarRevisionComponent } from './pages/administrador/ingresar-revisi
 import { DocumentarRequerimientoComponent } from './pages/administrador/documentar-requerimiento/documentar-requerimiento.component';
 import { ReportesComponent } from './pages/administrador/reportes/reportes.component';
 import { ObjetoComponent } from './pages/elaborador/objeto/objeto.component';
+import { SistemasComponent } from './pages/administrador/sistemas/sistemas.component';
+import { ChangelogComponent } from './pages/administrador/changelog/changelog.component';
 
 const routes: Routes = [
 
@@ -38,18 +38,14 @@ const routes: Routes = [
   {path: 'crearsolicitud', component:CrearSolicitudComponent},
   {path: 'documentos', component:DocumentoComponent},
   {path: 'reportes', component:ReportesComponent},
-  {path: 'editarUsuario', component:ModificacionUsuarioComponent},
   {path: 'visualizarreq', component:VisualizarRequerimientoComponent},
   {path: 'editarrequerimiento', component:EditarRequerimientoComponent},
   {path: 'ingresarrevision', component:IngresarRevisionComponent},
   {path: 'documentar', component:DocumentarRequerimientoComponent},
-
-
-
-
+  {path: 'sistemas', component:SistemasComponent},
+  {path: 'changelog', component:ChangelogComponent},
 
   //elaborador
-  {path: 'configusuario', component:ConfigUsuarioElabComponent},
   {path: 'inicioElab', component:InicioElaboradorComponent},
   {path: 'requerimientoDetalle', component:RequerimientoCambioDetalleComponent},
   {path: 'fichatecnica', component:FichaTecnicaComponent},
@@ -57,9 +53,6 @@ const routes: Routes = [
   {path: 'modificarficha', component:ModificarFichaComponent},
   {path: 'reqdetalle', component:RequerimientoCambioComponent},
   {path: 'objetos', component:ObjetoComponent},
-
-
-
 
   //redirigir al login cuando se ponga una ruta no valida
   {path: '**',redirectTo:''},

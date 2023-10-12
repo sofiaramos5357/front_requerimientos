@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FichaTecnica } from 'src/app/models/ficha-tecnica.model';
 import { CrudService } from 'src/app/services/crud.service';
 import * as alertifyjs from 'alertifyjs';
 import { TipoCambio } from 'src/app/models/tipo-cambio.model';
@@ -24,6 +23,8 @@ export class FormularioModificarFichaComponent implements OnInit{
   ngOnInit(): void {
     this.obtenerDatosRuta()
     this.obtenerTipoCambio()
+    this.mensajeAlmacenado();
+
   }
 
   fichaTecnica = {
@@ -35,6 +36,12 @@ export class FormularioModificarFichaComponent implements OnInit{
 
   tipoCambios:TipoCambio[]
   datosRuta: number
+
+  tipoCambio: TipoCambio = {
+    Id: 0,
+    Nombre: '',
+    Activo:true
+  };
 
   datosFichaTecnica:DatosFichaTecnica
 
@@ -105,6 +112,36 @@ export class FormularioModificarFichaComponent implements OnInit{
         // Maneja el caso en el que el parámetro 'requerimiento' no esté definido
       }
     });
+  }
+
+  validarTipoCambio(): boolean {
+    if (this.tipoCambio !== undefined) {
+      return this.tipoCambio.Nombre.trim() !== '';
+    }
+    return false;
+  }
+
+  mensajeAlmacenado() {
+    // Verificar si hay un mensaje almacenado en el almacenamiento local
+    const mensaje = localStorage.getItem('mensaje');
+    if (mensaje) {
+      // Mostrar el mensaje con alertify o cualquier otro mecanismo de notificación
+      alertifyjs.success(mensaje);
+
+      // Limpiar el mensaje del almacenamiento local
+      localStorage.removeItem('mensaje');
+    }
+  }
+
+  guardarTipoCambio() {
+    this.crudService.crearTipoCambio(this.tipoCambio).subscribe(
+      (res) => {
+        // Almacenar el mensaje en el almacenamiento local antes de recargar
+        localStorage.setItem('mensaje', res.message);
+        window.location.reload();
+      },
+      (error) => {}
+    );
   }
 
 }
