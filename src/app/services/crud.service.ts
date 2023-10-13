@@ -16,6 +16,7 @@ import { RequerimientoCreado } from '../models/requerimiento-creado';
 import { FichaTecnica } from '../models/ficha-tecnica.model';
 import { DatosFichaTecnica } from '../models/datos-ficha-tecnica.model';
 import { Revision } from '../models/revision';
+import { Changelog } from '../models/changelog.model';
 
 
 @Injectable({
@@ -449,6 +450,15 @@ eliminarTipoObjeto(Id:any){
 activarTipoObjeto(Id:any){
   return this.httpClient.post(`${this.RestApi}/activartipoobjeto/${Id}`,{headers: this.httpHeaders})
   .pipe(catchError(this.handleError),map((response: any) => response));
+}
+
+//---------------------changelog-----------------------------------------------------------------
+getChangelog(id:any){
+  return this.httpClient.get(`${this.RestApi}/changelog/${id}`,{headers: this.httpHeaders}).pipe(
+    map((res:Changelog)=>{
+      return res || {}
+    })
+  )
 }
 
 }

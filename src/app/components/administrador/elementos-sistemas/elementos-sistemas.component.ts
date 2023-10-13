@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import * as alertifyjs from 'alertifyjs';
 import { CrudService } from 'src/app/services/crud.service';
-import { TipoObjeto } from 'src/app/models/tipo-objeto.model';
 import { Sistema } from 'src/app/models/sistema.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-elementos-sistemas',
   templateUrl: './elementos-sistemas.component.html',
-  styleUrls: ['./elementos-sistemas.component.css']
+  styleUrls: ['./elementos-sistemas.component.css'],
 })
 export class ElementosSistemasComponent implements OnInit {
-  constructor(
-    private crudService: CrudService,
-  ) {}
+  constructor(private crudService: CrudService,private router: Router) {}
 
   sistemas: Sistema[] = [];
 
@@ -20,8 +18,6 @@ export class ElementosSistemasComponent implements OnInit {
   currentPage: number = 1; // Página actual
 
   sistema: Sistema[] = [];
-
-
 
   mensajeAlmacenado() {
     // Verificar si hay un mensaje almacenado en el almacenamiento local
@@ -61,7 +57,6 @@ export class ElementosSistemasComponent implements OnInit {
       .map((_, index) => index + 1);
   }
 
-
   getSistema(id) {
     this.crudService.getSistema(id).subscribe((res: Sistema[]) => {
       this.sistema = res;
@@ -85,7 +80,7 @@ export class ElementosSistemasComponent implements OnInit {
 
   DesactivaroActivar(sistemas) {
     let id = sistemas.Id;
-  
+
     if (sistemas.Activo === true) {
       this.crudService.eliminarSistema(id).subscribe(
         (res) => {
@@ -109,4 +104,15 @@ export class ElementosSistemasComponent implements OnInit {
     }
   }
 
+  enviarDatos(SistemaId) {
+    //console.log(SistemaId);
+    
+    if (SistemaId !== null && SistemaId !== undefined) {
+      this.router.navigate(['/changelog'], {
+        queryParams: { sistemaId: JSON.stringify(SistemaId) },
+      });
+    } else {
+      console.error("El objeto 'SistemaId' está vacío o no está definido.");
+    }
+  }
 }
