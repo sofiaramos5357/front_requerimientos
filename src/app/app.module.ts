@@ -63,7 +63,9 @@ import { TablaTipoCambioComponent } from './components/elaborador/tabla-tipo-cam
 import { SistemasComponent } from './pages/administrador/sistemas/sistemas.component';
 import { ElementosSistemasComponent } from './components/administrador/elementos-sistemas/elementos-sistemas.component';
 import { ChangelogComponent } from './pages/administrador/changelog/changelog.component';
-import { ElementosChangelogComponent } from './components/administrador/elementos-changelog/elementos-changelog.component'; // Importa ReactiveFormsModule
+import { ElementosChangelogComponent } from './components/administrador/elementos-changelog/elementos-changelog.component';
+import { CambiarContrasenaComponent } from './pages/shared/cambiar-contrasena/cambiar-contrasena.component';
+import { FormularioCambiarContrasenaComponent } from './components/shared/formulario-cambiar-contrasena/formulario-cambiar-contrasena.component'; // Importa ReactiveFormsModule
 
 @NgModule({
   declarations: [
@@ -118,7 +120,9 @@ import { ElementosChangelogComponent } from './components/administrador/elemento
     SistemasComponent,
     ElementosSistemasComponent,
     ChangelogComponent,
-    ElementosChangelogComponent
+    ElementosChangelogComponent,
+    CambiarContrasenaComponent,
+    FormularioCambiarContrasenaComponent
   ],
   imports: [
     BrowserModule,

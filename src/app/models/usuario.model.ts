@@ -6,5 +6,7 @@ export interface Usuario {
    Correo: string,
    Activo: boolean,
    NombreUsuario: string,
-   RolId: number
+   RolId: number,
+   CambioContrasena: boolean,
+
 }

@@ -22,12 +22,16 @@ import { ReportesComponent } from './pages/administrador/reportes/reportes.compo
 import { ObjetoComponent } from './pages/elaborador/objeto/objeto.component';
 import { SistemasComponent } from './pages/administrador/sistemas/sistemas.component';
 import { ChangelogComponent } from './pages/administrador/changelog/changelog.component';
+import { CambiarContrasenaComponent } from './pages/shared/cambiar-contrasena/cambiar-contrasena.component';
 
 const routes: Routes = [
 
   //public
   {path: 'crearusuario', component:CrearUsuarioComponent},
   {path: 'recuperarcontrasena', component:RecuperarContrasenaComponent},
+
+  //shared
+  {path: 'cambiarcontrasena', component:CambiarContrasenaComponent},
 
   //home
   {path: 'home',component:HomeComponent, canActivate: [AuthGuard]},
