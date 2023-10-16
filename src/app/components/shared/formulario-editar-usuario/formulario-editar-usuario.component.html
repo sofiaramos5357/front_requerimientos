@@ -1,1 +1,34 @@
-<p>formulario-editar-usuario works!</p>
+<div class="h2 mt-5 text-center">Modificar usuario</div>
+
+
+<form>
+    <div class="d-grid gap-2 col-3 mx-auto mt-5 ">
+      <label for="exampleInputEmail1" class="form-label">Identidad</label>
+      <input type="text" class="form-control" id="Identidad" name="Identidad" [(ngModel)]="nuevoUsuario.Identidad" aria-describedby="emailHelp"/>
+    </div>
+
+    <div class="d-grid gap-2 col-3 mx-auto mt-4">
+        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="Nombre" name="Nombre" [(ngModel)]="nuevoUsuario.Nombre" aria-describedby="emailHelp"/>
+    </div>
+
+    <div class="d-grid gap-2 col-3 mx-auto mt-4">
+        <label for="exampleInputEmail1" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="Apellido" name="Apellido" [(ngModel)]="nuevoUsuario.Apellido" aria-describedby="emailHelp"/>
+    </div>
+
+    <div class="d-grid gap-2 col-3 mx-auto mt-4">
+      <label for="exampleInputEmail1" class="form-label">Nombre de usuario</label>
+      <input type="text" class="form-control" id="NombreUsuario" name="NombreUsuario" [(ngModel)]="nuevoUsuario.NombreUsuario" aria-describedby="emailHelp"/>
+  </div>
+
+  <div class="d-grid gap-2 col-3 mx-auto mt-5">
+    <label for="exampleInputPassword1" class="form-label">Ingrese su contraseña para confirmar los cambios</label>
+    <input type="password" class="form-control" id="Contrasena" name="Contrasena" [(ngModel)]="nuevoUsuario.Contrasena" />
+  </div>
+  
+    <div class="d-grid gap-2 col-1 mx-auto mt-5">
+      <button type="button" class="btn btn-primary" (click)="modificarUsuario()">Guardar Cambios</button>
+    </div>
+    
+</form>

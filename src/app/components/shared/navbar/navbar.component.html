@@ -1,38 +1,93 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" *ngIf="datosUsuario && datosUsuario.RolId === 1">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">Inicio</a>
-          <a class="nav-link" routerLink="/crearsolicitud" routerLinkActive="active">Crear solicitud</a>
-          <a class="nav-link" routerLink="/reportes" routerLinkActive="active">Reportes</a>
-          <a class="nav-link" routerLink="/documentos" routerLinkActive="active">Documentos</a>
-          <a class="nav-link" routerLink="/usuarios" routerLinkActive="active">Usuarios</a>
-          <a class="nav-link" routerLink="/sistemas" routerLinkActive="active">Sistemas</a>
-        </div>
-      </div>
-      <button type="button" class="btn btn-danger">
-        <a class="nav-link" (click)="authService.logout()">Cerrar sesion</a>
-        </button>
-    </div>
-</nav>
+<head>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
+  />
+</head>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary" *ngIf="datosUsuario && datosUsuario.RolId === 2">
+<nav
+  class="navbar navbar-expand-lg bg-body-tertiary"
+  *ngIf="datosUsuario && datosUsuario.RolId === 1"
+>
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" routerLink="/home" routerLinkActive="active">Inicio</a>
-        <a class="nav-link" routerLink="/objetos" routerLinkActive="active">Objetos</a>
-        <a class="nav-link" routerLink="/configurarusuario" routerLinkActive="active">Usuario</a>
+        <a class="nav-link" routerLink="/home" routerLinkActive="active"
+          >Inicio</a
+        >
+        <a
+          class="nav-link"
+          routerLink="/crearsolicitud"
+          routerLinkActive="active"
+          >Crear solicitud</a
+        >
+        <a class="nav-link" routerLink="/reportes" routerLinkActive="active"
+          >Reportes</a
+        >
+        <a class="nav-link" routerLink="/documentos" routerLinkActive="active"
+          >Documentos</a
+        >
+        <a class="nav-link" routerLink="/usuarios" routerLinkActive="active"
+          >Usuarios</a
+        >
+        <a class="nav-link" routerLink="/sistemas" routerLinkActive="active"
+          >Sistemas</a
+        >
       </div>
     </div>
+    <button type="button" class="btn btn-primary btn-just-icon btn-sm me-5" routerLink="/modificarusuario">
+      <i class="material-icons">manage_accounts</i>
+    </button>
     <button type="button" class="btn btn-danger">
       <a class="nav-link" (click)="authService.logout()">Cerrar sesion</a>
-      </button>
+    </button>
+  </div>
+</nav>
+
+<nav
+  class="navbar navbar-expand-lg bg-body-tertiary"
+  *ngIf="datosUsuario && datosUsuario.RolId === 2"
+>
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active"
+          >Inicio</a
+        >
+        <a class="nav-link" routerLink="/objetos" routerLinkActive="active"
+          >Objetos</a
+        > 
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary btn-just-icon btn-sm me-5" routerLink="/modificarusuario">
+      <i class="material-icons">manage_accounts</i>
+    </button>
+
+    <button type="button" class="btn btn-danger">
+      <a class="nav-link" (click)="authService.logout()">Cerrar sesion</a>
+    </button>
   </div>
 </nav>

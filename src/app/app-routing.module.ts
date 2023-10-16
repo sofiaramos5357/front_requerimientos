@@ -23,6 +23,7 @@ import { ObjetoComponent } from './pages/elaborador/objeto/objeto.component';
 import { SistemasComponent } from './pages/administrador/sistemas/sistemas.component';
 import { ChangelogComponent } from './pages/administrador/changelog/changelog.component';
 import { CambiarContrasenaComponent } from './pages/shared/cambiar-contrasena/cambiar-contrasena.component';
+import { ModificarUsuarioComponent } from './pages/shared/modificar-usuario/modificar-usuario.component';
 
 const routes: Routes = [
 
@@ -32,6 +33,7 @@ const routes: Routes = [
 
   //shared
   {path: 'cambiarcontrasena', component:CambiarContrasenaComponent},
+  {path: 'modificarusuario', component:ModificarUsuarioComponent},
 
   //home
   {path: 'home',component:HomeComponent, canActivate: [AuthGuard]},

@@ -95,6 +95,11 @@ modificarUsuario(data:any){
 }
 
 
+modificarUsuarioPropio(data:any){
+  return this.httpClient.post(`${this.RestApi}/usuario/modificar`,data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response))
+}
+
 //---------------------documentos-----------------------------------------------------------------
 getDocumentos(){
   return this.httpClient.get(`${this.RestApi}/documento`, {headers:this.httpHeaders})
@@ -460,5 +465,13 @@ getChangelog(id:any){
     })
   )
 }
+
+//---------------------cambiar contrasena----------------
+
+nuevaContrasena(data:any){
+  return this.httpClient.post(`${this.RestApi}/cambiocontrasena`, data,{headers: this.httpHeaders})
+  .pipe(catchError(this.handleError),map((response: any) => response))
+}
+
 
 }

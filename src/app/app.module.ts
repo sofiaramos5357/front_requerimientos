@@ -11,7 +11,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormularioEditarUsuarioComponent } from './components/shared/formulario-editar-usuario/formulario-editar-usuario.component';
 import { CrearSolicitudComponent } from './pages/administrador/crear-solicitud/crear-solicitud.component';
-import { ModificacionUsuarioComponent } from './pages/administrador/modificacion-usuario/modificacion-usuario.component';
 import { CrearUsuarioComponent } from './pages/public/crear-usuario/crear-usuario.component';
 import { DocumentoComponent } from './pages/administrador/documento/documento.component';
 import { RequerimientoCambioComponent } from './pages/elaborador/requerimiento-cambio/requerimiento-cambio.component';
@@ -65,7 +64,8 @@ import { ElementosSistemasComponent } from './components/administrador/elementos
 import { ChangelogComponent } from './pages/administrador/changelog/changelog.component';
 import { ElementosChangelogComponent } from './components/administrador/elementos-changelog/elementos-changelog.component';
 import { CambiarContrasenaComponent } from './pages/shared/cambiar-contrasena/cambiar-contrasena.component';
-import { FormularioCambiarContrasenaComponent } from './components/shared/formulario-cambiar-contrasena/formulario-cambiar-contrasena.component'; // Importa ReactiveFormsModule
+import { FormularioCambiarContrasenaComponent } from './components/shared/formulario-cambiar-contrasena/formulario-cambiar-contrasena.component';
+import { ModificarUsuarioComponent } from './pages/shared/modificar-usuario/modificar-usuario.component'; // Importa ReactiveFormsModule
 
 @NgModule({
   declarations: [
@@ -76,7 +76,6 @@ import { FormularioCambiarContrasenaComponent } from './components/shared/formul
     TablaConfigUsuariosComponent,
     FormularioEditarUsuarioComponent,
     CrearSolicitudComponent,
-    ModificacionUsuarioComponent,
     CrearUsuarioComponent,
     DocumentoComponent,
     RequerimientoCambioComponent,
@@ -122,7 +121,8 @@ import { FormularioCambiarContrasenaComponent } from './components/shared/formul
     ChangelogComponent,
     ElementosChangelogComponent,
     CambiarContrasenaComponent,
-    FormularioCambiarContrasenaComponent
+    FormularioCambiarContrasenaComponent,
+    ModificarUsuarioComponent
   ],
   imports: [
     BrowserModule,

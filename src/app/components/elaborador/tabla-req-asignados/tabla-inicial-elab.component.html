@@ -22,7 +22,11 @@
                 <tr *ngFor="let requerimiento of getUsersForPage()">
                   <td>{{ requerimiento.Id }}</td>
                   <td >{{ requerimiento.NombreSistema }}</td>
-                  <td>{{ requerimiento.Estado }}</td>
+                  <td>
+                    <span class="badge rounded-pill bg-secondary">
+                      {{ requerimiento.Estado }}</span
+                    >
+                  </td>
                   <td>{{ requerimiento.NombreCreador }} {{ requerimiento.ApellidoCreador }}</td>  
                   <td *ngIf="datosUsuario && datosUsuario.Id !== requerimiento.UsuarioIdCreador" class="td-actions text-right">
                     <button type="button" class="btn btn-success btn-just-icon btn-sm" (click)="verRequerimiento(requerimiento)" >

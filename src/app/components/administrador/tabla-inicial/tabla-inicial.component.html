@@ -27,7 +27,10 @@
                 <td>{{ requerimiento.Id }}</td>
                 <td>{{ requerimiento.NombreSistema }}</td>
                 <td>
-                  <span class="badge rounded-pill bg-secondary">
+                  <span class="badge rounded-pill bg-secondary" *ngIf="requerimiento.RequerimientoEstadoId===1">
+                    {{ requerimiento.Estado }}</span
+                  >
+                  <span class="badge rounded-pill bg-primary" *ngIf="requerimiento.RequerimientoEstadoId===2">
                     {{ requerimiento.Estado }}</span
                   >
                 </td>

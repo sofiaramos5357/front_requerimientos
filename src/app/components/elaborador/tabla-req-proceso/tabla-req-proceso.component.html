@@ -20,7 +20,14 @@
               <tr *ngFor="let requerimientosProceso of getUsersForPage()">
                 <td>{{ requerimientosProceso.Id }}</td>
                 <td>{{ requerimientosProceso.NombreSistema }}</td>
-                <td>{{ requerimientosProceso.Estado }}</td>
+                <td>
+                  <span *ngIf="requerimientosProceso.RequerimientoEstadoId===2" class="badge rounded-pill bg-primary">
+                    {{ requerimientosProceso.Estado }}</span
+                  >
+                  <span *ngIf="requerimientosProceso.RequerimientoEstadoId===7" class="badge rounded-pill bg-danger">
+                    {{ requerimientosProceso.Estado }}</span
+                  >
+                </td>
                 <td>
                   {{ requerimientosProceso.NombreCreador }}
                   {{ requerimientosProceso.ApellidoCreador }}

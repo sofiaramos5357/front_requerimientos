@@ -19,7 +19,11 @@
               <tr *ngFor="let reqPendienteRevision of getUsersForPage()">
                 <td>{{ reqPendienteRevision.Id }}</td>
                 <td>{{ reqPendienteRevision.NombreSistema }}</td>
-                <td>{{ reqPendienteRevision.Estado }}</td>
+                <td>
+                  <span class="badge rounded-pill bg-warning">
+                    {{ reqPendienteRevision.Estado }}</span
+                  >
+                </td>
                 <td>
                   {{ reqPendienteRevision.NombreCreador }}
                   {{ reqPendienteRevision.ApellidoCreador }}
