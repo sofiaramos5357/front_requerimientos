@@ -1,0 +1,49 @@
+<div class="container d-flex justify-content-center align-items-center vh-50">
+  <div
+    class="btn-group mt-5 col-lg-12"
+    role="group"
+    aria-label="Basic checkbox toggle button group"
+  >
+    <input
+      type="checkbox"
+      class="btn-check"
+      id="btncheck1"
+      autocomplete="off"
+    />
+    <label
+      class="btn btn-outline-primary"
+      for="btncheck1"
+      (click)="marcarBoton('btncheck1')"
+      >{{ elementos.Titulo1 }}
+      <span class="badge bg-danger">{{ elementos.cantidad1 }}</span></label
+    >
+
+    <input
+      type="checkbox"
+      class="btn-check"
+      id="btncheck2"
+      autocomplete="off"
+    />
+    <label
+      class="btn btn-outline-primary"
+      for="btncheck2"
+      (click)="marcarBoton('btncheck2')"
+      >{{ elementos.Titulo2 }}
+      <span class="badge bg-danger">{{ elementos.cantidad2 }}</span></label
+    >
+
+    <input
+      type="checkbox"
+      class="btn-check"
+      id="btncheck3"
+      autocomplete="off"
+    />
+    <label
+      class="btn btn-outline-primary"
+      for="btncheck3"
+      (click)="marcarBoton('btncheck3')"
+      >{{ elementos.Titulo3 }}
+      <span class="badge bg-danger">{{ elementos.cantidad3 }}</span></label
+    >
+  </div>
+</div>

@@ -36,7 +36,7 @@ export class FormularioCrearUsuarioComponent {
       this.crudService.crearUsuario(this.nuevoUsuario).subscribe(
         res => {
           // Aquí puedes manejar la respuesta del backend si es necesario
-          console.log('Registro exitoso', res);
+          //console.log('Registro exitoso', res);
           // Limpia los campos del formulario u realiza otras acciones necesarias después del registro
           this.nuevoUsuario = {
             Identidad: '',

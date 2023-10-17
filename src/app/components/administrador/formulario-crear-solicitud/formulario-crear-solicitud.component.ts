@@ -91,12 +91,12 @@ export class FormularioCrearSolicitudComponent implements OnInit {
 
   crearRequerimiento() {
     this.requerimiento.UsuarioIdCreador=this.Id
-    console.log(this.requerimiento)
+    //console.log(this.requerimiento)
 
     this.crudService.crearRequerimiento(this.requerimiento).subscribe(
       res => {
         // Aquí puedes manejar la respuesta del backend si es necesario
-        console.log('Requerimiento creado', res);
+        //console.log('Requerimiento creado', res);
         //console.log(this.requerimiento)
         this.router.navigate(['/home']);
         alertifyjs.success(res.message)

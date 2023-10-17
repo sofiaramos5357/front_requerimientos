@@ -25,7 +25,6 @@ export class FormularioEditarUsuarioComponent implements OnInit {
 
   nuevoUsuario = {
     Id: 0,
-    Identidad: '',
     Nombre: '',
     Apellido: '',
     Contrasena: '',
@@ -55,11 +54,10 @@ export class FormularioEditarUsuarioComponent implements OnInit {
         //console.log(this.DatosUsuario[0].Id)
         this.nuevoUsuario = {
           Id: this.DatosUsuario[0].Id,
-          Identidad: this.DatosUsuario[0].Identidad,
           Nombre: this.DatosUsuario[0].Nombre,
           Apellido: this.DatosUsuario[0].Apellido,
           Contrasena: '',
-          NombreUsuario: this.DatosUsuario[0].NombreUsuario,
+          NombreUsuario: '',
         };
       },
       (error) => {

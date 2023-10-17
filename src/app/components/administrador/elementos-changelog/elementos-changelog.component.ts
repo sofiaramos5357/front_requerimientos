@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RequerimientoCreado } from 'src/app/models/requerimiento-creado';
-import { Usuario } from 'src/app/models/usuario.model';
 import { Router } from '@angular/router';
-import * as alertifyjs from 'alertifyjs';
-
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { CrudService } from 'src/app/services/crud.service';
-import { DatosFichaTecnica } from 'src/app/models/datos-ficha-tecnica.model';
 import { Changelog } from 'src/app/models/changelog.model';
 import { RequerimientoDetalle } from 'src/app/models/requerimiento-detalle.model';
 
@@ -18,7 +13,8 @@ import { RequerimientoDetalle } from 'src/app/models/requerimiento-detalle.model
 })
 export class ElementosChangelogComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private datosUsuarioService: DatosUsuarioService,private router: Router, private crudService: CrudService) { }
+  constructor(private route: ActivatedRoute,private datosUsuarioService: DatosUsuarioService,private router: Router, private crudService: CrudService) {
+   }
 
 
   ngOnInit() {
@@ -28,9 +24,6 @@ export class ElementosChangelogComponent implements OnInit {
   SistemaId: number
   changelog:Changelog
   requerimientoDetalles: RequerimientoDetalle[] = [];
-
-
-
 
   obtenerDatosRuta() {
     // Recupera los datos pasados a través de los parámetros de la ruta
@@ -45,11 +38,11 @@ export class ElementosChangelogComponent implements OnInit {
           this.obtenerChangelog(this.SistemaId)
 
         } catch (error) {
-          console.error("Error al analizar JSON:", error);
+          //console.error("Error al analizar JSON:", error);
           // Maneja el error de análisis JSON 
         }
       } else {
-        console.error("El parámetro 'sistemaId' es undefined o null");
+        //console.error("El parámetro 'sistemaId' es undefined o null");
         // Maneja el caso en el que el parámetro 'requerimiento' no esté definido
       }
     });
@@ -58,7 +51,7 @@ export class ElementosChangelogComponent implements OnInit {
   obtenerChangelog(id){
     this.crudService.getChangelog(id).subscribe((res: Changelog) => {
       this.changelog = res[0]
-      console.log(this.changelog)
+      //console.log(this.changelog)
       this.obtenerActividadesRealizadas(this.changelog.RequerimientoCambioId)
     });
     
@@ -67,7 +60,7 @@ export class ElementosChangelogComponent implements OnInit {
   obtenerActividadesRealizadas(id) {
     this.crudService.getRequerimientoDetalle(id).subscribe((res: RequerimientoDetalle[]) => {
       this.requerimientoDetalles = res
-      console.log(this.requerimientoDetalles)
+      //console.log(this.requerimientoDetalles)
     });
   }
 

@@ -1,5 +1,11 @@
 <app-navbar></app-navbar>
+<app-checkbuttons
+  [elementos]="elementos"
+  (botonMarcado)="handleBotonMarcado($event)"
+></app-checkbuttons>
 
-<app-tabla-inicial-elab></app-tabla-inicial-elab>
-<app-tabla-req-proceso></app-tabla-req-proceso>
-<app-tabla-req-pendiente-revision></app-tabla-req-pendiente-revision>
+<app-tabla-inicial-elab *ngIf="!btncheck1"></app-tabla-inicial-elab>
+<app-tabla-req-proceso *ngIf="!btncheck2"></app-tabla-req-proceso>
+<app-tabla-req-pendiente-revision
+  *ngIf="!btncheck3"
+></app-tabla-req-pendiente-revision>

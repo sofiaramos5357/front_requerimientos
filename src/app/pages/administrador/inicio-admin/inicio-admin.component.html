@@ -1,21 +1,9 @@
 <app-navbar></app-navbar>
+<app-checkbuttons
+  [elementos]="elementos"
+  (botonMarcado)="handleBotonMarcado($event)"
+></app-checkbuttons>
 
-<app-tabla-inicial></app-tabla-inicial>
-<!--
-<router-outlet></router-outlet>
-router-outlet es una etiqueta especial en Angular que sirve para mostrar los componentes hijos de un componente
-
-
-
-para hacer solo un home y cargar dependiendo del rol
-
- Si el usuario es un administrador, muestra el menú de administrador 
-<app-admin-menu *ngIf="isAdmin"></app-admin-menu>
-
- Si el usuario es un usuario común, muestra el menú de usuario común 
-<app-user-menu *ngIf="!isAdmin"></app-user-menu>
-
--->
-
-<app-tabla-revisar></app-tabla-revisar>
-<app-tabla-req-documentar></app-tabla-req-documentar>
+<app-tabla-inicial *ngIf="!btncheck1"></app-tabla-inicial>
+<app-tabla-revisar *ngIf="!btncheck2"></app-tabla-revisar>
+<app-tabla-req-documentar *ngIf="!btncheck3"></app-tabla-req-documentar>

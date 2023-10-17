@@ -40,7 +40,7 @@ export class ElementosEditarDocumentoComponent implements OnInit {
   DocumentosEdicion(Id) {
     this.crudService.getDocumentosEdicion(Id).subscribe((res: any[]) => {
       this.documentosEdicion = res      
-      console.log(this.documentosEdicion)
+      //console.log(this.documentosEdicion)
     });
 }
 

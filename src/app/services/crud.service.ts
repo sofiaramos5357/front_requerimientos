@@ -265,6 +265,51 @@ revisionDenegada(data:Revision){
   return this.httpClient.post(`${this.RestApi}/requerimientocambio/revisionadenegada`, data,{headers: this.httpHeaders})
   .pipe(catchError(this.handleError),map((response: any) => response));
 }
+//--------------------------------------------cantidades de requerimientos  administrador(proceso, revisar,documentar) elaborador(asignados, proceso, revision)------------------------
+TotalRequerimientoscreadas(){
+  return this.httpClient.get(`${this.RestApi}/totalcreados`, {headers:this.httpHeaders}).pipe(
+    map((res:any)=>{
+      return res || {}
+    })
+  )
+}
+TotalRequerimientosARevisar(Id:any){
+  return this.httpClient.get(`${this.RestApi}/totalrequerimientoarevisar/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:any)=>{
+      return res || {}
+    })
+  )
+}
+TotalRequerimientosADocumentar(Id:any){
+  return this.httpClient.get(`${this.RestApi}/totalrequerimientosdocumentar/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:any)=>{
+      return res || {}
+    })
+  )
+}
+TotalRequerimientosAsignados(Id:any){
+  return this.httpClient.get(`${this.RestApi}/totalrequerimientocambio/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:any)=>{
+      return res || {}
+    })
+  )
+}
+TotalPendienteRevisar(Id:number){
+  return this.httpClient.get(`${this.RestApi}/totalreqpendienterevision/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:any)=>{
+      return res || {}
+    })
+  )
+  
+}
+TotalRequerimientosProceso(Id:any){
+  return this.httpClient.get(`${this.RestApi}/totalrequerimientoproceso/${Id}`,{headers: this.httpHeaders}).pipe(
+    map((res:any)=>{
+      return res || {}
+    })
+  )
+}
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //---------------------RequerimientoEstado-----------------------------------------------------------------
 getRequerimientosEstados(){

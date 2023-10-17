@@ -65,7 +65,8 @@ import { ChangelogComponent } from './pages/administrador/changelog/changelog.co
 import { ElementosChangelogComponent } from './components/administrador/elementos-changelog/elementos-changelog.component';
 import { CambiarContrasenaComponent } from './pages/shared/cambiar-contrasena/cambiar-contrasena.component';
 import { FormularioCambiarContrasenaComponent } from './components/shared/formulario-cambiar-contrasena/formulario-cambiar-contrasena.component';
-import { ModificarUsuarioComponent } from './pages/shared/modificar-usuario/modificar-usuario.component'; // Importa ReactiveFormsModule
+import { ModificarUsuarioComponent } from './pages/shared/modificar-usuario/modificar-usuario.component';
+import { CheckbuttonsComponent } from './components/shared/checkbuttons/checkbuttons.component'; // Importa ReactiveFormsModule
 
 @NgModule({
   declarations: [
@@ -122,7 +123,8 @@ import { ModificarUsuarioComponent } from './pages/shared/modificar-usuario/modi
     ElementosChangelogComponent,
     CambiarContrasenaComponent,
     FormularioCambiarContrasenaComponent,
-    ModificarUsuarioComponent
+    ModificarUsuarioComponent,
+    CheckbuttonsComponent
   ],
   imports: [
     BrowserModule,
