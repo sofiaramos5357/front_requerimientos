@@ -1,72 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConfigUsuarioComponent } from './pages/administrador/usuarios/usuarios.component';
-import { CrearUsuarioComponent } from './pages/public/crear-usuario/crear-usuario.component';
-import { CrearSolicitudComponent } from './pages/administrador/crear-solicitud/crear-solicitud.component';
-import { DocumentoComponent } from './pages/administrador/documento/documento.component';
-import { InicioElaboradorComponent } from './pages/elaborador/inicio-elaborador/inicio-elaborador.component';
-import { RequerimientoCambioComponent } from './pages/elaborador/requerimiento-cambio/requerimiento-cambio.component';
-import { RequerimientoCambioDetalleComponent } from './pages/elaborador/requerimiento-cambio-detalle/requerimiento-cambio-detalle.component';
-import { LoginComponent } from './pages/public/login/login.component';
-import { RecuperarContrasenaComponent } from './pages/public/recuperar-contrasena/recuperar-contrasena.component';
 import { AuthGuard } from './auth.guard';
-import { HomeComponent } from './pages/home/home/home.component';
-import { VisualizarRequerimientoComponent } from './pages/administrador/visualizar-requerimiento/visualizar-requerimiento.component';
-import { EditarRequerimientoComponent } from './pages/administrador/editar-requerimiento/editar-requerimiento.component';
-import { FichaTecnicaComponent } from './pages/elaborador/ficha-tecnica/ficha-tecnica.component';
-import { RequerimientoAsignadoComponent } from './pages/elaborador/requerimiento-asignado/requerimiento-asignado.component';
-import { ModificarFichaComponent } from './pages/elaborador/modificar-ficha/modificar-ficha.component';
-import { IngresarRevisionComponent } from './pages/administrador/ingresar-revision/ingresar-revision.component';
-import { DocumentarRequerimientoComponent } from './pages/administrador/documentar-requerimiento/documentar-requerimiento.component';
-import { ReportesComponent } from './pages/administrador/reportes/reportes.component';
-import { ObjetoComponent } from './pages/elaborador/objeto/objeto.component';
-import { SistemasComponent } from './pages/administrador/sistemas/sistemas.component';
-import { ChangelogComponent } from './pages/administrador/changelog/changelog.component';
-import { CambiarContrasenaComponent } from './pages/shared/cambiar-contrasena/cambiar-contrasena.component';
-import { ModificarUsuarioComponent } from './pages/shared/modificar-usuario/modificar-usuario.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('../app/public/public.module').then((m) => m.PublicModule),
+  },
+  
 
-  //public
-  {path: 'crearusuario', component:CrearUsuarioComponent},
-  {path: 'recuperarcontrasena', component:RecuperarContrasenaComponent},
 
-  //shared
-  {path: 'cambiarcontrasena', component:CambiarContrasenaComponent},
-  {path: 'modificarusuario', component:ModificarUsuarioComponent},
 
-  //home
-  {path: 'home',component:HomeComponent, canActivate: [AuthGuard]},
-  {path: '',component:LoginComponent},
 
-  //admin
-  {path: 'usuarios', component:ConfigUsuarioComponent, canActivate: [AuthGuard]},
-  {path: 'crearsolicitud', component:CrearSolicitudComponent},
-  {path: 'documentos', component:DocumentoComponent},
-  {path: 'reportes', component:ReportesComponent},
-  {path: 'visualizarreq', component:VisualizarRequerimientoComponent},
-  {path: 'editarrequerimiento', component:EditarRequerimientoComponent},
-  {path: 'ingresarrevision', component:IngresarRevisionComponent},
-  {path: 'documentar', component:DocumentarRequerimientoComponent},
-  {path: 'sistemas', component:SistemasComponent},
-  {path: 'changelog', component:ChangelogComponent},
-
-  //elaborador
-  {path: 'inicioElab', component:InicioElaboradorComponent},
-  {path: 'requerimientoDetalle', component:RequerimientoCambioDetalleComponent},
-  {path: 'fichatecnica', component:FichaTecnicaComponent},
-  {path: 'requerimientoasignado', component:RequerimientoAsignadoComponent},
-  {path: 'modificarficha', component:ModificarFichaComponent},
-  {path: 'reqdetalle', component:RequerimientoCambioComponent},
-  {path: 'objetos', component:ObjetoComponent},
 
   //redirigir al login cuando se ponga una ruta no valida
-  {path: '**',redirectTo:''},
-
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
