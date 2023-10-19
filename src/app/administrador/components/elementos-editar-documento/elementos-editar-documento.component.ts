@@ -71,7 +71,7 @@ eliminarDocumento(Id){
   //console.log(this.datosRuta)
   this.crudService.eliminarDocumento(Id).subscribe(
     res => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home/admin']);
       alertifyjs.success(res.message)
     },
     (error) => {

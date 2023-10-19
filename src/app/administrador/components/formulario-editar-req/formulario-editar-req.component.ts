@@ -89,7 +89,7 @@ export class FormularioEditarReqComponent implements OnInit {
     this.crudService.modificarRequerimiento(this.requerimiento).subscribe(
       (res) => {
         alertifyjs.success(res.message)
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/admin']);
         //console.log('Requerimiento modificado correctamente', res);
       },
       (error) => {
@@ -107,7 +107,7 @@ export class FormularioEditarReqComponent implements OnInit {
     this.crudService.eliminarRequerimiento(this.RequerimientoCambio).subscribe(
       (res) => {
         alertifyjs.success(res.message)
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/admin']);
         //console.log('Requerimiento modificado correctamente', res);
       },
       (error) => {

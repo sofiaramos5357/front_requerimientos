@@ -18,7 +18,6 @@ import { ModificarFichaComponent } from './pages/modificar-ficha/modificar-ficha
 import { ObjetoComponent } from './pages/objeto/objeto.component';
 import { RequerimientoAsignadoComponent } from './pages/requerimiento-asignado/requerimiento-asignado.component';
 import { RequerimientoCambioComponent } from './pages/requerimiento-cambio/requerimiento-cambio.component';
-import { RequerimientoCambioDetalleComponent } from './pages/requerimiento-cambio-detalle/requerimiento-cambio-detalle.component';
 
 import { AuthGuard } from '../auth.guard';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -49,7 +48,6 @@ import { SharedModule } from '../shared/shared.module';
     ObjetoComponent,
     RequerimientoAsignadoComponent,
     RequerimientoCambioComponent,
-    RequerimientoCambioDetalleComponent,
 
     
 

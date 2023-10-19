@@ -20,6 +20,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Layout1Component } from './components/layouts/layout1/layout1.component';
+import { Layout2Component } from './components/layouts/layout2/layout2.component';
+import { Layout3Component } from './components/layouts/layout3/layout3.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     CambiarContrasenaComponent,
     ModificarUsuarioComponent,
+    Layout1Component,
+    Layout2Component,
+    Layout3Component,
   ],
   exports: [
     CheckbuttonsComponent,

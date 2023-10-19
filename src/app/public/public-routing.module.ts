@@ -9,13 +9,20 @@ import { AuthGuard } from '../auth.guard';
 
 import { LoginComponent } from '../public/pages/login/login.component';
 import { InicioAdminComponent } from '../administrador/pages/inicio-admin/inicio-admin.component';
+import { Layout3Component } from '../shared/components/layouts/layout3/layout3.component';
 
 const routes: Routes = [
-    //public
+  
     {path: '',component:LoginComponent},
-    {path: 'crearusuario', component:CrearUsuarioComponent},
-    {path: 'recuperarcontrasena', component:RecuperarContrasenaComponent},
-    
+
+    {
+      path: '',
+      component: Layout3Component, 
+      children: [
+        {path: 'crearusuario', component:CrearUsuarioComponent},
+        {path: 'recuperarcontrasena', component:RecuperarContrasenaComponent},
+      ],
+    },
 ];
 
 @NgModule({

@@ -84,7 +84,7 @@ export class ElementosDocumentarComponent implements OnInit {
     this.crudService.eliminarRequerimiento(this.datosRuta).subscribe(
       (res) => {
         alertifyjs.success(res.message)
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/admin']);
         //console.log('Requerimiento modificado correctamente', res);
       },
       (error) => {
@@ -219,7 +219,7 @@ export class ElementosDocumentarComponent implements OnInit {
     this.crudService.sendPost(body).subscribe(
       (res) => {
         alertifyjs.success(res.message)
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/admin']);
       },
       (error) => {
         //     // Manejar errores aquí, si es necesario

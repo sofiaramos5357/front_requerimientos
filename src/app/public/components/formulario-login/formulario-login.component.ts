@@ -41,9 +41,9 @@ signUp(){
         (response: Usuario[]) => {
           this.DatosUsuario = response;
           if(this.DatosUsuario[0].RolId==1 && this.DatosUsuario[0].CambioContrasena==false)
-          this.router.navigate(['/homeadmin']);
+          this.router.navigate(['/home/admin']);
           if(this.DatosUsuario[0].RolId==2 && this.DatosUsuario[0].CambioContrasena==false)
-          this.router.navigate(['/homeelaborador']);
+          this.router.navigate(['/home/elaborador']);
           if(this.DatosUsuario[0].CambioContrasena==true)
           this.router.navigate(['/cambiarcontrasena']);
         },

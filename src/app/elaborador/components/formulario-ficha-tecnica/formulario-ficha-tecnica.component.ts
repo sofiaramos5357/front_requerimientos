@@ -53,7 +53,7 @@ export class FormularioFichaTecnicaComponent implements OnInit {
     //console.log(this.fichaTecnica)
     this.crudService.registrarFichaTecnica(this.fichaTecnica).subscribe(
       (res) => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/elaborador']);
         alertifyjs.success(res.message);
       },
       (error) => {}

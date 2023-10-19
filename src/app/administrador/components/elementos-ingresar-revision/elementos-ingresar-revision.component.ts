@@ -92,7 +92,7 @@ export class ElementosIngresarRevisionComponent implements OnInit {
     this.crudService.eliminarRequerimiento(this.datosRuta).subscribe(
       (res) => {
         alertifyjs.success(res.message)
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/admin']);
         //console.log('Requerimiento modificado correctamente', res);
       },
       (error) => {
@@ -143,7 +143,7 @@ export class ElementosIngresarRevisionComponent implements OnInit {
     this.crudService.revisionAprobada(this.revision).subscribe(
       (res) => {
         alertifyjs.success(res.message)
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/admin']);
         //console.log('Requerimiento modificado correctamente', res);
       },
       (error) => {
@@ -160,7 +160,7 @@ export class ElementosIngresarRevisionComponent implements OnInit {
     this.crudService.revisionDenegada(this.revision).subscribe(
       (res) => {
         alertifyjs.success(res.message)
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/admin']);
         //console.log('Requerimiento modificado correctamente', res);
       },
       (error) => {
