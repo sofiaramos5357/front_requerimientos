@@ -18,6 +18,7 @@ import { InicioAdminComponent } from './pages/inicio-admin/inicio-admin.componen
 const routes: Routes = [
 
   //admin
+  {path: '',component:InicioAdminComponent, canActivate: [AuthGuard, adminGuard]},
   {path: 'homeadmin', component:InicioAdminComponent, canActivate: [AuthGuard, adminGuard]},
   {path: 'usuarios', component:ConfigUsuarioComponent, canActivate: [AuthGuard, adminGuard]},
   {path: 'crearsolicitud', component:CrearSolicitudComponent, canActivate: [AuthGuard, adminGuard]},

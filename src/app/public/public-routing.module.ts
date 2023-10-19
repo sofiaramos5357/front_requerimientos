@@ -8,23 +8,14 @@ import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recup
 import { AuthGuard } from '../auth.guard';
 
 import { LoginComponent } from '../public/pages/login/login.component';
+import { InicioAdminComponent } from '../administrador/pages/inicio-admin/inicio-admin.component';
 
 const routes: Routes = [
     //public
     {path: '',component:LoginComponent},
     {path: 'crearusuario', component:CrearUsuarioComponent},
     {path: 'recuperarcontrasena', component:RecuperarContrasenaComponent},
-
-    {
-      path: 'homeadmin',
-      loadChildren: () =>
-        import('../administrador/administrador.module').then((a) => a.AdministradorModule),
-    },
-    {
-      path: 'homeelaborador',
-      loadChildren: () =>
-        import('../elaborador/elaborador.module').then((e) => e.ElaboradorModule),
-    },
+    
 ];
 
 @NgModule({

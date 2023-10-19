@@ -7,7 +7,6 @@ import { CheckbuttonsComponent } from './components/checkbuttons/checkbuttons.co
 import { FormularioCambiarContrasenaComponent } from './components/formulario-cambiar-contrasena/formulario-cambiar-contrasena.component';
 import { FormularioEditarUsuarioComponent } from './components/formulario-editar-usuario/formulario-editar-usuario.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { TablaHistorialComponent } from './components/tabla-historial/tabla-historial.component';
 import { CambiarContrasenaComponent } from './pages/cambiar-contrasena/cambiar-contrasena.component';
 import { ModificarUsuarioComponent } from './pages/modificar-usuario/modificar-usuario.component';
 
@@ -28,7 +27,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormularioCambiarContrasenaComponent,
     FormularioEditarUsuarioComponent,
     NavbarComponent,
-    TablaHistorialComponent,
     CambiarContrasenaComponent,
     ModificarUsuarioComponent,
   ],
@@ -37,7 +35,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormularioCambiarContrasenaComponent,
     FormularioEditarUsuarioComponent,
     NavbarComponent,
-    TablaHistorialComponent,
     CambiarContrasenaComponent,
     ModificarUsuarioComponent,
   ],

@@ -31,7 +31,7 @@ import { VisualizarRequerimientoComponent } from './pages/visualizar-requerimien
 import { ConfigUsuarioComponent } from './pages/usuarios/usuarios.component';
 
 
-import { BrowserModule } from '@angular/platform-browser';
+//import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';

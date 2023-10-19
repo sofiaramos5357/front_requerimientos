@@ -17,6 +17,7 @@ import { elaboradorGuard } from '../elaborador.guard';
 const routes: Routes = [
 
   //elaborador
+  {path: '', component:InicioElaboradorComponent, canActivate: [AuthGuard, elaboradorGuard]},
   {path: 'homeelaborador', component:InicioElaboradorComponent, canActivate: [AuthGuard, elaboradorGuard]},
   {path: 'requerimientoDetalle', component:RequerimientoCambioDetalleComponent, canActivate: [AuthGuard, elaboradorGuard]},
   {path: 'fichatecnica', component:FichaTecnicaComponent, canActivate: [AuthGuard, elaboradorGuard]},

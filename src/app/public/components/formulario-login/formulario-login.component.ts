@@ -40,10 +40,12 @@ signUp(){
       this.datosUsuarioService.DatosUsuario().subscribe(
         (response: Usuario[]) => {
           this.DatosUsuario = response;
-          if(this.DatosUsuario[0].RolId==1)
+          if(this.DatosUsuario[0].RolId==1 && this.DatosUsuario[0].CambioContrasena==false)
           this.router.navigate(['/homeadmin']);
-          if(this.DatosUsuario[0].RolId==2)
+          if(this.DatosUsuario[0].RolId==2 && this.DatosUsuario[0].CambioContrasena==false)
           this.router.navigate(['/homeelaborador']);
+          if(this.DatosUsuario[0].CambioContrasena==true)
+          this.router.navigate(['/cambiarcontrasena']);
         },
         (error) => {
           console.error('Error al obtener los datos del usuario:', error);
