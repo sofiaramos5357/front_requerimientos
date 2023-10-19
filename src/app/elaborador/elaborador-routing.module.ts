@@ -12,17 +12,18 @@ import { RequerimientoCambioComponent } from './pages/requerimiento-cambio/reque
 import { RequerimientoCambioDetalleComponent } from './pages/requerimiento-cambio-detalle/requerimiento-cambio-detalle.component';
 
 import { AuthGuard } from '../auth.guard';
+import { elaboradorGuard } from '../elaborador.guard';
 
 const routes: Routes = [
 
-    //elaborador
-    {path: 'inicioElab', component:InicioElaboradorComponent},
-    {path: 'requerimientoDetalle', component:RequerimientoCambioDetalleComponent},
-    {path: 'fichatecnica', component:FichaTecnicaComponent},
-    {path: 'requerimientoasignado', component:RequerimientoAsignadoComponent},
-    {path: 'modificarficha', component:ModificarFichaComponent},
-    {path: 'reqdetalle', component:RequerimientoCambioComponent},
-    {path: 'objetos', component:ObjetoComponent},
+  //elaborador
+  {path: 'homeelaborador', component:InicioElaboradorComponent, canActivate: [AuthGuard, elaboradorGuard]},
+  {path: 'requerimientoDetalle', component:RequerimientoCambioDetalleComponent, canActivate: [AuthGuard, elaboradorGuard]},
+  {path: 'fichatecnica', component:FichaTecnicaComponent, canActivate: [AuthGuard, elaboradorGuard]},
+  {path: 'requerimientoasignado', component:RequerimientoAsignadoComponent, canActivate: [AuthGuard, elaboradorGuard]},
+  {path: 'modificarficha', component:ModificarFichaComponent, canActivate: [AuthGuard, elaboradorGuard]},
+  {path: 'reqdetalle', component:RequerimientoCambioComponent, canActivate: [AuthGuard, elaboradorGuard]},
+  {path: 'objetos', component:ObjetoComponent, canActivate: [AuthGuard, elaboradorGuard]},
 
 ];
 

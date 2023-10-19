@@ -36,6 +36,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     ElementosChangelogComponent,
@@ -62,6 +63,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SistemasComponent,
     VisualizarRequerimientoComponent,
     ConfigUsuarioComponent,
+
+    
  
   ],
   imports: [
@@ -71,6 +74,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+
+    SharedModule
   ],
   providers: [
     AuthGuard,

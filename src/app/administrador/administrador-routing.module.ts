@@ -12,20 +12,23 @@ import { EditarRequerimientoComponent } from './pages/editar-requerimiento/edita
 import { CrearSolicitudComponent } from './pages/crear-solicitud/crear-solicitud.component';
 import { DocumentoComponent } from './pages/documento/documento.component';
 import { ConfigUsuarioComponent } from './pages/usuarios/usuarios.component';
+import { adminGuard } from '../admin.guard';
+import { InicioAdminComponent } from './pages/inicio-admin/inicio-admin.component';
 
 const routes: Routes = [
 
-    //admin
-    {path: 'usuarios', component:ConfigUsuarioComponent, canActivate: [AuthGuard]},
-    {path: 'crearsolicitud', component:CrearSolicitudComponent},
-    {path: 'documentos', component:DocumentoComponent},
-    {path: 'reportes', component:ReportesComponent},
-    {path: 'visualizarreq', component:VisualizarRequerimientoComponent},
-    {path: 'editarrequerimiento', component:EditarRequerimientoComponent},
-    {path: 'ingresarrevision', component:IngresarRevisionComponent},
-    {path: 'documentar', component:DocumentarRequerimientoComponent},
-    {path: 'sistemas', component:SistemasComponent},
-    {path: 'changelog', component:ChangelogComponent},
+  //admin
+  {path: 'homeadmin', component:InicioAdminComponent, canActivate: [AuthGuard, adminGuard]},
+  {path: 'usuarios', component:ConfigUsuarioComponent, canActivate: [AuthGuard, adminGuard]},
+  {path: 'crearsolicitud', component:CrearSolicitudComponent, canActivate: [AuthGuard, adminGuard]},
+  {path: 'documentos', component:DocumentoComponent, canActivate: [AuthGuard, adminGuard]},
+  {path: 'reportes', component:ReportesComponent, canActivate: [AuthGuard, adminGuard]},
+  {path: 'visualizarreq', component:VisualizarRequerimientoComponent, canActivate: [AuthGuard, adminGuard]},
+  {path: 'editarrequerimiento', component:EditarRequerimientoComponent, canActivate: [AuthGuard, adminGuard]},
+  {path: 'ingresarrevision', component:IngresarRevisionComponent, canActivate: [AuthGuard, adminGuard]},
+  {path: 'documentar', component:DocumentarRequerimientoComponent, canActivate: [AuthGuard, adminGuard]},
+  {path: 'sistemas', component:SistemasComponent, canActivate: [AuthGuard, adminGuard]},
+  {path: 'changelog', component:ChangelogComponent, canActivate: [AuthGuard, adminGuard]},
 
 ];
 

@@ -9,8 +9,8 @@ import { AuthGuard } from '../auth.guard';
 const routes: Routes = [
     //shared
     {path: 'cambiarcontrasena', component:CambiarContrasenaComponent},
-    {path: 'modificarusuario', component:ModificarUsuarioComponent},
-];
+    {path: 'modificarusuario', component:ModificarUsuarioComponent, canActivate: [AuthGuard]},
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

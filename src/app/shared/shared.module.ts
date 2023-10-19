@@ -32,6 +32,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     CambiarContrasenaComponent,
     ModificarUsuarioComponent,
   ],
+  exports: [
+    CheckbuttonsComponent,
+    FormularioCambiarContrasenaComponent,
+    FormularioEditarUsuarioComponent,
+    NavbarComponent,
+    TablaHistorialComponent,
+    CambiarContrasenaComponent,
+    ModificarUsuarioComponent,
+  ],
+
   imports: [
     CommonModule,
     SharedRoutingModule,

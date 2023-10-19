@@ -25,7 +25,8 @@ import { CommonModule } from '@angular/common';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [
     AuthGuard,

@@ -9,11 +9,6 @@ const routes: Routes = [
       import('../app/public/public.module').then((m) => m.PublicModule),
   },
   
-
-
-
-
-
   //redirigir al login cuando se ponga una ruta no valida
   { path: '**', redirectTo: '' },
 ];
