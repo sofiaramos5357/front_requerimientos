@@ -42,7 +42,7 @@ export class FormularioFichaTecnicaComponent implements OnInit {
   camposLlenos(): boolean {
     // Verifica si todos los campos obligatorios están llenos
     return (
-      this.fichaTecnica.Observaciones.trim() !== '' &&
+      //this.fichaTecnica.Observaciones.trim() !== '' &&
       this.fichaTecnica.TipoCambioId !== 0 &&
       this.fichaTecnica.TiempoEstimadoHrs !== 0
     );

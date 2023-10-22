@@ -208,9 +208,9 @@ export class ElementosReDetalleComponent implements OnInit {
     this.crudService.pendienteRevisar(this.datosRuta.Id).subscribe(
       (res) => {
         // Aquí puedes manejar la respuesta del backend si es necesario
-        console.log('Requerimiento enviado a revisión', res);
+        //console.log('Requerimiento enviado a revisión', res);
         //console.log(this.requerimiento)
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/elaborador']);
         alertifyjs.success(res.message);
       },
       (error) => {

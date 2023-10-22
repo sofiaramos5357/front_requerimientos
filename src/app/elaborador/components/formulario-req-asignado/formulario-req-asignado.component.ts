@@ -20,6 +20,9 @@ export class FormularioReqAsignadoComponent implements OnInit{
   datosRuta: RequerimientoCreado
   datosFichaTecnica:DatosFichaTecnica
 
+  FechaCreacion:string
+
+
 
 
   ngOnInit() {
@@ -37,6 +40,8 @@ export class FormularioReqAsignadoComponent implements OnInit{
           // utilizar los datos de requerimiento en este componente
           this.datosRuta = requerimiento
           this.obtenerFichaTecnica(this.datosRuta.Id)
+          this.FechaCreacion=this.formatDate(new Date(this.datosRuta.FechaCreacion))
+
 
         } catch (error) {
           console.error("Error al analizar JSON:", error);
@@ -63,5 +68,10 @@ export class FormularioReqAsignadoComponent implements OnInit{
       //console.log(this.datosFichaTecnica)
     });
     
+  }
+
+  formatDate(date: Date): string {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return date.toLocaleDateString('es-ES', options);
   }
 }

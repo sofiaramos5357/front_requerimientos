@@ -1,5 +1,5 @@
-<body *ngIf="changelog">
-  <h1 id="templatechangeloghistory" class="mt-3">
+<body *ngIf="changelog" class="text-center">
+  <h1 id="templatechangeloghistory" >
     Última versión {{ changelog.NombreSistema }}
     {{ changelog.FechaActualizacion }}
   </h1>
@@ -14,9 +14,9 @@
 
   <h3 id="1.02017-06-22">Versión del sistema {{ changelog.VersionSistema }}</h3>
 
-  <ul class="mt-3">
+  <ul class="mt-3 text-center">
     <li
-      class="mt-3"
+      class="mt-3 text-center"
       *ngFor="let requerimientoDetalle of requerimientoDetalles"
       [value]="requerimientoDetalle.Id"
     >
@@ -26,7 +26,7 @@
   </ul>
 </body>
 
-<div class="d-grid gap-2 col-6 mx-auto mt-5">
+<div class="d-grid gap-2 col-6 mx-auto">
   <body *ngIf="!changelog">
     <div class="card border-success mb-3 mt-5">
       <div class="card-body text-success">

@@ -24,7 +24,7 @@ export class FormularioVisualizarReqComponent implements OnInit {
 
 
   datosFichaTecnica:DatosFichaTecnica
-
+  FechaCreacion:string
 
   ngOnInit() {
     this.obtenerDatosRuta()
@@ -40,7 +40,8 @@ export class FormularioVisualizarReqComponent implements OnInit {
         try {
           const requerimiento = JSON.parse(requerimientoParam);
           // utilizar los datos de requerimiento en este componente
-          this.datosRuta = requerimiento          
+          this.datosRuta = requerimiento
+          this.FechaCreacion=this.formatDate(new Date(this.datosRuta.FechaCreacion))
           this.obtenerFichaTecnica(this.datosRuta.Id)
 
         } catch (error) {
@@ -88,5 +89,9 @@ export class FormularioVisualizarReqComponent implements OnInit {
     
   }
 
+  formatDate(date: Date): string {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return date.toLocaleDateString('es-ES', options);
+  }
 
 }

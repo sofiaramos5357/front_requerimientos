@@ -2,20 +2,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
 </head>
 
-<body class="mt-5">
-    <div class="container justify-content-center align-items-center">
-        <h2 class="mb-0 text-center">Modificar documento</h2>
-        <div class="card-body text-primary mt-2">
-            <div class="d-flex align-items-center">
-                <i class="material-icons">info</i>
-                <p class="card-title"> En caso de equivocarse de archivo, este solo podrá ser editado en los primeros 30
-                    minutos después
-                    de ser
-                    subido.</p>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h2 class="mb-0 text-center">Modificar documento</h2>
+                <div class="d-flex align-items-center text-danger">
+                    <i class="material-icons ">info</i>
+                    <p class="card-title text-center mb-0">En caso de equivocarse de archivo, este solo podrá ser
+                        editado en los primeros 30 minutos después de ser subido.</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container d-flex justify-content-center align-items-center vh-50 mt-5">
+
+    <div class="container d-flex justify-content-center align-items-center vh-50 mt-5"
+        *ngIf="documentosEdicion.length!==0">
         <div class="row">
             <div class="col-lg-12 col-md-10 ml-auto mr-auto">
                 <div class="table-responsive">
@@ -49,13 +51,13 @@
                                 </td>
                                 <td class="td-actions text-right">
                                     <button type="button" class="btn btn-success btn-just-icon btn-sm"
-                                    (click)="abrirPDF(documentoEdicion.Nombre)" >
+                                        (click)="abrirPDF(documentoEdicion.Nombre)">
                                         <i class="material-icons">visibility</i>
                                     </button>
                                 </td>
                                 <td class="td-actions text-right">
                                     <button type="button" class="btn btn-danger btn-just-icon btn-sm"
-                                 (click)="eliminarDocumento(documentoEdicion.Id)">
+                                        (click)="eliminarDocumento(documentoEdicion.Id)">
                                         <i class="material-icons">delete</i>
                                     </button>
                                 </td>
@@ -80,6 +82,23 @@
                     </li>
                 </ul>
             </nav>
+        </div>
+    </div>
+
+    <div *ngIf="documentosEdicion.length===0">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card border-success mt-3">
+                        <div class="card-body text-success">
+                            <div class="d-flex align-items-center">
+                                <p class="card-title text-center mb-0">No hay requerimientos con documentos para
+                                    modificar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
