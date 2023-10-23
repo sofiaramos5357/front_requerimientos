@@ -23,6 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Layout1Component } from './components/layouts/layout1/layout1.component';
 import { Layout2Component } from './components/layouts/layout2/layout2.component';
 import { Layout3Component } from './components/layouts/layout3/layout3.component';
+import { ModalConfirmarEliminarComponent } from './components/modal-confirmar-eliminar/modal-confirmar-eliminar.component';
+import { CardTablaVaciaComponent } from './components/card-tabla-vacia/card-tabla-vacia.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { Layout3Component } from './components/layouts/layout3/layout3.component
     Layout1Component,
     Layout2Component,
     Layout3Component,
+    ModalConfirmarEliminarComponent,
+    CardTablaVaciaComponent,
   ],
   exports: [
     CheckbuttonsComponent,
@@ -43,6 +47,8 @@ import { Layout3Component } from './components/layouts/layout3/layout3.component
     NavbarComponent,
     CambiarContrasenaComponent,
     ModificarUsuarioComponent,
+    ModalConfirmarEliminarComponent,
+    CardTablaVaciaComponent
   ],
 
   imports: [

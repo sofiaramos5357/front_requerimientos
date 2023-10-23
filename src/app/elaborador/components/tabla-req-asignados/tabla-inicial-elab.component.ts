@@ -22,6 +22,9 @@ export class TablaInicialElabComponent implements OnInit {
 
   datosUsuario: Usuario
 
+  mensaje: string='No hay requerimientos asignados.'; // Variable para almacenar la palabra a mostrar en el modal
+
+
   ngOnInit(): void {
     this.DatosUsuario()
   }

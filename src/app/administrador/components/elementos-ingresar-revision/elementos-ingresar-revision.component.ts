@@ -26,6 +26,13 @@ export class ElementosIngresarRevisionComponent implements OnInit {
 
   ) { }
 
+  palabraModal: string='Requerimiento'; // Variable para almacenar la palabra a mostrar en el modal
+
+  
+  handleEliminar(eventData: {eliminar: boolean }) {
+    this.eliminarRequerimiento()
+  }
+
   datosRuta: RequerimientoCreado
   datosUsuario: Usuario
 

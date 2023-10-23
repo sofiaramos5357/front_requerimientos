@@ -19,6 +19,9 @@ export class ElementosSistemasComponent implements OnInit {
 
   sistema: Sistema[] = [];
 
+  mensaje: string='No hay sistemas registrados.'; // Variable para almacenar la palabra a mostrar en el modal
+
+
   mensajeAlmacenado() {
     // Verificar si hay un mensaje almacenado en el almacenamiento local
     const mensaje = localStorage.getItem('mensaje');

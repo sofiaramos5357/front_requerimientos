@@ -20,6 +20,7 @@ export class TablaObjetoComponent implements OnInit {
 
   tipoObjeto: TipoObjeto[] = [];
 
+  mensaje: string='No hay tipos de objetos.'; // Variable para almacenar la palabra a mostrar en el modal
 
 
   mensajeAlmacenado() {

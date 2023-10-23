@@ -20,6 +20,9 @@ export class ElementosEditarDocumentoComponent implements OnInit {
   itemsPerPage: number = 10; // Número de elementos por página
   currentPage: number = 1;  // Página actual
 
+  mensaje: string='No hay documentos por modificar.'; // Variable para almacenar la palabra a mostrar en el modal
+
+
   ngOnInit() {
     this.DatosUsuario()
 

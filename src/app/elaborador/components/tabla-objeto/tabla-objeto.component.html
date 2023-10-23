@@ -6,7 +6,7 @@
 </head>
 <h2 class="h2 text-center mt-5">Tipos de objetos</h2>
 
-<body class="mt-5">
+<body class="mt-5" *ngIf="tipoObjetos.length!==0">
   <div class="container d-flex justify-content-center align-items-center vh-50">
     <div class="row">
       <div class="col-lg-12 col-md-10 ml-auto mr-auto">
@@ -138,3 +138,5 @@
     </div>
   </div>
 </div>
+
+<app-card-tabla-vacia *ngIf="tipoObjetos.length===0" [mensaje]="mensaje"></app-card-tabla-vacia>

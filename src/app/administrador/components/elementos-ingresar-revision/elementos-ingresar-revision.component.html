@@ -17,11 +17,13 @@
             <h4 class="form-floating mb-3 d-flex justify-content-between align-items-center">
               <span># Requerimiento</span>
               <div *ngIf="datosUsuario && datosUsuario.Id === datosRuta.UsuarioIdCreador">
-                <button type="button" class="btn btn-lg btn-danger" (click)="eliminarRequerimiento()">
-                  Eliminar Requerimiento
-                </button>
+                <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="modal"
+              data-bs-target="#modalEliminar">Eliminar Requerimiento</button>
               </div>
             </h4>
+            
+            <app-modal-confirmar-eliminar [palabraModal]="palabraModal" (eliminarRequerimientoModal)="handleEliminar($event)"></app-modal-confirmar-eliminar>
+
             <div class="form-floating mb-3">
               <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com"
                 disabled />

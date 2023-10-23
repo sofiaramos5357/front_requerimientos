@@ -21,6 +21,9 @@ export class TablaTipoCambioComponent implements OnInit {
 
   tipoCambio: TipoCambio[] = [];
 
+  mensaje: string='No hay tipos de cambio.'; // Variable para almacenar la palabra a mostrar en el modal
+
+
 
   mensajeAlmacenado() {
     // Verificar si hay un mensaje almacenado en el almacenamiento local

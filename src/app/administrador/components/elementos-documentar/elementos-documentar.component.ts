@@ -36,6 +36,12 @@ export class ElementosDocumentarComponent implements OnInit {
 
   imageDataUri: string;
 
+  palabraModal: string='Requerimiento'; // Variable para almacenar la palabra a mostrar en el modal
+
+  
+  handleEliminar(eventData: {eliminar: boolean }) {
+    this.eliminarRequerimiento()
+  }
 
 
   ngOnInit() {

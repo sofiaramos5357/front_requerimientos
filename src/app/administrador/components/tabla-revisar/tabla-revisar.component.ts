@@ -21,6 +21,9 @@ export class TablaRevisarComponent implements OnInit {
 
   datosUsuario: Usuario
 
+  mensaje: string='No hay requerimientos por revisar.'; // Variable para almacenar la palabra a mostrar en el modal
+
+
   ngOnInit(): void {
     this.DatosUsuario()
   }

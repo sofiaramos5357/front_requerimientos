@@ -25,6 +25,9 @@ export class TablaReqPendienteRevisionComponent implements OnInit {
   itemsPerPage: number = 10; // Número de elementos por página
   currentPage: number = 1; // Página actual
 
+  mensaje: string='No hay requerimientos en revisión.'; // Variable para almacenar la palabra a mostrar en el modal
+
+
   ngOnInit(): void {
     this.DatosUsuario();
   }

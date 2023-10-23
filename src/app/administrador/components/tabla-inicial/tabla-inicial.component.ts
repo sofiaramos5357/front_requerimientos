@@ -22,6 +22,7 @@ export class TablaInicialComponent implements OnInit {
 
   datosUsuario: Usuario
 
+  mensaje: string='No hay requerimientos en proceso.'; // Variable para almacenar la palabra a mostrar en el modal
 
 
   ngOnInit(): void {

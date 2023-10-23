@@ -20,6 +20,13 @@ export class FormularioModificarFichaComponent implements OnInit{
     private route: ActivatedRoute
   ) {}
 
+  palabraModal: string='Ficha Técnica'; // Variable para almacenar la palabra a mostrar en el modal
+
+  
+  handleEliminar(eventData: {eliminar: boolean }) {
+    this.eliminarFichaTecnica()
+  }
+
   ngOnInit(): void {
     this.obtenerDatosRuta()
     this.obtenerTipoCambio()

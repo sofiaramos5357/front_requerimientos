@@ -85,20 +85,6 @@
         </div>
     </div>
 
-    <div *ngIf="documentosEdicion.length===0">
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <div class="card border-success mt-3">
-                        <div class="card-body text-success">
-                            <div class="d-flex align-items-center">
-                                <p class="card-title text-center mb-0">No hay requerimientos con documentos para
-                                    modificar.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
+
+<app-card-tabla-vacia *ngIf="documentosEdicion.length===0" [mensaje]="mensaje"></app-card-tabla-vacia>

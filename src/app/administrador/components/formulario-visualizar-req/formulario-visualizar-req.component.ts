@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RequerimientoCreado } from 'src/app/models/requerimiento-creado';
 import { Usuario } from 'src/app/models/usuario.model';
@@ -9,22 +9,41 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { CrudService } from 'src/app/services/crud.service';
 import { DatosFichaTecnica } from 'src/app/models/datos-ficha-tecnica.model';
 
-
 @Component({
   selector: 'app-formulario-visualizar-req',
   templateUrl: './formulario-visualizar-req.component.html',
   styleUrls: ['./formulario-visualizar-req.component.css']
 })
+
 export class FormularioVisualizarReqComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private datosUsuarioService: DatosUsuarioService,private router: Router, private crudService: CrudService) { }
+  constructor(private route: ActivatedRoute, private datosUsuarioService: DatosUsuarioService, private router: Router, private crudService: CrudService) { }
+
+  palabraModal: string='Requerimiento'; // Variable para almacenar la palabra a mostrar en el modal
+
+  
+  handleEliminar(eventData: {eliminar: boolean }) {
+    this.eliminarRequerimiento()
+  }
+
+  eliminarRequerimiento() {
+      this.crudService.eliminarRequerimiento(this.datosRuta).subscribe(
+        (res) => {
+          alertifyjs.success(res.message)
+          this.router.navigate(['/home/admin']);
+        },
+        (error) => {
+          //     // Manejar errores aquí, si es necesario
+          //     //console.error('Error al modificar usuario', error);
+        }
+      );
+    }
+  
 
   datosRuta: RequerimientoCreado
-  datosUsuario: Usuario 
-
-
-  datosFichaTecnica:DatosFichaTecnica
-  FechaCreacion:string
+  datosUsuario: Usuario
+  datosFichaTecnica: DatosFichaTecnica
+  FechaCreacion: string
 
   ngOnInit() {
     this.obtenerDatosRuta()
@@ -41,7 +60,7 @@ export class FormularioVisualizarReqComponent implements OnInit {
           const requerimiento = JSON.parse(requerimientoParam);
           // utilizar los datos de requerimiento en este componente
           this.datosRuta = requerimiento
-          this.FechaCreacion=this.formatDate(new Date(this.datosRuta.FechaCreacion))
+          this.FechaCreacion = this.formatDate(new Date(this.datosRuta.FechaCreacion))
           this.obtenerFichaTecnica(this.datosRuta.Id)
 
         } catch (error) {
@@ -66,27 +85,12 @@ export class FormularioVisualizarReqComponent implements OnInit {
     );
   }
 
-  eliminarRequerimiento() {
-
-    this.crudService.eliminarRequerimiento(this.datosRuta).subscribe(
-      (res) => {
-        alertifyjs.success(res.message)
-        this.router.navigate(['/home/admin']);
-        //console.log('Requerimiento modificado correctamente', res);
-      },
-      (error) => {
-        //     // Manejar errores aquí, si es necesario
-        //     //console.error('Error al modificar usuario', error);
-      }
-    );
-  }
-
-  obtenerFichaTecnica(id){
+  obtenerFichaTecnica(id) {
     this.crudService.getFichaTecnica(id).subscribe((res: DatosFichaTecnica) => {
       this.datosFichaTecnica = res[0]
       //console.log(this.datosFichaTecnica)
     });
-    
+
   }
 
   formatDate(date: Date): string {

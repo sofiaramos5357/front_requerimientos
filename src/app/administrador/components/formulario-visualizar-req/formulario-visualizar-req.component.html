@@ -7,12 +7,14 @@
         </div>
         <div class="col-md-4 d-flex justify-content-end">
           <div *ngIf="datosUsuario && datosUsuario.Id === datosRuta.UsuarioIdCreador">
-            <button type="button" class="btn btn-lg btn-danger" (click)="eliminarRequerimiento()">Eliminar
-              Requerimiento</button>
+            <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="modal"
+              data-bs-target="#modalEliminar">Eliminar Requerimiento</button>
           </div>
         </div>
       </div>
     </div>
+
+    <app-modal-confirmar-eliminar [palabraModal]="palabraModal" (eliminarRequerimientoModal)="handleEliminar($event)"></app-modal-confirmar-eliminar>
 
 
     <h4 class="form-floating mb-3 mt-3"># Requerimiento</h4>
