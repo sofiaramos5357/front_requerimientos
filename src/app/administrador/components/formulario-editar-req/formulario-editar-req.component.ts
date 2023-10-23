@@ -16,6 +16,9 @@ export class FormularioEditarReqComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private crudService: CrudService,private router: Router,) { }
 
+  palabraModal: string='Requerimiento'; // Variable para almacenar la palabra a mostrar en el modal
+
+
   datosRuta: RequerimientoCreado
   sistemas: Sistema[];
   usuarios: Usuario[];
@@ -31,6 +34,10 @@ export class FormularioEditarReqComponent implements OnInit {
     Id:number
   }
 
+  handleEliminar(eventData: {eliminar: boolean }) {
+    this.eliminarRequerimiento()
+  }
+  
   ngOnInit() {
     this.obtenerDatosRuta()
     this.ObtenerSistemas()

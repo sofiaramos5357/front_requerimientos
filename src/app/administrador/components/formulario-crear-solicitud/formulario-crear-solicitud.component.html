@@ -2,23 +2,6 @@
   <h2 class="text-center">Crear requerimiento</h2>
 
   <div class="d-grid gap-2 col-2 mx-auto mt-5">
-    <label for="exampleInputEmail1" class="form-label">Descripción</label>
-    <textarea
-      class="form-control"
-      id="textAreaExample"
-      rows="4"
-      [(ngModel)]="requerimiento.Descripcion"
-      name="descripcion"
-    ></textarea>
-
-    <label for="exampleInputEmail1" class="form-label">Objetivo</label>
-    <textarea
-      class="form-control"
-      id="textAreaExample"
-      rows="4"
-      [(ngModel)]="requerimiento.Objetivo"
-      name="objetivo"
-    ></textarea>
 
     <label for="exampleInputEmail1" class="form-label">Sistema</label>
 
@@ -46,6 +29,28 @@
         +
       </button>
     </div>
+
+
+
+    <label for="exampleInputEmail1" class="form-label">Descripción</label>
+    <textarea
+      class="form-control"
+      id="textAreaExample"
+      rows="4"
+      [(ngModel)]="requerimiento.Descripcion"
+      name="descripcion"
+    ></textarea>
+
+    <label for="exampleInputEmail1" class="form-label">Objetivo</label>
+    <textarea
+      class="form-control"
+      id="textAreaExample"
+      rows="4"
+      [(ngModel)]="requerimiento.Objetivo"
+      name="objetivo"
+    ></textarea>
+
+    
 
     <label for="exampleInputEmail1" class="form-label">Elaborador</label>
     <select

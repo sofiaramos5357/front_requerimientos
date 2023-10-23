@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+import jwt_decode from 'jwt-decode';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +33,21 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
+  getRoleId(): number | null {
+    const token = this.getToken();
+    
+    if (token) {
+      const decodedToken: { RolId: number } = jwt_decode(token); // Aseguramos el tipo de 'decodedToken'
+      
+      //console.log(decodedToken.RolId);
+      
+      return decodedToken.RolId;
+    }
+    
+    return null; // Si no hay token, devuelve un valor nulo
+  }
+  
+  
 
   //-------------------------enviar contrasena------------------------
 enviarContrasena(usuario){

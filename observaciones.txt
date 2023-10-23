@@ -7,10 +7,8 @@ por lo que cuando se le cambie el rol se le pediria que iniciara sesion
 se verifique la informacion del susuario que viene del backend con algun token que quieran ingresasr
 esto puede ser en el componente global y que compruebe el activo con la funcion datosUsuario
 
--hacer una ventana emergente para confirmar eliminacion de algo
 
--en los view de requerimientos agregar que se mire la fecha de creacion
-
+-arreglar la parte de documento que no puedan subir cosas que no son
 
 observaciones
 

@@ -44,7 +44,7 @@ export class FormularioFichaTecnicaComponent implements OnInit {
     return (
       //this.fichaTecnica.Observaciones.trim() !== '' &&
       this.fichaTecnica.TipoCambioId !== 0 &&
-      this.fichaTecnica.TiempoEstimadoHrs !== 0
+      this.fichaTecnica.TiempoEstimadoHrs > 0
     );
   }
 

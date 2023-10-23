@@ -7,18 +7,6 @@
     </div>
   </div>
   <div class="d-grid gap-2 col-2 mx-auto mt-4">
-    <label for="exampleInputEmail1" class="form-label"
-      >Tiempo estimado en horas</label
-    >
-    <div class="form-outline">
-      <input
-        type="number"
-        id="TiempoEstimadoHrs"
-        name="TiempoEstimadoHrs"
-        class="form-control"
-        [(ngModel)]="fichaTecnica.TiempoEstimadoHrs"
-      />
-    </div>
 
     <label for="exampleInputEmail1" class="form-label">Tipo de cambio</label>
     <div style="display: flex; align-items: center">
@@ -48,6 +36,21 @@
         +
       </button>
     </div>
+    
+    <label for="exampleInputEmail1" class="form-label"
+      >Tiempo estimado en horas</label
+    >
+    <div class="form-outline">
+      <input
+        type="number"
+        id="TiempoEstimadoHrs"
+        name="TiempoEstimadoHrs"
+        class="form-control"
+        [(ngModel)]="fichaTecnica.TiempoEstimadoHrs"
+      />
+    </div>
+
+    
 
     <label for="exampleInputEmail1" class="form-label">Observaciones</label>
     <textarea

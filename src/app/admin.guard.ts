@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
-
+import { AuthService } from './services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +10,7 @@ export class adminGuard implements CanActivate {
 
   constructor(
     private datosUsuarioService: DatosUsuarioService,
-    private router: Router
+    private router: Router, private authService:AuthService
   ) { }
 
   canActivate(
@@ -24,7 +24,8 @@ export class adminGuard implements CanActivate {
           return true;
         } else {
           // Redirigir al usuario a una página no autorizada o realizar alguna otra acción
-          this.router.navigate(['/home']);
+          this.authService.logout();
+          this.router.navigate(['/login']);
           return false;
         }
       })
