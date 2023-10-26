@@ -110,7 +110,7 @@ export class ElementosDocumentarComponent implements OnInit {
 
   loadImage() {
     // Ruta relativa a la imagen en la carpeta de activos
-    const imagePath = 'assets/papelMembretado.jpeg';
+    const imagePath = 'assets/papelmembretado/papelMembretado.jpeg';
 
     // Cargar la imagen como una representación de datos URI
     this.http.get(imagePath, { responseType: 'blob' }).subscribe((blob) => {

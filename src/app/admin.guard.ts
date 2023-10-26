@@ -19,8 +19,7 @@ export class adminGuard implements CanActivate {
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.datosUsuarioService.DatosUsuario().pipe(
       map(user => {
-        //console.log(user[0].RolId)
-        if (user && user[0].RolId === 1) {
+        if (user && user[0].RolId === 1 && user[0].Activo === true) {
           return true;
         } else {
           // Redirigir al usuario a una página no autorizada o realizar alguna otra acción

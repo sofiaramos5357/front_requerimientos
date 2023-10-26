@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'PlutoBlack';
+    src: url('src/assets/fonts/PlutoBlack.ttf');
+}
+@font-face {
+    font-family: 'monserratblack';
+    src: url('src/assets/fonts/monserratblack.ttf');
+}
+h2 {
+    font-family: 'PlutoBlack';
+    color:#4CC4D3
+}
+div,a {
+    font-family: 'monserratblack';
+    color:#4CC4D3
+}

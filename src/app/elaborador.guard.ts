@@ -21,7 +21,7 @@ export class  elaboradorGuard implements CanActivate{
     return this.datosUsuarioService.DatosUsuario().pipe(
       map(user => {
         //console.log(user[0].RolId)
-        if (user && user[0].RolId === 2) {
+        if (user && user[0].RolId === 2 && user[0].Activo === true) {
           return true;
         } else {
           // Redirigir al usuario a una página no autorizada o realizar alguna otra acción
