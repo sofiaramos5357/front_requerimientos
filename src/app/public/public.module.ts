@@ -19,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PublicRoutingModule } from './public-routing.module';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PublicRoutingModule } from './public-routing.module';
     FormularioRecuperarContrasenaComponent,
     CrearUsuarioComponent,
     LoginComponent,
-    RecuperarContrasenaComponent
+    RecuperarContrasenaComponent,
+    CarouselComponent
 
   ],
   imports: [

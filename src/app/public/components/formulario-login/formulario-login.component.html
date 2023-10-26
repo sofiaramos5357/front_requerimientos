@@ -1,8 +1,12 @@
-<h2 class=" text-center mt-5">Inicio de sesión</h2>
+<form style="max-width: 600px; margin: 0 auto;" >
+  <div class="div">
+    <h2 class="h2 text-center mt-5" style="font-size: 50px;">Inicio de sesión</h2>
+  </div>
 
-<form>
-  <div class="d-grid gap-2 col-2 mx-auto mt-5">
-    <label for="exampleInputEmail1" class="form-label ">Ingrese su correo o nombre de usuario</label>
+  <div class="d-grid gap-2 col-5 mx-auto mt-5" style="font-size: 25px;">
+    <label for="exampleInputEmail1" class="form-label text-dark"
+      >Correo o usuario</label
+    >
     <input
       type="email"
       [(ngModel)]="usuario.Correo"
@@ -12,8 +16,10 @@
     />
   </div>
 
-  <div class="d-grid gap-2 col-2 mx-auto mt-4">
-    <label for="exampleInputPassword1" class="form-label">Ingrese su contraseña</label>
+  <div class="d-grid gap-2 col-5 mx-auto mt-4 " style="font-size: 25px;" >
+    <label for="exampleInputPassword1" class="form-label text-dark"
+      >Contraseña</label
+    >
     <input
       type="password"
       [(ngModel)]="usuario.Contrasena"
@@ -23,17 +29,23 @@
     />
   </div>
 
-  <a class="d-grid gap-2 col-1 mx-auto mt-4 text-center" href="/recuperarcontrasena"
+  <a style="font-size: 18px;"
+    class="d-grid gap-2 col-5 mx-auto mt-5 text-center"
+    href="/recuperarcontrasena"
     >Recuperar Contraseña</a
   >
 
-  <div class="d-grid gap-2 col-1 mx-auto mt-4">
-    <button type="submit" class="btn btn-primary" (click)="signUp()">Entrar</button>
+  <div class="d-grid gap-2 col-5 mx-auto mt-5">
+    <button type="submit" class="btn btn-primary" (click)="signUp()">
+      Entrar
+    </button>
+  </div>
+
+  <div class="d-grid gap-2 col-5 mx-auto mt-5">
+    <button type="submit" class="btn btn-dark" routerLink="/crearusuario">
+      Registrarse
+    </button>
   </div>
 </form>
 
-<div class="d-grid gap-2 col-1 mx-auto mt-4">
-  <button type="submit" class="btn btn-dark" routerLink="/crearusuario">Registrarse
-  </button>
-</div>
 

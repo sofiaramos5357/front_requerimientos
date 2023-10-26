@@ -1,5 +1,5 @@
 export interface Changelog {
-  VersionSistema: number;
+  Version: number;
   FechaActualizacion: Date;
   RequerimientoCambioId: number;
   SistemaId: number;

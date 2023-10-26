@@ -51,7 +51,7 @@ export class ElementosChangelogComponent implements OnInit {
   obtenerChangelog(id){
     this.crudService.getChangelog(id).subscribe((res: Changelog) => {
       this.changelog = res[0]
-      //console.log(this.changelog)
+      console.log(this.changelog)
       this.obtenerActividadesRealizadas(this.changelog.RequerimientoCambioId)
     });
     

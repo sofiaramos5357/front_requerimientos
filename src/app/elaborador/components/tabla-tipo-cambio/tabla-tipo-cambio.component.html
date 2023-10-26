@@ -4,8 +4,9 @@
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
     />
   </head>
+  <div>
   <h2 class="h2 text-center mt-5">Tipos de cambio</h2>
-  
+</div>
   <body class="mt-5" *ngIf="tipoCambios.length!==0">
     <div class="container d-flex justify-content-center align-items-center vh-50">
       <div class="row">
@@ -100,7 +101,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">
             Editar tipo de cambio
           </h1>
           <button
@@ -111,7 +112,7 @@
           ></button>
         </div>
         <div class="modal-body text-center align-middle">
-          <div class="h5">Tipo de cambio</div>
+          <div class="h5 text-dark">Tipo de cambio</div>
           <input
             *ngIf="tipoCambio.length > 0"
             type="text"

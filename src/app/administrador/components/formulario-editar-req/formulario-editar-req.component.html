@@ -1,23 +1,24 @@
-
+<div class="div">
 <h2 class="text-center">Modificación de requerimiento</h2>
+</div>
 <form>
     <div class="d-grid gap-2 col-2 mx-auto mt-4">
       <div class="border text-center">
-      <label class="text-center col-10">#Requerimiento: {{datosRuta.Id}}</label>
+      <label class="text-center col-10 text-dark">#Requerimiento: {{datosRuta.Id}}</label>
     </div>
-        <label for="exampleInputEmail1" class="form-label">Descripción</label>
+        <label for="exampleInputEmail1" class="form-label text-dark">Descripción</label>
         <textarea class="form-control" id="textAreaExample" rows="4" [(ngModel)]="datosRuta.Descripcion" name="descripcion"></textarea>
     
-        <label for="exampleInputEmail1" class="form-label">Objetivo</label>
+        <label for="exampleInputEmail1" class="form-label text-dark">Objetivo</label>
         <textarea class="form-control" id="textAreaExample" rows="4" [(ngModel)]="datosRuta.Objetivo" name="objetivo"></textarea>
 
-        <label for="exampleInputEmail1" class="form-label">Sistema</label>
+        <label for="exampleInputEmail1" class="form-label text-dark">Sistema</label>
         <select class="form-select" aria-label="Default select example" [(ngModel)]="datosRuta.SistemaId" name="selectedSistema">
           <option *ngFor="let sistema of sistemas" [value]="sistema.Id">{{ sistema.Nombre }}</option>
         </select>
         
 
-        <label for="exampleInputEmail1" class="form-label">Elaborador</label>
+        <label for="exampleInputEmail1" class="form-label text-dark">Elaborador</label>
         <select class="form-select" aria-label="Default select example" [(ngModel)]="datosRuta.UsuarioIdElaborador" name="selectedElaborador">
           <option *ngFor="let usuario of usuarios" [value]="usuario.Id">{{usuario.Nombre}} {{usuario.Apellido}}</option>
         </select>

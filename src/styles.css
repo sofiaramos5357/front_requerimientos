@@ -3,3 +3,36 @@
 @import "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css";
 @import "../node_modules/alertifyjs//build/css/themes/default.min.css";
 
+@font-face {
+    font-family: 'PlutoBlack';
+    src: url('src/assets/fonts/PlutoBlack.ttf');
+}
+
+@font-face {
+    font-family: 'monserratblack';
+    src: url('src/assets/fonts/monserratblack.ttf');
+}
+
+@font-face {
+    font-family: 'PlutoCondRegular';
+    src: url('src/assets/fonts/PlutoCondRegular.ttf');
+}
+
+h2 {
+    font-family: 'PlutoBlack';
+}
+
+div, a {
+    font-family: 'monserratblack';
+    color: #4CC4D3;
+}
+
+
+h1, p, h3, li, h5{
+    font-family: 'PlutoCondRegular';
+   
+}
+
+h6 {
+    font-family: 'PlutoBlack';
+}
