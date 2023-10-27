@@ -2,37 +2,37 @@
 <h2 class="h2 text-center">Registrarte</h2>
 </div>
 <form>
-    <div class="d-grid gap-2 col-2 mx-auto mt-5">
+    <div class="d-grid gap-2 col-2 mx-auto mt-3">
       <label for="exampleInputEmail1" class="form-label text-dark">Ingrese su identidad</label>
       <input type="text" class="form-control" id="Identidad" name="Identidad" [(ngModel)]="nuevoUsuario.Identidad" aria-describedby="emailHelp"/>
     </div>
 
-    <div class="d-grid gap-2 col-2 mx-auto mt-4">
+    <div class="d-grid gap-2 col-2 mx-auto mt-3">
         <label for="exampleInputEmail1" class="form-label text-dark">Ingrese su Nombre</label>
         <input type="text" class="form-control" id="Nombre" name="Nombre" [(ngModel)]="nuevoUsuario.Nombre" aria-describedby="emailHelp"/>
     </div>
 
-    <div class="d-grid gap-2 col-2 mx-auto mt-4">
+    <div class="d-grid gap-2 col-2 mx-auto mt-3">
         <label for="exampleInputEmail1" class="form-label text-dark">Ingrese su Apellido</label>
         <input type="text" class="form-control" id="Apellido" name="Apellido" [(ngModel)]="nuevoUsuario.Apellido" aria-describedby="emailHelp"/>
     </div>
 
-    <div class="d-grid gap-2 col-2 mx-auto mt-4">
+    <div class="d-grid gap-2 col-2 mx-auto mt-3">
         <label for="exampleInputEmail1" class="form-label text-dark">Ingrese su correo</label>
         <input type="email" class="form-control" id="Correo" name="Correo" [(ngModel)]="nuevoUsuario.Correo" aria-describedby="emailHelp"/>
     </div>
 
-    <div class="d-grid gap-2 col-2 mx-auto mt-4">
+    <div class="d-grid gap-2 col-2 mx-auto mt-3">
       <label for="exampleInputEmail1" class="form-label text-dark">Nombre de usuario</label>
       <input type="text" class="form-control" id="NombreUsuario" name="NombreUsuario" [(ngModel)]="nuevoUsuario.NombreUsuario" aria-describedby="emailHelp"/>
   </div>
   
-    <div class="d-grid gap-2 col-2 mx-auto mt-4">
+    <div class="d-grid gap-2 col-2 mx-auto mt-3">
       <label for="exampleInputPassword1" class="form-label text-dark">Ingrese una contraseña</label>
       <input type="password" class="form-control" id="Contrasena" name="Contrasena" [(ngModel)]="nuevoUsuario.Contrasena" />
     </div>
     
-    <div class="d-grid gap-2 col-2 mx-auto mt-4">
+    <div class="d-grid gap-2 col-2 mx-auto mt-3">
       <label for="exampleInputPassword1" class="form-label text-dark">Confirme su contraseña</label>
       <input type="password" class="form-control" id="contrasenaConfirmacion" name="contrasenaConfirmacion" [(ngModel)]="contrasenaConfirmacion" (ngModelChange)="verificarContrasenas()"/>
       <!-- Mostrar un mensaje de error si las contraseñas no coinciden -->
@@ -42,11 +42,10 @@
     <div class="d-grid gap-2 col-1 mx-auto mt-5">
       <button type="button" class="btn btn-primary" (click)="registrar()">Registrarse</button>
     </div>
-    
     <br>
     <br>
     <br>
-
+    <br>
+    <br>
 </form>
 
-  <!--style="color:rgb(81, 165, 42)"-->

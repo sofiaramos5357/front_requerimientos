@@ -10,10 +10,18 @@ import { AuthGuard } from '../auth.guard';
 import { LoginComponent } from '../public/pages/login/login.component';
 import { InicioAdminComponent } from '../administrador/pages/inicio-admin/inicio-admin.component';
 import { Layout3Component } from '../shared/components/layouts/layout3/layout3.component';
+import { Layout4Component } from '../shared/components/layouts/layout4/layout4.component';
 
 const routes: Routes = [
   
-    {path: '',component:LoginComponent},
+
+    {
+      path: '',
+      component: Layout4Component, 
+      children: [
+        {path: '', component:LoginComponent},
+      ],
+    },
 
     {
       path: '',

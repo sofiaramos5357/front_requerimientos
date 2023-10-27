@@ -25,6 +25,9 @@ import { Layout2Component } from './components/layouts/layout2/layout2.component
 import { Layout3Component } from './components/layouts/layout3/layout3.component';
 import { ModalConfirmarEliminarComponent } from './components/modal-confirmar-eliminar/modal-confirmar-eliminar.component';
 import { CardTablaVaciaComponent } from './components/card-tabla-vacia/card-tabla-vacia.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavpublicComponent } from './components/navpublic/navpublic.component';
+import { Layout4Component } from './components/layouts/layout4/layout4.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { CardTablaVaciaComponent } from './components/card-tabla-vacia/card-tabl
     Layout3Component,
     ModalConfirmarEliminarComponent,
     CardTablaVaciaComponent,
+    FooterComponent,
+    NavpublicComponent,
+    Layout4Component,
   ],
   exports: [
     CheckbuttonsComponent,
@@ -48,7 +54,9 @@ import { CardTablaVaciaComponent } from './components/card-tabla-vacia/card-tabl
     CambiarContrasenaComponent,
     ModificarUsuarioComponent,
     ModalConfirmarEliminarComponent,
-    CardTablaVaciaComponent
+    CardTablaVaciaComponent,
+    FooterComponent,
+    NavpublicComponent
   ],
 
   imports: [

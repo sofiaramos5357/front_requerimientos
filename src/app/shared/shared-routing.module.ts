@@ -6,12 +6,18 @@ import { ModificarUsuarioComponent } from './pages/modificar-usuario/modificar-u
 
 import { AuthGuard } from '../auth.guard';
 import { Layout2Component } from './components/layouts/layout2/layout2.component';
+import { Layout4Component } from './components/layouts/layout4/layout4.component';
 
 const routes: Routes = [
     //shared
-    {path: 'cambiarcontrasena', component:CambiarContrasenaComponent},
-    //{path: 'modificarusuario', component:ModificarUsuarioComponent, canActivate: [AuthGuard]},
 
+    {
+      path: '',
+      component: Layout4Component, 
+      children: [
+        {path: 'cambiarcontrasena', component:CambiarContrasenaComponent},
+      ],
+    },
 
     {
       path: '',

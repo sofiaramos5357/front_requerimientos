@@ -1,22 +1,33 @@
 .contenedor {
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    width: 100%;
-    height: 91vh; /* Esto asegurará que el contenedor ocupe toda la altura de la ventana */
-  }
-  
-  .carrusel {
-    flex: 2;
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-  }
-  
-  .formulario {
-    flex: 1; /* Ocupará el espacio disponible en la misma proporción que el carrusel */
-    align-self: flex-start; /* Alinea el formulario hacia arriba */
-    margin-top: 100px; /* Ajusta la distancia entre el carrusel y el formulario según tu preferencia */
-    margin-left: 10px;
-  }
-  
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  width: 100%;
+  height: 91vh; /* Esto asegurará que el contenedor ocupe toda la altura de la ventana */
+}
+
+.carrusel {
+  flex: 2;
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.formulario {
+  flex: 1; /* Ocupará el espacio disponible en la misma proporción que el carrusel */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar elementos del formulario horizontalmente */
+  justify-content: center; /* Centrar elementos del formulario verticalmente */
+}
+
+/* Aumenta el ancho del div con la imagen de fondo */
+.background-image {
+  width: 450px;
+  height: 877px;
+  margin: 1 auto; /* Centrar horizontalmente el div */
+
+}
+
+/* Puedes ajustar el margen según tus preferencias */
+

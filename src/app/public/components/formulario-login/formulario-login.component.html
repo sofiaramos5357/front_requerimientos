@@ -1,11 +1,11 @@
-<form style="max-width: 600px; margin: 0 auto;" >
+<form>
   <div class="div">
-    <h2 class="h2 text-center mt-5" style="font-size: 50px;">Inicio de sesión</h2>
+    <h2 class="h2 text-center mt-5 text-white" style="font-size: 50px;">Inicio de sesión</h2>
   </div>
 
-  <div class="d-grid gap-2 col-5 mx-auto mt-5" style="font-size: 25px;">
-    <label for="exampleInputEmail1" class="form-label text-dark"
-      >Correo o usuario</label
+  <div class="d-grid gap-2 col-5 mx-auto mt-5" >
+    <label for="exampleInputEmail1" class="form-label text-white"
+      ><h2 style="font-size: 25px;">Correo/usuario</h2></label
     >
     <input
       type="email"
@@ -17,8 +17,8 @@
   </div>
 
   <div class="d-grid gap-2 col-5 mx-auto mt-4 " style="font-size: 25px;" >
-    <label for="exampleInputPassword1" class="form-label text-dark"
-      >Contraseña</label
+    <label for="exampleInputPassword1" class="form-label text-white"
+      ><h2>Contraseña</h2></label
     >
     <input
       type="password"
@@ -30,18 +30,18 @@
   </div>
 
   <a style="font-size: 18px;"
-    class="d-grid gap-2 col-5 mx-auto mt-5 text-center"
+    class="d-grid gap-2 col-5 mx-auto mt-5 text-center text-white"
     href="/recuperarcontrasena"
     >Recuperar Contraseña</a
   >
 
-  <div class="d-grid gap-2 col-5 mx-auto mt-5">
-    <button type="submit" class="btn btn-primary" (click)="signUp()">
+  <div class="d-grid   mx-auto mt-5">
+    <button type="submit" class="btn text-white" style="background-color:#2badbe ;" (click)="signUp()">
       Entrar
     </button>
   </div>
 
-  <div class="d-grid gap-2 col-5 mx-auto mt-5">
+  <div class="d-grid  mx-auto mt-5">
     <button type="submit" class="btn btn-dark" routerLink="/crearusuario">
       Registrarse
     </button>
