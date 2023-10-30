@@ -10,52 +10,52 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-formulario-editar-req',
   templateUrl: './formulario-editar-req.component.html',
-  styleUrls: ['./formulario-editar-req.component.css']
+  styleUrls: ['./formulario-editar-req.component.css'],
 })
 export class FormularioEditarReqComponent implements OnInit {
+  constructor(
+    private route: ActivatedRoute,
+    private crudService: CrudService,
+    private router: Router
+  ) {}
 
-  constructor(private route: ActivatedRoute, private crudService: CrudService,private router: Router,) { }
+  palabraModal: string = 'Requerimiento'; // Variable para almacenar la palabra a mostrar en el modal
 
-  palabraModal: string='Requerimiento'; // Variable para almacenar la palabra a mostrar en el modal
-
-
-  datosRuta: RequerimientoCreado
-  sistemas: Sistema[];
-  usuarios: Usuario[];
+  datosRuta: RequerimientoCreado; // Almacena los datos del requerimiento obtenidos de la ruta
+  sistemas: Sistema[]; // Arreglo para almacenar sistemas
+  usuarios: Usuario[]; // Arreglo para almacenar usuarios
   requerimiento: {
-    Id:number
-    Descripcion:String
-    Objetivo:String
-    SistemaId:number
-    UsuarioIdElaborador:number
-  };
-
-  RequerimientoCambio:{
-    Id:number
-  }
-
-  handleEliminar(eventData: {eliminar: boolean }) {
-    this.eliminarRequerimiento()
+    Id: number;
+    Descripcion: String;
+    Objetivo: String;
+    SistemaId: number;
+    UsuarioIdElaborador: number;
+  }; // Objeto para almacenar los datos del requerimiento
+  
+  RequerimientoCambio: {
+    Id: number;
+  }; // Objeto para almacenar el ID del requerimiento a modificar o eliminar
+  
+  handleEliminar(eventData: { eliminar: boolean }) {
+    this.eliminarRequerimiento(); // Maneja la eliminación de un requerimiento
   }
   
   ngOnInit() {
-    this.obtenerDatosRuta()
-    this.ObtenerSistemas()
-    this.obtenerElaborador()
+    this.obtenerDatosRuta(); // Llama a la función para obtener datos de la ruta
+    this.ObtenerSistemas(); // Llama a la función para obtener sistemas
+    this.obtenerElaborador(); // Llama a la función para obtener usuarios elaboradores
   }
-
+  
   obtenerDatosRuta() {
-    // Recupera los datos pasados a través de los parámetros de la ruta
-    this.route.queryParams.subscribe(params => {
+    // Función para recuperar datos pasados a través de los parámetros de la ruta
+    this.route.queryParams.subscribe((params) => {
       const requerimientoParam = params['requerimiento'];
-      //console.log(requerimientoParam);
       if (requerimientoParam) {
         try {
           const requerimiento = JSON.parse(requerimientoParam);
-          //  utilizar los datos de requerimiento en este componente
-          this.datosRuta = requerimiento
+          this.datosRuta = requerimiento; // Almacena los datos del requerimiento en este componente
         } catch (error) {
-          console.error("Error al analizar JSON:", error);
+          console.error('Error al analizar JSON:', error);
           // Maneja el error de análisis JSON de acuerdo a las necesidades
         }
       } else {
@@ -64,64 +64,64 @@ export class FormularioEditarReqComponent implements OnInit {
       }
     });
   }
-
+  
   ObtenerSistemas() {
-    //obtiene los roles y solo almacena los activos
+    // Función para obtener sistemas activos a través del servicio CRUD
     this.crudService.getSistemas().subscribe((res: Sistema[]) => {
+      // Filtra los sistemas activos y almacena en el arreglo
       const sistemasActivos = res.filter((Sistema) => Sistema.Activo === true);
       this.sistemas = sistemasActivos;
-      //console.log(this.sistemas)
     });
   }
-
+  
   obtenerElaborador() {
-    //obtiene los elaboradores y solo almecena los activos
+    // Función para obtener usuarios elaboradores activos a través del servicio CRUD
     this.crudService.getUsuarios().subscribe((res: Usuario[]) => {
-      const usuariosActivos = res.filter((Usuario) => Usuario.Activo === true && Usuario.RolId === 2);
+      // Filtra los usuarios activos con RolId igual a 2 (posiblemente elaboradores) y almacena en el arreglo
+      const usuariosActivos = res.filter(
+        (Usuario) => Usuario.Activo === true && Usuario.RolId === 2
+      );
       this.usuarios = usuariosActivos;
-      //console.log(this.usuarios)
     });
   }
-
+  
   guardarCambios() {
     this.requerimiento = {
-      Id:this.datosRuta.Id,
-      Descripcion:this.datosRuta.Descripcion,
-      Objetivo:this.datosRuta.Objetivo,
-      SistemaId:this.datosRuta.SistemaId,
-      UsuarioIdElaborador:this.datosRuta.UsuarioIdElaborador
-    }
-    //console.log(this.requerimiento)
-
+      Id: this.datosRuta.Id,
+      Descripcion: this.datosRuta.Descripcion,
+      Objetivo: this.datosRuta.Objetivo,
+      SistemaId: this.datosRuta.SistemaId,
+      UsuarioIdElaborador: this.datosRuta.UsuarioIdElaborador,
+    };
+    // Realiza cambios en los datos del requerimiento con los valores actuales
+  
     this.crudService.modificarRequerimiento(this.requerimiento).subscribe(
       (res) => {
-        alertifyjs.success(res.message)
-        this.router.navigate(['/home/admin']);
-        //console.log('Requerimiento modificado correctamente', res);
+        // Maneja la respuesta del backend y muestra un mensaje de éxito
+        this.router.navigate(['/home/admin']); // Redirige a la página de inicio del administrador
+        alertifyjs.success(res.message); // Muestra el mensaje de éxito
       },
       (error) => {
-        //     // Manejar errores aquí, si es necesario
-        //     //console.error('Error al modificar usuario', error);
+        // Maneja errores en caso de falla en la modificación del requerimiento
       }
     );
   }
-
+  
   eliminarRequerimiento() {
-
-    this.RequerimientoCambio ={
-      Id:this.datosRuta.Id
-    } 
+    this.RequerimientoCambio = {
+      Id: this.datosRuta.Id,
+    };
+    // Asigna el ID del requerimiento a eliminar
+  
     this.crudService.eliminarRequerimiento(this.RequerimientoCambio).subscribe(
       (res) => {
-        alertifyjs.success(res.message)
-        this.router.navigate(['/home/admin']);
-        //console.log('Requerimiento modificado correctamente', res);
+        // Maneja la respuesta del backend y muestra un mensaje de éxito
+        this.router.navigate(['/home/admin']); // Redirige a la página de inicio del administrador
+        alertifyjs.success(res.message); // Muestra el mensaje de éxito
       },
       (error) => {
-        //     // Manejar errores aquí, si es necesario
-        //     //console.error('Error al modificar usuario', error);
+        // Maneja errores en caso de falla en la eliminación del requerimiento
       }
     );
   }
-
-}
+}  

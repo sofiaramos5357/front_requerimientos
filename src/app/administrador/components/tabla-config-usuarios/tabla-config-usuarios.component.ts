@@ -8,91 +8,99 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 @Component({
   selector: 'app-tabla-config-usuarios',
   templateUrl: './tabla-config-usuarios.component.html',
-  styleUrls: ['./tabla-config-usuarios.component.css']
+  styleUrls: ['./tabla-config-usuarios.component.css'],
 })
 export class TablaConfigUsuariosComponent implements OnInit {
+  constructor(
+    private crudService: CrudService,
+    private datosUsuarioService: DatosUsuarioService
+  ) {}
 
   usuarios: Usuario[] = [];
   roles: Rol[] = [];
   itemsPerPage: number = 10; // Número de elementos por página
-  currentPage: number = 1;  // Página actual
+  currentPage: number = 1; // Página actual
 
   modelDatos: any = {};
-
 
   usuarioActual: any = {}; // Usuario actual que se está editando
   copiaUsuarioOriginal: any; // Copia temporal de los datos originales del usuario
 
   datosUsuario: Usuario;
 
-  constructor(private crudService: CrudService,private datosUsuarioService:DatosUsuarioService) {
-  }
   ngOnInit(): void {
-
-    this.obtenerUsuarios()
-    this.obtenerRoles()
-    this.mensajeAlmacenado()
-    this.DatosUsuario()
+    // Al iniciar el componente, se ejecutan las siguientes funciones
+    this.obtenerUsuarios(); // Obtiene la lista de usuarios
+    this.obtenerRoles(); // Obtiene la lista de roles
+    this.mensajeAlmacenado(); // Comprueba si hay un mensaje almacenado en el almacenamiento local
+    this.DatosUsuario(); // Obtiene los datos del usuario actual
   }
 
-  obtenerUsuarios(){
+  obtenerUsuarios() {
+    // Obtiene la lista de usuarios a través del servicio 'crudService'
     this.crudService.getUsuarios().subscribe((res: Usuario[]) => {
-      //console.log(res);
-      this.usuarios = res
-    })
+      this.usuarios = res;
+    });
   }
 
-  obtenerRoles(){
+  obtenerRoles() {
+    // Obtiene la lista de roles a través del servicio 'crudService'
     this.crudService.getRoles().subscribe((res: Rol[]) => {
-      //console.log(res);
-      this.roles = res
-    })
+      this.roles = res;
+    });
   }
 
-  mensajeAlmacenado(){
-    // Verificar si hay un mensaje almacenado en el almacenamiento local
+  mensajeAlmacenado() {
+    // Comprueba si hay un mensaje almacenado en el almacenamiento local
     const mensaje = localStorage.getItem('mensaje');
     if (mensaje) {
-      // Mostrar el mensaje con alertify o cualquier otro mecanismo de notificación
+      // Muestra el mensaje de éxito utilizando alertify o un mecanismo similar
       alertifyjs.success(mensaje);
 
-      // Limpiar el mensaje del almacenamiento local
+      // Limpia el mensaje del almacenamiento local
       localStorage.removeItem('mensaje');
     }
   }
 
   getUsersForPage(): Usuario[] {
+    // Obtiene un subconjunto de usuarios para mostrar en la página actual
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     return this.usuarios.slice(startIndex, endIndex);
   }
+
   getTotalPages(): number {
+    // Calcula el número total de páginas en función del número de usuarios y elementos por página
     return Math.ceil(this.usuarios.length / this.itemsPerPage);
   }
 
   getPages(): number[] {
-    return Array(this.getTotalPages()).fill(0).map((_, index) => index + 1);
+    // Genera un array con números de página para la paginación
+    return Array(this.getTotalPages())
+      .fill(0)
+      .map((_, index) => index + 1);
   }
 
-
-  // Función para abrir el modal y copiar los datos originales
   abrirModal(usuario: any) {
+    // Abre un modal para editar un usuario y crea una copia de los datos originales
     this.usuarioActual = { ...usuario };
     this.copiaUsuarioOriginal = { ...usuario };
     // Lógica para abrir el modal
   }
 
-  // Función para restaurar los datos originales en caso de cancelación
   cerrarModal() {
+    // Función para restaurar los datos originales en caso de cancelación
     if (this.copiaUsuarioOriginal) {
       this.usuarioActual.Activo = this.copiaUsuarioOriginal.Activo;
       this.usuarioActual.RolId = this.copiaUsuarioOriginal.RolId;
     }
   }
-  DatosUsuario(){
+
+  DatosUsuario() {
+    // Obtiene los datos del usuario actual a través del servicio 'datosUsuarioService'
     this.datosUsuarioService.DatosUsuario().subscribe(
       (response) => {
-          this.datosUsuario = response[0];
+        this.datosUsuario = response[0];
       },
       (error) => {
         console.error('Error al obtener los datos del usuario:', error);
@@ -101,25 +109,24 @@ export class TablaConfigUsuariosComponent implements OnInit {
   }
 
   guardarCambios() {
+    // Guarda los cambios realizados en el usuario actual a través del servicio 'crudService'
     this.crudService.modificarUsuario(this.usuarioActual).subscribe(
       (res) => {
-        // Manejar la respuesta exitosa aquí, si es necesario
-        //console.log('Usuario modificado exitosamente', response);
-
-        // Almacenar el mensaje en el almacenamiento local antes de recargar
+        // Maneja la respuesta exitosa aquí, almacenando un mensaje en el almacenamiento local
         localStorage.setItem('mensaje', res.message);
 
-        //si el mismo se cambia el rol salir del usuario admin
-        if(this.usuarioActual.Id===this.datosUsuario.Id){
+        if (this.usuarioActual.Id === this.datosUsuario.Id) {
+          // Si se modifica el rol del usuario actual, se realiza un reinicio de la sesión
           localStorage.removeItem('mensaje');
           localStorage.removeItem('token');
           window.location.reload();
-        }else{
-        // Recargar la página
-        window.location.reload();}
+        } else {
+          // Recarga la página para reflejar los cambios
+          window.location.reload();
+        }
       },
       (error) => {
-        // Manejar errores aquí, si es necesario
+        // Maneja errores aquí, si es necesario
         //console.error('Error al modificar usuario', error);
       }
     );

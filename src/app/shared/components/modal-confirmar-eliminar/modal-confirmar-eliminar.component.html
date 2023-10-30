@@ -1,17 +1,32 @@
 <!-- Modal -->
-<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-     #modalEliminar>
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body text-center align-middle">
-                <br>
-                <div class="h5 text-dark">¿Seguro de eliminar {{ palabraModal }}?</div>
-                <br>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="Eliminar()">Eliminar</button>
-            </div>
-        </div>
+<div
+  class="modal fade"
+  id="modalEliminar"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  #modalEliminar
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center align-middle">
+        <br />
+        <div class="h5 text-dark">¿Seguro de eliminar {{ palabraModal }}?</div>
+        <br />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="Eliminar()"
+        >
+          Eliminar
+        </button>
+      </div>
     </div>
+  </div>
 </div>

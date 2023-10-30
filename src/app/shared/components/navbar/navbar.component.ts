@@ -6,25 +6,28 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(public authService:AuthService, private datosUsuarioService:DatosUsuarioService, private router: Router){}
+  constructor(
+    public authService: AuthService, // Inyecta el servicio de autenticación
+    private datosUsuarioService: DatosUsuarioService, // Inyecta el servicio de datos del usuario
+    private router: Router // Inyecta el servicio de enrutamiento
+  ) {}
 
-  datosUsuario: Usuario;
+  datosUsuario: Usuario; // Variable para almacenar los datos del usuario
 
   ngOnInit(): void {
-    this.DatosUsuario()
+    this.DatosUsuario(); // Llama a la función para obtener los datos del usuario cuando se inicializa el componente
   }
 
-  DatosUsuario(){
+  DatosUsuario() {
     this.datosUsuarioService.DatosUsuario().subscribe(
       (response) => {
-          this.datosUsuario = response[0];
+        this.datosUsuario = response[0]; // Almacena los datos del usuario en la variable datosUsuario
       },
       (error) => {
         console.error('Error al obtener los datos del usuario:', error);
@@ -32,10 +35,10 @@ export class NavbarComponent implements OnInit {
     );
   }
 
+  // Recarga la página si la ruta actual coincide con la ruta proporcionada
   reloadPageIfCurrentRoute(route: string) {
     if (this.router.url === route) {
       window.location.reload();
     }
   }
-  
 }

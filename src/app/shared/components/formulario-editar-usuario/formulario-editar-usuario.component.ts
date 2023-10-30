@@ -32,26 +32,25 @@ export class FormularioEditarUsuarioComponent implements OnInit {
   };
 
   modificarUsuario() {
-    //console.log(this.nuevoUsuario)
     this.crudService.modificarUsuarioPropio(this.nuevoUsuario).subscribe(
       (res) => {
+        // Al modificar el usuario, redirigir de nuevo a la página de inicio de sesión
         this.router.navigate(['/login']);
+        // Mostrar un mensaje de éxito al usuario
         alertifyjs.success(res.message);
       },
       (error) => {
-        // Manejar errores aquí
-        //console.error('Error en el registro', error.mensaje);
-        //alertifyjs.error(error)
+        // Puedes manejar errores aquí si es necesario
+        // Por el momento, no se está realizando ninguna acción específica para errores
       }
     );
-    
   }
 
   datosUsuario() {
     this.datosUsuarioService.DatosUsuario().subscribe(
       (response: Usuario[]) => {
         this.DatosUsuario = response;
-        //console.log(this.DatosUsuario[0].Id)
+        // Asignar los datos del usuario actual a nuevoUsuario para su edición
         this.nuevoUsuario = {
           Id: this.DatosUsuario[0].Id,
           Nombre: this.DatosUsuario[0].Nombre,

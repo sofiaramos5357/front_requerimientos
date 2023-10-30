@@ -6,77 +6,157 @@
           <h2>Información de la solicitud de requerimiento</h2>
         </div>
         <div class="col-md-4 d-flex justify-content-end">
-          <div *ngIf="datosUsuario && datosUsuario.Id === datosRuta.UsuarioIdCreador">
-            <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="modal"
-              data-bs-target="#modalEliminar">Eliminar Requerimiento</button>
+          <div
+            *ngIf="
+              datosUsuario && datosUsuario.Id === datosRuta.UsuarioIdCreador
+            "
+          >
+            <button
+              type="button"
+              class="btn btn-lg btn-danger"
+              data-bs-toggle="modal"
+              data-bs-target="#modalEliminar"
+            >
+              Eliminar Requerimiento
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <app-modal-confirmar-eliminar [palabraModal]="palabraModal" (eliminarRequerimientoModal)="handleEliminar($event)"></app-modal-confirmar-eliminar>
-
+    <app-modal-confirmar-eliminar
+      [palabraModal]="palabraModal"
+      (eliminarRequerimientoModal)="handleEliminar($event)"
+    ></app-modal-confirmar-eliminar>
 
     <h4 class="form-floating mb-3 mt-3 text-dark"># Requerimiento</h4>
     <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+      <input
+        type="email"
+        class="form-control"
+        id="floatingInputDisabled"
+        placeholder="name@example.com"
+        disabled
+      />
       <label for="floatingInputDisabled">{{ datosRuta.Id }}</label>
     </div>
 
     <h4 class="form-floating mb-3 mt-3 text-dark">Fecha creación</h4>
     <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+      <input
+        type="email"
+        class="form-control"
+        id="floatingInputDisabled"
+        placeholder="name@example.com"
+        disabled
+      />
       <label for="floatingInputDisabled">{{ FechaCreacion }}</label>
     </div>
 
     <h4 class="form-floating mb-3 text-dark">Usuario Creador</h4>
     <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
-      <label for="floatingInputDisabled">{{ datosRuta.NombreCreador }} {{ datosRuta.ApellidoCreador }}</label>
+      <input
+        type="email"
+        class="form-control"
+        id="floatingInputDisabled"
+        placeholder="name@example.com"
+        disabled
+      />
+      <label for="floatingInputDisabled"
+        >{{ datosRuta.NombreCreador }} {{ datosRuta.ApellidoCreador }}</label
+      >
     </div>
     <h4 class="form-floating mb-3 text-dark">Descripción</h4>
     <div class="form-floating mb-3">
-      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2Disabled"
-        style="height: 100px" disabled>{{ datosRuta.Descripcion }}</textarea>
+      <textarea
+        class="form-control"
+        placeholder="Leave a comment here"
+        id="floatingTextarea2Disabled"
+        style="height: 100px"
+        disabled
+        >{{ datosRuta.Descripcion }}</textarea
+      >
     </div>
     <h4 class="form-floating mb-3 text-dark">Objetivo</h4>
     <div class="form-floating mb-3">
-      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2Disabled"
-        style="height: 100px" disabled>{{ datosRuta.Objetivo }}</textarea>
+      <textarea
+        class="form-control"
+        placeholder="Leave a comment here"
+        id="floatingTextarea2Disabled"
+        style="height: 100px"
+        disabled
+        >{{ datosRuta.Objetivo }}</textarea
+      >
     </div>
     <h4 class="form-floating mb-3 text-dark">Sistema</h4>
     <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
+      <input
+        type="email"
+        class="form-control"
+        id="floatingInputDisabled"
+        placeholder="name@example.com"
+        disabled
+      />
       <label for="floatingInputDisabled">{{ datosRuta.NombreSistema }}</label>
     </div>
     <h4 class="form-floating mb-3 text-dark">Usuario Elaborador</h4>
     <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
-      <label for="floatingInputDisabled">{{ datosRuta.NombreElaborador }}
-        {{ datosRuta.ApellidoElaborador }}</label>
+      <input
+        type="email"
+        class="form-control"
+        id="floatingInputDisabled"
+        placeholder="name@example.com"
+        disabled
+      />
+      <label for="floatingInputDisabled"
+        >{{ datosRuta.NombreElaborador }}
+        {{ datosRuta.ApellidoElaborador }}</label
+      >
     </div>
     <br />
     <br />
     <div *ngIf="datosFichaTecnica">
-      <h2 class="text-right">
-        Ficha Técnica
-      </h2>
+      <h2 class="text-right">Ficha Técnica</h2>
       <br />
 
       <h4 class="form-floating mb-3 text-dark">Tiempo estimado</h4>
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
-        <label for="floatingInputDisabled">{{ datosFichaTecnica.TiempoEstimadoHrs }}</label>
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInputDisabled"
+          placeholder="name@example.com"
+          disabled
+        />
+        <label for="floatingInputDisabled">{{
+          datosFichaTecnica.TiempoEstimadoHrs
+        }}</label>
       </div>
       <h4 class="form-floating mb-3 text-dark">Tipo de cambio</h4>
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
-        <label for="floatingInputDisabled">{{ datosFichaTecnica.NombreCambio }}</label>
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInputDisabled"
+          placeholder="name@example.com"
+          disabled
+        />
+        <label for="floatingInputDisabled">{{
+          datosFichaTecnica.NombreCambio
+        }}</label>
       </div>
       <h4 class="form-floating mb-3 text-dark">Observaciones</h4>
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com" disabled />
-        <label for="floatingInputDisabled">{{ datosFichaTecnica.Observaciones }}</label>
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInputDisabled"
+          placeholder="name@example.com"
+          disabled
+        />
+        <label for="floatingInputDisabled">{{
+          datosFichaTecnica.Observaciones
+        }}</label>
       </div>
       <br />
       <br />

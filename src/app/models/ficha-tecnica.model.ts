@@ -1,6 +1,6 @@
 export interface FichaTecnica {
-    Id:number
-    TiempoEstimadoHrs:number
-    TipoCambioId:number
-    Observaciones:string
+  Id: number;
+  TiempoEstimadoHrs: number;
+  TipoCambioId: number;
+  Observaciones: string;
 }

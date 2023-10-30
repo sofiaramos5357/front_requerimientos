@@ -1,20 +1,41 @@
 <div>
-<h2 class=" text-center mt-5">Cambio de contraseña</h2>
+  <h2 class="text-center mt-5">Cambio de contraseña</h2>
 </div>
 <form>
-    <div class="d-grid gap-2 col-2 mx-auto mt-5">
-      <label for="exampleInputPassword1" class="form-label text-dark">Ingrese una nueva contraseña</label>
-      <input type="password" class="form-control" id="Contrasena" name="Contrasena" [(ngModel)]="nuevaContrasena.Contrasena" />
+  <div class="d-grid gap-2 col-2 mx-auto mt-5">
+    <label for="exampleInputPassword1" class="form-label text-dark"
+      >Ingrese una nueva contraseña</label
+    >
+    <input
+      type="password"
+      class="form-control"
+      id="Contrasena"
+      name="Contrasena"
+      [(ngModel)]="nuevaContrasena.Contrasena"
+    />
+  </div>
+
+  <div class="d-grid gap-2 col-2 mx-auto mt-4">
+    <label for="exampleInputPassword1" class="form-label text-dark"
+      >Confirme la contraseña</label
+    >
+    <input
+      type="password"
+      class="form-control"
+      id="contrasenaConfirmacion"
+      name="contrasenaConfirmacion"
+      [(ngModel)]="contrasenaConfirmacion"
+      (ngModelChange)="verificarContrasenas()"
+    />
+    <!-- Mostrar un mensaje de error si las contraseñas no coinciden -->
+    <div *ngIf="!contrasenasCoinciden" class="text-danger">
+      Las contraseñas no coinciden.
     </div>
-    
-    <div class="d-grid gap-2 col-2 mx-auto mt-4">
-      <label for="exampleInputPassword1" class="form-label text-dark">Confirme la contraseña</label>
-      <input type="password" class="form-control" id="contrasenaConfirmacion" name="contrasenaConfirmacion" [(ngModel)]="contrasenaConfirmacion" (ngModelChange)="verificarContrasenas()"/>
-      <!-- Mostrar un mensaje de error si las contraseñas no coinciden -->
-      <div *ngIf="!contrasenasCoinciden" class="text-danger">Las contraseñas no coinciden.</div>
-    </div>
-        
-    <div class="d-grid gap-2 col-2 mx-auto mt-5">
-      <button type="button" class="btn btn-primary" (click)="registrar()">Guardar contraseña</button>
-    </div>
+  </div>
+
+  <div class="d-grid gap-2 col-2 mx-auto mt-5">
+    <button type="button" class="btn btn-primary" (click)="registrar()">
+      Guardar contraseña
+    </button>
+  </div>
 </form>

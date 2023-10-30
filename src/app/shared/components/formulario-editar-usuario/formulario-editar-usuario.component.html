@@ -1,30 +1,63 @@
 <div>
-<h2 class="h2 text-center">Modificar usuario</h2>
+  <h2 class="h2 text-center">Modificar usuario</h2>
 </div>
 <form>
-
-    <div class="d-grid gap-2 col-3 mx-auto mt-4">
-        <label for="exampleInputEmail1" class="form-label text-dark">Nombre</label>
-        <input type="text" class="form-control" id="Nombre" name="Nombre" [(ngModel)]="nuevoUsuario.Nombre" aria-describedby="emailHelp"/>
-    </div>
-
-    <div class="d-grid gap-2 col-3 mx-auto mt-4">
-        <label for="exampleInputEmail1" class="form-label text-dark">Apellido</label>
-        <input type="text" class="form-control" id="Apellido" name="Apellido" [(ngModel)]="nuevoUsuario.Apellido" aria-describedby="emailHelp"/>
-    </div>
-
-    <div class="d-grid gap-2 col-3 mx-auto mt-4">
-      <label for="exampleInputEmail1" class="form-label text-dark">Nombre de usuario</label>
-      <input type="text" class="form-control" id="NombreUsuario" name="NombreUsuario" [(ngModel)]="nuevoUsuario.NombreUsuario" aria-describedby="emailHelp"/>
+  <div class="d-grid gap-2 col-3 mx-auto mt-4">
+    <label for="exampleInputEmail1" class="form-label text-dark">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Nombre"
+      name="Nombre"
+      [(ngModel)]="nuevoUsuario.Nombre"
+      aria-describedby="emailHelp"
+    />
   </div>
 
   <div class="d-grid gap-2 col-3 mx-auto mt-4">
-    <label for="exampleInputPassword1" class="form-label text-dark">Ingrese su contraseña para confirmar los cambios</label>
-    <input type="password" class="form-control" id="Contrasena" name="Contrasena" [(ngModel)]="nuevoUsuario.Contrasena" />
+    <label for="exampleInputEmail1" class="form-label text-dark"
+      >Apellido</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="Apellido"
+      name="Apellido"
+      [(ngModel)]="nuevoUsuario.Apellido"
+      aria-describedby="emailHelp"
+    />
   </div>
-  
-    <div class="d-grid gap-2 col-2 mx-auto mt-5">
-      <button type="button" class="btn btn-primary" (click)="modificarUsuario()">Guardar Cambios</button>
-    </div>
-    
+
+  <div class="d-grid gap-2 col-3 mx-auto mt-4">
+    <label for="exampleInputEmail1" class="form-label text-dark"
+      >Nombre de usuario</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="NombreUsuario"
+      name="NombreUsuario"
+      [(ngModel)]="nuevoUsuario.NombreUsuario"
+      aria-describedby="emailHelp"
+    />
+  </div>
+
+  <div class="d-grid gap-2 col-3 mx-auto mt-4">
+    <label for="exampleInputPassword1" class="form-label text-dark"
+      >Ingrese su contraseña para confirmar los cambios</label
+    >
+    <input
+      type="password"
+      class="form-control"
+      id="Contrasena"
+      name="Contrasena"
+      [(ngModel)]="nuevoUsuario.Contrasena"
+    />
+  </div>
+
+  <div class="d-grid gap-2 col-2 mx-auto mt-5">
+    <button type="button" class="btn btn-primary" (click)="modificarUsuario()">
+      Guardar Cambios
+    </button>
+  </div>
 </form>

@@ -1,46 +1,80 @@
 <head>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
+  />
 </head>
 
-<body >
+<body>
   <div class="container justify-content-center align-items-center">
     <div class="d-flex justify-content-between align-items-center">
       <h2 class="mb-0 mx-auto">Documentar requerimiento</h2>
-      <div *ngIf="datosUsuario && datosUsuario.Id === datosRuta.UsuarioIdCreador">
-        <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="modal"
-              data-bs-target="#modalEliminar">Eliminar Requerimiento</button>
+      <div
+        *ngIf="datosUsuario && datosUsuario.Id === datosRuta.UsuarioIdCreador"
+      >
+        <button
+          type="button"
+          class="btn btn-lg btn-danger"
+          data-bs-toggle="modal"
+          data-bs-target="#modalEliminar"
+        >
+          Eliminar Requerimiento
+        </button>
       </div>
     </div>
-    
-    <app-modal-confirmar-eliminar [palabraModal]="palabraModal" (eliminarRequerimientoModal)="handleEliminar($event)"></app-modal-confirmar-eliminar>
 
+    <app-modal-confirmar-eliminar
+      [palabraModal]="palabraModal"
+      (eliminarRequerimientoModal)="handleEliminar($event)"
+    ></app-modal-confirmar-eliminar>
 
     <h4 class="mt-5 text-dark">Documento de requerimiento</h4>
-    <p class="card-text mt-5 text-dark">Descargue el documento que contiene las especificaciones de los cambios realizados.
-      Luego, suba el archivo con las firmas correspondientes.</p>
+    <p class="card-text mt-5 text-dark">
+      Descargue el documento que contiene las especificaciones de los cambios
+      realizados. Luego, suba el archivo con las firmas correspondientes.
+    </p>
     <div class="d-flex justify-content-end">
-      <button type="button" class="btn btn-lg btn-primary mt-5" (click)="crearPDF()">Descargar documento</button>
+      <button
+        type="button"
+        class="btn btn-lg btn-primary mt-5"
+        (click)="crearPDF()"
+      >
+        Descargar documento
+      </button>
     </div>
 
     <h4 class="mt-5">Subir documento</h4>
 
     <div class="mb-3 mt-4">
-      <input class="form-control" type="file" id="formFile" (change)="getFile($event)">
+      <input
+        class="form-control"
+        type="file"
+        id="formFile"
+        (change)="getFile($event)"
+      />
     </div>
 
     <div class="d-flex justify-content-center mt-5">
-      <button type="button" class="btn btn-lg btn-primary mt-5" (click)="sendFile()">Guardar documentación</button>
+      <button
+        type="button"
+        class="btn btn-lg btn-primary mt-5"
+        (click)="sendFile()"
+      >
+        Guardar documentación
+      </button>
     </div>
 
-      <div class="card text-primary mt-5">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <i class="material-icons">info</i>
-            <p class="card-title">En caso de equivocarse de archivo, este solo podrá ser editado en los primeros 30 minutos después de ser subido en la sección de documentos.</p>
-          </div>
+    <div class="card text-primary mt-5">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <i class="material-icons">info</i>
+          <p class="card-title">
+            En caso de equivocarse de archivo, este solo podrá ser editado en
+            los primeros 30 minutos después de ser subido en la sección de
+            documentos.
+          </p>
         </div>
       </div>
-    
-
+    </div>
   </div>
 </body>

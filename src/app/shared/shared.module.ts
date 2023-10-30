@@ -13,10 +13,7 @@ import { ModificarUsuarioComponent } from './pages/modificar-usuario/modificar-u
 import { AuthGuard } from '../auth.guard';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptorService } from '../services/token-interceptor.service';
-import { AppComponent } from '../app.component';
 
-
-import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -56,13 +53,12 @@ import { Layout4Component } from './components/layouts/layout4/layout4.component
     ModalConfirmarEliminarComponent,
     CardTablaVaciaComponent,
     FooterComponent,
-    NavpublicComponent
+    NavpublicComponent,
   ],
 
   imports: [
     CommonModule,
     SharedRoutingModule,
-    //BrowserModule,
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
@@ -72,9 +68,9 @@ import { Layout4Component } from './components/layouts/layout4/layout4.component
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: []
+  bootstrap: [],
 })
-export class SharedModule { }
+export class SharedModule {}

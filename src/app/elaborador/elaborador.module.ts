@@ -22,10 +22,7 @@ import { RequerimientoCambioComponent } from './pages/requerimiento-cambio/reque
 import { AuthGuard } from '../auth.guard';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptorService } from '../services/token-interceptor.service';
-import { AppComponent } from '../app.component';
 
-
-import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -48,28 +45,24 @@ import { SharedModule } from '../shared/shared.module';
     ObjetoComponent,
     RequerimientoAsignadoComponent,
     RequerimientoCambioComponent,
-
-    
-
   ],
   imports: [
     CommonModule,
     ElaboradorRoutingModule,
-    //BrowserModule,
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
 
-    SharedModule
+    SharedModule,
   ],
   providers: [
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: []
+  bootstrap: [],
 })
-export class ElaboradorModule { }
+export class ElaboradorModule {}

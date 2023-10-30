@@ -1,7 +1,3 @@
-
-
--arreglar la parte de documento que no puedan subir cosas que no son
-
 observaciones
 
 -las variables deben ser iguales a como estan declaradas en la base de datos si no las funcionciones http no sabran cual dato es cual

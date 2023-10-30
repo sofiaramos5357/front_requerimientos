@@ -1,76 +1,140 @@
 <div>
-<h2 class="text-center">Modificar ficha técnica</h2>
+  <h2 class="text-center">Modificar ficha técnica</h2>
 </div>
 <form>
   <div class="d-grid gap-2 col-2 mx-auto mt-4">
     <div class="border text-center">
-      <label class="text-center col-10 text-dark">#Requerimiento: {{ datosRuta }}</label>
+      <label class="text-center col-10 text-dark"
+        >#Requerimiento: {{ datosRuta }}</label
+      >
     </div>
   </div>
   <div class="d-grid gap-2 col-2 mx-auto mt-4 text-dark">
-    <label for="exampleInputEmail1" class="form-label">Tiempo estimado en horas</label>
+    <label for="exampleInputEmail1" class="form-label"
+      >Tiempo estimado en horas</label
+    >
     <div class="form-outline">
-      <input type="number" id="TiempoEstimadoHrs" name="TiempoEstimadoHrs" class="form-control"
-        [(ngModel)]="fichaTecnica.TiempoEstimadoHrs" />
+      <input
+        type="number"
+        id="TiempoEstimadoHrs"
+        name="TiempoEstimadoHrs"
+        class="form-control"
+        [(ngModel)]="fichaTecnica.TiempoEstimadoHrs"
+      />
     </div>
 
-    <label for="exampleInputEmail1" class="form-label text-dark">Tipo de cambio</label>
+    <label for="exampleInputEmail1" class="form-label text-dark"
+      >Tipo de cambio</label
+    >
     <div style="display: flex; align-items: center">
-      <select class="form-select" aria-label="Default select example" id="TipoCambioId" name="TipoCambioId"
-        [(ngModel)]="fichaTecnica.TipoCambioId">
-        <option *ngFor="let tipoCambios of tipoCambios" [value]="tipoCambios.Id">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        id="TipoCambioId"
+        name="TipoCambioId"
+        [(ngModel)]="fichaTecnica.TipoCambioId"
+      >
+        <option
+          *ngFor="let tipoCambios of tipoCambios"
+          [value]="tipoCambios.Id"
+        >
           {{ tipoCambios.Nombre }}
         </option>
       </select>
-      <button class="btn btn-danger" style="margin-left: 10px" rel="tooltip" data-original-title=""
-        data-bs-toggle="modal" data-bs-target="#exampleModal" title="">
+      <button
+        class="btn btn-danger"
+        style="margin-left: 10px"
+        rel="tooltip"
+        data-original-title=""
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        title=""
+      >
         +
       </button>
     </div>
 
+    <label for="exampleInputEmail1" class="form-label text-dark"
+      >Observaciones</label
+    >
+    <textarea
+      class="form-control"
+      id="Observaciones"
+      rows="4"
+      name="Observaciones"
+      [(ngModel)]="fichaTecnica.Observaciones"
+    ></textarea>
 
-    <label for="exampleInputEmail1" class="form-label text-dark">Observaciones</label>
-    <textarea class="form-control" id="Observaciones" rows="4" name="Observaciones"
-      [(ngModel)]="fichaTecnica.Observaciones"></textarea>
-
-    <button type="submit" class="btn btn-primary mt-5" (click)="guardarFichaTecnica()">
+    <button
+      type="submit"
+      class="btn btn-primary mt-5"
+      (click)="guardarFichaTecnica()"
+    >
       Guardar cambios
     </button>
-    <button type="submit" class="btn btn btn-danger mt-4" data-bs-toggle="modal"
-      data-bs-target="#modalEliminar">Eliminar ficha tecnica</button>
-
+    <button
+      type="submit"
+      class="btn btn btn-danger mt-4"
+      data-bs-toggle="modal"
+      data-bs-target="#modalEliminar"
+    >
+      Eliminar ficha tecnica
+    </button>
   </div>
-  
-  <app-modal-confirmar-eliminar [palabraModal]="palabraModal"
-  (eliminarRequerimientoModal)="handleEliminar($event)"></app-modal-confirmar-eliminar>
 
-<br>
-<br>
-<br>
+  <app-modal-confirmar-eliminar
+    [palabraModal]="palabraModal"
+    (eliminarRequerimientoModal)="handleEliminar($event)"
+  ></app-modal-confirmar-eliminar>
 
+  <br />
+  <br />
+  <br />
 </form>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">
           Agregar Tipo de cambio
         </h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body text-center align-middle">
         <div class="h5 text-dark">Ingrese tipo de cambio</div>
-        <input type="text" class="form-control" id="tipoCambio" name="tipoCambio" aria-describedby="emailHelp"
-          [(ngModel)]="tipoCambio.Nombre" />
+        <input
+          type="text"
+          class="form-control"
+          id="tipoCambio"
+          name="tipoCambio"
+          aria-describedby="emailHelp"
+          [(ngModel)]="tipoCambio.Nombre"
+        />
       </div>
       <br />
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary" [disabled]="!validarTipoCambio()" (click)="guardarTipoCambio()">
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="!validarTipoCambio()"
+          (click)="guardarTipoCambio()"
+        >
           Guardar
         </button>
       </div>

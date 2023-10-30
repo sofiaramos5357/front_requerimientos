@@ -1,5 +1,5 @@
 <h2 class="h2 text-center mt-5">Requerimientos en revisión</h2>
-<body class="mt-5" *ngIf="reqPendientesRev.length!==0">
+<body class="mt-5" *ngIf="reqPendientesRev.length !== 0">
   <div class="container d-flex justify-content-center align-items-center vh-50">
     <div class="row">
       <div class="col-lg-12 col-md-10 ml-auto mr-auto">
@@ -28,26 +28,20 @@
                   {{ reqPendienteRevision.NombreCreador }}
                   {{ reqPendienteRevision.ApellidoCreador }}
                 </td>
-                <td
-                  class="td-actions "
-                >
+                <td class="td-actions">
                   <button
                     type="button"
                     class="btn btn-warning btn-just-icon btn-sm"
                     (click)="enviarReq(reqPendienteRevision)"
-
                   >
                     <i class="material-icons">edit</i>
                   </button>
                 </td>
-                <td
-                  class="td-actions"
-                >
+                <td class="td-actions">
                   <button
                     type="button"
                     class="btn btn-success btn-just-icon btn-sm"
                     (click)="verRequerimiento(reqPendienteRevision)"
-
                   >
                     <i class="material-icons">visibility</i>
                   </button>
@@ -88,4 +82,7 @@
     </div>
   </div>
 </body>
-<app-card-tabla-vacia *ngIf="reqPendientesRev.length===0" [mensaje]="mensaje"></app-card-tabla-vacia>
+<app-card-tabla-vacia
+  *ngIf="reqPendientesRev.length === 0"
+  [mensaje]="mensaje"
+></app-card-tabla-vacia>

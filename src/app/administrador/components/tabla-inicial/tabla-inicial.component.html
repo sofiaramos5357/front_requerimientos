@@ -7,9 +7,9 @@
 
 <h2 class="h2 text-center mt-5">Requerimientos en proceso</h2>
 
-<body class="mt-5"  *ngIf="requerimientos.length!==0">
+<body class="mt-5" *ngIf="requerimientos.length !== 0">
   <div class="container d-flex justify-content-center align-items-center vh-50">
-    <div class="row" >
+    <div class="row">
       <div class="col-lg-12 col-md-10 ml-auto mr-auto">
         <div class="table-responsive">
           <table class="table">
@@ -28,10 +28,16 @@
                 <td>{{ requerimiento.Id }}</td>
                 <td>{{ requerimiento.NombreSistema }}</td>
                 <td>
-                  <span class="badge rounded-pill bg-secondary" *ngIf="requerimiento.RequerimientoEstadoId===1">
+                  <span
+                    class="badge rounded-pill bg-secondary"
+                    *ngIf="requerimiento.RequerimientoEstadoId === 1"
+                  >
                     {{ requerimiento.Estado }}</span
                   >
-                  <span class="badge rounded-pill bg-primary" *ngIf="requerimiento.RequerimientoEstadoId===2">
+                  <span
+                    class="badge rounded-pill bg-primary"
+                    *ngIf="requerimiento.RequerimientoEstadoId === 2"
+                  >
                     {{ requerimiento.Estado }}</span
                   >
                 </td>
@@ -46,8 +52,9 @@
 
                 <td
                   *ngIf="
-                    datosUsuario &&
-                    datosUsuario.Id !== requerimiento.UsuarioIdCreador || requerimiento.RequerimientoEstadoId==2
+                    (datosUsuario &&
+                      datosUsuario.Id !== requerimiento.UsuarioIdCreador) ||
+                    requerimiento.RequerimientoEstadoId == 2
                   "
                   class="td-actions text-right"
                 >
@@ -62,7 +69,8 @@
                 <td
                   *ngIf="
                     datosUsuario &&
-                    datosUsuario.Id === requerimiento.UsuarioIdCreador && requerimiento.RequerimientoEstadoId==1
+                    datosUsuario.Id === requerimiento.UsuarioIdCreador &&
+                    requerimiento.RequerimientoEstadoId == 1
                   "
                   class="td-actions text-right"
                 >
@@ -111,5 +119,7 @@
   </div>
 </body>
 
-
-<app-card-tabla-vacia *ngIf="requerimientos.length===0" [mensaje]="mensaje"></app-card-tabla-vacia>
+<app-card-tabla-vacia
+  *ngIf="requerimientos.length === 0"
+  [mensaje]="mensaje"
+></app-card-tabla-vacia>

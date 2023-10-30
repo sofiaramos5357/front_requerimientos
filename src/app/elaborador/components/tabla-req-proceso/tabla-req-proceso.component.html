@@ -1,5 +1,5 @@
 <h2 class="h2 text-center mt-5">Requerimientos en proceso</h2>
-<body class="mt-5" *ngIf="requerimientosProcesos.length!==0">
+<body class="mt-5" *ngIf="requerimientosProcesos.length !== 0">
   <div class="container d-flex justify-content-center align-items-center vh-50">
     <div class="row">
       <div class="col-lg-12 col-md-10 ml-auto mr-auto">
@@ -21,10 +21,16 @@
                 <td>{{ requerimientosProceso.Id }}</td>
                 <td>{{ requerimientosProceso.NombreSistema }}</td>
                 <td>
-                  <span *ngIf="requerimientosProceso.RequerimientoEstadoId===2" class="badge rounded-pill bg-primary">
+                  <span
+                    *ngIf="requerimientosProceso.RequerimientoEstadoId === 2"
+                    class="badge rounded-pill bg-primary"
+                  >
                     {{ requerimientosProceso.Estado }}</span
                   >
-                  <span *ngIf="requerimientosProceso.RequerimientoEstadoId===7" class="badge rounded-pill bg-danger">
+                  <span
+                    *ngIf="requerimientosProceso.RequerimientoEstadoId === 7"
+                    class="badge rounded-pill bg-danger"
+                  >
                     {{ requerimientosProceso.Estado }}</span
                   >
                 </td>
@@ -32,9 +38,7 @@
                   {{ requerimientosProceso.NombreCreador }}
                   {{ requerimientosProceso.ApellidoCreador }}
                 </td>
-                <td
-                  class="td-actions "
-                >
+                <td class="td-actions">
                   <button
                     type="button"
                     class="btn btn-warning btn-just-icon btn-sm"
@@ -43,9 +47,7 @@
                     <i class="material-icons">edit</i>
                   </button>
                 </td>
-                <td
-                  class="td-actions"
-                >
+                <td class="td-actions">
                   <button
                     type="button"
                     class="btn btn-danger btn-just-icon btn-sm"
@@ -54,9 +56,7 @@
                     <i class="material-icons">add</i>
                   </button>
                 </td>
-                <td
-                  class="td-actions"
-                >
+                <td class="td-actions">
                   <button
                     type="button"
                     class="btn btn-success btn-just-icon btn-sm"
@@ -102,4 +102,7 @@
   </div>
 </body>
 
-<app-card-tabla-vacia *ngIf="requerimientosProcesos.length===0" [mensaje]="mensaje"></app-card-tabla-vacia>
+<app-card-tabla-vacia
+  *ngIf="requerimientosProcesos.length === 0"
+  [mensaje]="mensaje"
+></app-card-tabla-vacia>

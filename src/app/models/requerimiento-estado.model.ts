@@ -1,4 +1,4 @@
 export interface RequerimientoEstado {
-    Id: number;
-    Nombre: string;
+  Id: number;
+  Nombre: string;
 }

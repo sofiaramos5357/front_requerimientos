@@ -11,10 +11,7 @@ import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recup
 import { AuthGuard } from '../auth.guard';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptorService } from '../services/token-interceptor.service';
-import { AppComponent } from '../app.component';
 
-
-import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -29,13 +26,11 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     CrearUsuarioComponent,
     LoginComponent,
     RecuperarContrasenaComponent,
-    CarouselComponent
-
+    CarouselComponent,
   ],
   imports: [
     PublicRoutingModule,
     CommonModule,
-    //BrowserModule,
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
@@ -45,9 +40,9 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: []
+  bootstrap: [],
 })
-export class PublicModule { }
+export class PublicModule {}

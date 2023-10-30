@@ -1,0 +1,30 @@
+/* Estilos personalizados para la barra de navegación */
+.navbar-custom {
+    background-color: #4CC4D3;
+    padding: 10px 0; /* Espacio interno superior e inferior */
+  }
+
+  .navbar-custom .navbar-toggler-icon {
+    color: #ffffff;
+  }
+
+  .navbar-custom .nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px; /* Espacio entre enlaces de navegación */
+  }
+
+  .navbar-custom .nav-link:hover {
+    color: #fff; /* Cambio de color al pasar el ratón por encima */
+  }
+
+  .navbar-custom .btn {
+    background-color: #ffffff;
+    color: #000000;
+    margin-right: 10px; /* Espacio entre botones de acción */
+  }
+
+  .navbar-custom .btn.btn-danger {
+    background-color: #FF0000; /* Botón de cierre de sesión en rojo */
+    color: #ffffff;
+  }

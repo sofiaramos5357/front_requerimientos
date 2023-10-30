@@ -1,16 +1,22 @@
 <h2 class="text-center mt-5">Solicitudes de requerimientos</h2>
+<!-- Título centrado en el medio de la página -->
 
 <app-checkbuttons
   [elementos]="elementos"
   (botonMarcado)="handleBotonMarcado($event)"
 ></app-checkbuttons>
+<!-- Componente personalizado 'app-checkbuttons' que recibe datos a través de propiedades y emite eventos -->
 
 <app-tabla-inicial-elab *ngIf="!btncheck1"></app-tabla-inicial-elab>
-<app-tabla-req-proceso *ngIf="!btncheck2"></app-tabla-req-proceso>
-<app-tabla-req-pendiente-revision
-  *ngIf="!btncheck3"
-></app-tabla-req-pendiente-revision>
+<!-- Componente personalizado 'app-tabla-inicial-elab' que se muestra si 'btncheck1' es falso -->
 
-<br>
-<br>
-<br>
+<app-tabla-req-proceso *ngIf="!btncheck2"></app-tabla-req-proceso>
+<!-- Componente personalizado 'app-tabla-req-proceso' que se muestra si 'btncheck2' es falso -->
+
+<app-tabla-req-pendiente-revision *ngIf="!btncheck3"></app-tabla-req-pendiente-revision>
+<!-- Componente personalizado 'app-tabla-req-pendiente-revision' que se muestra si 'btncheck3' es falso -->
+
+<br />
+<br />
+<br />
+<!-- Saltos de línea en blanco -->

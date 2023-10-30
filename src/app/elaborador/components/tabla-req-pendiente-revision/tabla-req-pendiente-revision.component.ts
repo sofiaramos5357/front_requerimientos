@@ -18,84 +18,90 @@ export class TablaReqPendienteRevisionComponent implements OnInit {
     private datosUsuarioService: DatosUsuarioService
   ) {}
 
-  datosUsuario: Usuario;
+  datosUsuario: Usuario; // Variable para almacenar los datos del usuario
 
-  reqPendientesRev: RequerimientoCreado[] = [];
+reqPendientesRev: RequerimientoCreado[] = []; // Arreglo para almacenar los requerimientos pendientes de revisión
 
-  itemsPerPage: number = 10; // Número de elementos por página
-  currentPage: number = 1; // Página actual
+itemsPerPage: number = 10; // Número de elementos por página
+currentPage: number = 1; // Página actual
 
-  mensaje: string='No hay requerimientos en revisión.'; // Variable para almacenar la palabra a mostrar en el modal
+mensaje: string = 'No hay requerimientos en revisión.'; // Variable para almacenar el mensaje a mostrar en el modal
 
+ngOnInit(): void {
+  this.DatosUsuario(); // Llama a la función para obtener los datos del usuario al inicializar el componente
+}
 
-  ngOnInit(): void {
-    this.DatosUsuario();
-  }
+DatosUsuario() {
+  // Obtiene los datos del usuario y los almacena en datosUsuario
+  this.datosUsuarioService.DatosUsuario().subscribe(
+    (response) => {
+      this.datosUsuario = response[0];
+      this.pendientesRevision(this.datosUsuario.Id);
+    },
+    (error) => {
+      console.error('Error al obtener los datos del usuario:', error);
+    }
+  );
+}
 
-  DatosUsuario() {
-    this.datosUsuarioService.DatosUsuario().subscribe(
-      (response) => {
-        this.datosUsuario = response[0];
-        //console.log(this.datosUsuario.Id);
-        this.pendientesRevision(this.datosUsuario.Id);
-      },
-      (error) => {
-        console.error('Error al obtener los datos del usuario:', error);
-      }
-    );
-  }
+pendientesRevision(Id) {
+  // Obtiene los requerimientos pendientes de revisión asignados al usuario con el ID especificado
+  this.crudService
+    .getPendienteRevisar(Id)
+    .subscribe((res: RequerimientoCreado[]) => {
+      this.reqPendientesRev = res;
+    });
+}
 
-  pendientesRevision(Id) {
-    this.crudService
-      .getPendienteRevisar(Id)
-      .subscribe((res: RequerimientoCreado[]) => {        
-        this.reqPendientesRev = res;
+getUsersForPage(): RequerimientoCreado[] {
+  // Obtiene los requerimientos para la página actual
+  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  const endIndex = startIndex + this.itemsPerPage;
+  return this.reqPendientesRev.slice(startIndex, endIndex);
+}
+
+getTotalPages(): number {
+  // Calcula el número total de páginas en función de la cantidad de requerimientos
+  return Math.ceil(this.reqPendientesRev.length / this.itemsPerPage);
+}
+
+getPages(): number[] {
+  // Obtiene un arreglo de números que representan las páginas disponibles
+  return Array(this.getTotalPages())
+    .fill(0)
+    .map((_, index) => index + 1);
+}
+
+enviarReq(requerimiento) {
+  if (requerimiento !== null && requerimiento !== undefined) {
+    if (
+      this.datosUsuario.Id !== requerimiento.UsuarioIdCreador ||
+      requerimiento.RequerimientoEstadoId !== 1
+    ) {
+      // Navega a la página de detalles del requerimiento si se cumplen las condiciones
+      this.router.navigate(['/reqdetalle'], {
+        queryParams: { requerimiento: JSON.stringify(requerimiento) },
       });
-  }
-
-  getUsersForPage(): RequerimientoCreado[] {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    return this.reqPendientesRev.slice(startIndex, endIndex);
-  }
-  getTotalPages(): number {
-    return Math.ceil(this.reqPendientesRev.length / this.itemsPerPage);
-  }
-
-  getPages(): number[] {
-    return Array(this.getTotalPages())
-      .fill(0)
-      .map((_, index) => index + 1);
-  }
-
-  enviarReq(requerimiento) {
-    if (requerimiento !== null && requerimiento !== undefined) {
-      if (
-        this.datosUsuario.Id !== requerimiento.UsuarioIdCreador ||
-        requerimiento.RequerimientoEstadoId !== 1
-      ) {
-        this.router.navigate(['/reqdetalle'], {
-          queryParams: { requerimiento: JSON.stringify(requerimiento) },
-        });
-      }
-    } else {
-      console.error("El objeto 'requerimiento' está vacío o no está definido.");
     }
+  } else {
+    console.error("El objeto 'requerimiento' está vacío o no está definido.");
   }
+}
 
-  verRequerimiento(requerimiento) {
-    if (requerimiento !== null && requerimiento !== undefined) {
-      if (
-        this.datosUsuario.Id !== requerimiento.UsuarioIdCreador ||
-        requerimiento.RequerimientoEstadoId !== 1
-      ) {
-        this.router.navigate(['/requerimientoasignado'], {
-          queryParams: { requerimiento: JSON.stringify(requerimiento) },
-        });
-      }
-    } else {
-      console.error("El objeto 'requerimiento' está vacío o no está definido.");
+verRequerimiento(requerimiento) {
+  if (requerimiento !== null && requerimiento !== undefined) {
+    if (
+      this.datosUsuario.Id !== requerimiento.UsuarioIdCreador ||
+      requerimiento.RequerimientoEstadoId !== 1
+    ) {
+      // Navega a la página de requerimiento asignado si se cumplen las condiciones
+      this.router.navigate(['/requerimientoasignado'], {
+        queryParams: { requerimiento: JSON.stringify(requerimiento) },
+      });
     }
+  } else {
+    console.error("El objeto 'requerimiento' está vacío o no está definido.");
   }
+}
 
 }

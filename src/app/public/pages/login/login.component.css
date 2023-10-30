@@ -23,11 +23,20 @@
 
 /* Aumenta el ancho del div con la imagen de fondo */
 .background-image {
-  width: 450px;
-  height: 877px;
-  margin: 1 auto; /* Centrar horizontalmente el div */
-
+  width: 24%;
+  height: 100%;
+  margin: 0 auto;
+  background-attachment: fixed;
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: right; /* Mover la imagen hacia la derecha */
 }
+
+
+
+
+
+
 
 /* Puedes ajustar el margen según tus preferencias */
 

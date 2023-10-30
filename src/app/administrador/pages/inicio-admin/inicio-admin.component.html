@@ -1,14 +1,22 @@
+<!-- Título centrado en la página -->
 <h2 class="text-center mt-5">Solicitudes de requerimientos</h2>
 
+<!-- Componente "app-checkbuttons" para mostrar botones de selección -->
 <app-checkbuttons
   [elementos]="elementos"
   (botonMarcado)="handleBotonMarcado($event)"
 ></app-checkbuttons>
 
+<!-- Componente "app-tabla-inicial" que se muestra si "btncheck1" es falso (no marcado) -->
 <app-tabla-inicial *ngIf="!btncheck1"></app-tabla-inicial>
+
+<!-- Componente "app-tabla-revisar" que se muestra si "btncheck2" es falso (no marcado) -->
 <app-tabla-revisar *ngIf="!btncheck2"></app-tabla-revisar>
+
+<!-- Componente "app-tabla-req-documentar" que se muestra si "btncheck3" es falso (no marcado) -->
 <app-tabla-req-documentar *ngIf="!btncheck3"></app-tabla-req-documentar>
 
-<br>
-<br>
-<br>
+<!-- Saltos de línea para ajustar el espaciado en la página -->
+<br />
+<br />
+<br />

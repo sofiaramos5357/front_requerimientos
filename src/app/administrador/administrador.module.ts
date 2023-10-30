@@ -30,7 +30,6 @@ import { SistemasComponent } from './pages/sistemas/sistemas.component';
 import { VisualizarRequerimientoComponent } from './pages/visualizar-requerimiento/visualizar-requerimiento.component';
 import { ConfigUsuarioComponent } from './pages/usuarios/usuarios.component';
 
-
 //import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
@@ -63,9 +62,6 @@ import { SharedModule } from '../shared/shared.module';
     SistemasComponent,
     VisualizarRequerimientoComponent,
     ConfigUsuarioComponent,
-
-    
- 
   ],
   imports: [
     CommonModule,
@@ -75,16 +71,16 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
 
-    SharedModule
+    SharedModule,
   ],
   providers: [
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: []
+  bootstrap: [],
 })
-export class AdministradorModule { }
+export class AdministradorModule {}

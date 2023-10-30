@@ -77,9 +77,7 @@ export class ElementosReportesComponent {
           // Maneja el error aquí
         }
       );
-      alertifyjs.success(
-        'Reporte generado correctamente.'
-      );
+      alertifyjs.success('Reporte generado correctamente.');
     } else {
       alertifyjs.error(
         'No se encontraron registros en el rango de fechas ingresado.'

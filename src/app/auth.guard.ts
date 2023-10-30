@@ -3,16 +3,12 @@ import { CanActivate, Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-
   //podremos proteger las rutas de forma que si el token no se encuentra o es modificado automaticamente
   //lo mande a la pagina principal
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(): boolean {
     if (this.authService.loggedIn()) {
@@ -22,5 +18,4 @@ export class AuthGuard implements CanActivate {
     this.router.navigate(['/login']);
     return false;
   }
-
 }

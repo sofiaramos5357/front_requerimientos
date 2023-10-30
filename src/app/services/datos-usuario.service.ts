@@ -3,16 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DatosUsuarioService {
+  private URL = 'http://localhost:8090/api';
 
-  private URL ='http://localhost:8090/api'
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   DatosUsuario(): Observable<any> {
     return this.http.post<any>(`${this.URL}/datosusuario`, {});
   }
-
 }

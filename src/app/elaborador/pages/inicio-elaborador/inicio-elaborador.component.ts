@@ -10,9 +10,11 @@ import { Usuario } from 'src/app/models/usuario.model';
 })
 export class InicioElaboradorComponent implements OnInit {
   constructor(
-    private crudService: CrudService,
-    private datosUsuarioService: DatosUsuarioService
+    private crudService: CrudService, // Inyección del servicio 'CrudService'
+    private datosUsuarioService: DatosUsuarioService // Inyección del servicio 'DatosUsuarioService'
   ) {
+    // Inicialización de propiedades Al definir propiedades en el constructor,
+    // puedes estar seguro de que tendrán un valor inicial conocido tan pronto como se cree una instancia del objeto. Esto evita que las propiedades tengan un valor 
     this.elementos = {
       Titulo1: 'Requerimientos Asignados',
       cantidad1: 0,
@@ -23,81 +25,75 @@ export class InicioElaboradorComponent implements OnInit {
     };
   }
 
-  requerimientos: any;
-  reqPendientesRev: any;
-  requerimientosProcesos: any;
+  requerimientos: any; // Almacenará los requerimientos
+  reqPendientesRev: any; // Almacenará los requerimientos pendientes de revisión
+  requerimientosProcesos: any; // Almacenará los requerimientos en proceso
 
-  datosUsuario: Usuario;
+  datosUsuario: Usuario; // Almacenará los datos del usuario
 
-  elementos: {
-    Titulo1: 'Requerimientos Asignados';
-    cantidad1: 0;
-    Titulo2: 'Requerimientos en Proceso';
-    cantidad2: 0;
-    Titulo3: 'Requerimientos en Revisión';
-    cantidad3: 0;
+  elementos: { // Definición de un objeto con títulos y cantidades
+    Titulo1: 'Requerimientos Asignados',
+    cantidad1: 0,
+    Titulo2: 'Requerimientos en Proceso',
+    cantidad2: 0,
+    Titulo3: 'Requerimientos en Revisión',
+    cantidad3: 0,
   };
 
   ngOnInit(): void {
-    this.DatosUsuario();
+    this.DatosUsuario(); // Llamada a la función 'DatosUsuario' en la inicialización del componente
   }
 
   DatosUsuario() {
+    // Obtiene los datos del usuario desde el servicio 'DatosUsuarioService'
     this.datosUsuarioService.DatosUsuario().subscribe(
       (response) => {
-        this.datosUsuario = response[0];
-        //console.log(this.datosUsuario.Id);
-        this.requerimientosAsignados(this.datosUsuario.Id);
-        this.pendientesRevision(this.datosUsuario.Id);
-        this.requerimientosProceso(this.datosUsuario.Id);
+        this.datosUsuario = response[0]; // Almacena los datos del usuario
+        this.requerimientosAsignados(this.datosUsuario.Id); // Llama a la función para obtener los requerimientos asignados
+        this.pendientesRevision(this.datosUsuario.Id); // Llama a la función para obtener los requerimientos pendientes de revisión
+        this.requerimientosProceso(this.datosUsuario.Id); // Llama a la función para obtener los requerimientos en proceso
       },
       (error) => {
-        console.error('Error al obtener los datos del usuario:', error);
+        console.error('Error al obtener los datos del usuario:', error); // Manejo de errores
       }
     );
   }
 
   requerimientosAsignados(Id) {
+    // Obtiene el total de requerimientos asignados desde el servicio 'CrudService'
     this.crudService.TotalRequerimientosAsignados(Id).subscribe((res: any) => {
-      //this.requerimientos = res.TotalrequerimientoAsignado;
-      this.elementos.cantidad1 = res.TotalrequerimientoAsignado;
-      //console.log(this.requerimientos);
+      this.elementos.cantidad1 = res.TotalrequerimientoAsignado; // Almacena el total en la propiedad 'cantidad1'
     });
   }
   requerimientosProceso(Id) {
+    // Obtiene el total de requerimientos en proceso desde el servicio 'CrudService'
     this.crudService.TotalRequerimientosProceso(Id).subscribe((res: any) => {
-      //this.requerimientosProcesos = res.totalreqProceso;
-      this.elementos.cantidad2 = res.totalreqProceso;
-      //console.log(this.requerimientosProcesos);
+      this.elementos.cantidad2 = res.totalreqProceso; // Almacena el total en la propiedad 'cantidad2'
     });
   }
 
   pendientesRevision(Id) {
+    // Obtiene el total de requerimientos pendientes de revisión desde el servicio 'CrudService'
     this.crudService.TotalPendienteRevisar(Id).subscribe((res: any) => {
-      //this.reqPendientesRev = res.totalverReqPendienteRevision;
-      this.elementos.cantidad3 = res.totalverReqPendienteRevision;
-
-      //console.log(this.reqPendientesRev);
+      this.elementos.cantidad3 = res.totalverReqPendienteRevision; // Almacena el total en la propiedad 'cantidad3'
     });
   }
 
-  btncheck1 = true;
-  btncheck2 = true;
-  btncheck3 = true;
+  btncheck1 = true; // Variable para controlar el estado del botón 1
+  btncheck2 = true; // Variable para controlar el estado del botón 2
+  btncheck3 = true; // Variable para controlar el estado del botón 3
 
   handleBotonMarcado(eventData: { id: string; marcado: boolean }) {
-    // Accede a los datos del botón marcado y su estado
-    const botonId = eventData.id;
-    const marcado = eventData.marcado;
-
-    //console.log('Botón:', botonId, 'Marcado:', marcado);
+    // Función para manejar eventos de marcado de botones
+    const botonId = eventData.id; // Obtiene el ID del botón
+    const marcado = eventData.marcado; // Obtiene el estado de marcado del botón
 
     if (botonId === 'btncheck1') {
-      this.btncheck1 = marcado;
+      this.btncheck1 = marcado; // Actualiza el estado del botón 1
     } else if (botonId === 'btncheck2') {
-      this.btncheck2 = marcado;
+      this.btncheck2 = marcado; // Actualiza el estado del botón 2
     } else if (botonId === 'btncheck3') {
-      this.btncheck3 = marcado;
+      this.btncheck3 = marcado; // Actualiza el estado del botón 3
     }
   }
 }

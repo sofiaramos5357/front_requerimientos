@@ -1,10 +1,13 @@
 <head>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
+  />
 </head>
 <div class="div">
-<h2 class=" text-center">Control de usuarios</h2>
+  <h2 class="text-center">Control de usuarios</h2>
 </div>
-<body class="mt-5" >
+<body class="mt-5">
   <div class="container d-flex justify-content-center align-items-center vh-50">
     <div class="row">
       <div class="col-lg-12 col-md-10 ml-auto mr-auto">
@@ -35,9 +38,16 @@
                   </ng-container>
                 </td>
                 <td class="td-actions text-right">
-                  <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm"
-                    data-original-title="" data-bs-toggle="modal" data-bs-target="#exampleModal" title=""
-                    (click)="abrirModal(usuario)">
+                  <button
+                    type="button"
+                    rel="tooltip"
+                    class="btn btn-success btn-just-icon btn-sm"
+                    data-original-title=""
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    title=""
+                    (click)="abrirModal(usuario)"
+                  >
                     <i class="material-icons">edit</i>
                   </button>
                 </td>
@@ -49,66 +59,145 @@
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item" [class.disabled]="currentPage === 1">
-            <a class="page-link" (click)="currentPage = currentPage - 1" aria-label="Previous">
+            <a
+              class="page-link"
+              (click)="currentPage = currentPage - 1"
+              aria-label="Previous"
+            >
               <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
           <li class="page-item" *ngFor="let page of getPages()">
             <a class="page-link" (click)="currentPage = page">{{ page }}</a>
           </li>
-          <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
-            <a class="page-link" (click)="currentPage = currentPage + 1" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span></a>
+          <li
+            class="page-item"
+            [class.disabled]="currentPage === getTotalPages()"
+          >
+            <a
+              class="page-link"
+              (click)="currentPage = currentPage + 1"
+              aria-label="Next"
+            >
+              <span aria-hidden="true">&raquo;</span></a
+            >
+          </li>
         </ul>
       </nav>
     </div>
   </div>
 </body>
 
-
-
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Configuración</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">
+          Configuración
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body text-center align-middle">
-
         <div class="h2 text-dark">Usuario</div>
-        <br>
-        <div id="usuario" class="h4 text-dark">{{ usuarioActual.Nombre }} {{ usuarioActual.Apellido }}</div>
-        <br>
-        <div class="h2 text-dark">Estado</div>
-        <br>
-        <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
-          <input type="radio" class="btn-check" name="vbtn-radioa" id="vbtn-radio1" [(ngModel)]="usuarioActual.Activo"
-            [value]="true" autocomplete="off">
-          <label class="btn btn-outline-danger" for="vbtn-radio1">Activo</label>
-          <input type="radio" class="btn-check" name="vbtn-radioa" id="vbtn-radio2" [(ngModel)]="usuarioActual.Activo"
-            [value]="false" autocomplete="off">
-          <label class="btn btn-outline-danger" for="vbtn-radio2">Inactivo</label>
+        <br />
+        <div id="usuario" class="h4 text-dark">
+          {{ usuarioActual.Nombre }} {{ usuarioActual.Apellido }}
         </div>
-        <br>
-        <br>
+        <br />
+        <div class="h2 text-dark">Estado</div>
+        <br />
+        <div
+          class="btn-group-vertical"
+          role="group"
+          aria-label="Vertical radio toggle button group"
+        >
+          <input
+            type="radio"
+            class="btn-check"
+            name="vbtn-radioa"
+            id="vbtn-radio1"
+            [(ngModel)]="usuarioActual.Activo"
+            [value]="true"
+            autocomplete="off"
+          />
+          <label class="btn btn-outline-danger" for="vbtn-radio1">Activo</label>
+          <input
+            type="radio"
+            class="btn-check"
+            name="vbtn-radioa"
+            id="vbtn-radio2"
+            [(ngModel)]="usuarioActual.Activo"
+            [value]="false"
+            autocomplete="off"
+          />
+          <label class="btn btn-outline-danger" for="vbtn-radio2"
+            >Inactivo</label
+          >
+        </div>
+        <br />
+        <br />
         <div class="h2 text-dark">Rol</div>
-        <br>
-        <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
-          <input type="radio" class="btn-check" name="vbtn-radiob" id="vbtn-radio3" [(ngModel)]="usuarioActual.RolId"
-            [value]="1" autocomplete="off">
-          <label class="btn btn-outline-danger" for="vbtn-radio3">Administrador</label>
-          <input type="radio" class="btn-check" name="vbtn-radiob" id="vbtn-radio4" [(ngModel)]="usuarioActual.RolId"
-            [value]="2" autocomplete="off">
-          <label class="btn btn-outline-danger" for="vbtn-radio4">Elaborador</label>
+        <br />
+        <div
+          class="btn-group-vertical"
+          role="group"
+          aria-label="Vertical radio toggle button group"
+        >
+          <input
+            type="radio"
+            class="btn-check"
+            name="vbtn-radiob"
+            id="vbtn-radio3"
+            [(ngModel)]="usuarioActual.RolId"
+            [value]="1"
+            autocomplete="off"
+          />
+          <label class="btn btn-outline-danger" for="vbtn-radio3"
+            >Administrador</label
+          >
+          <input
+            type="radio"
+            class="btn-check"
+            name="vbtn-radiob"
+            id="vbtn-radio4"
+            [(ngModel)]="usuarioActual.RolId"
+            [value]="2"
+            autocomplete="off"
+          />
+          <label class="btn btn-outline-danger" for="vbtn-radio4"
+            >Elaborador</label
+          >
         </div>
       </div>
-      <br>
+      <br />
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrarModal()">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar cambios</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          (click)="cerrarModal()"
+        >
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="guardarCambios()"
+        >
+          Guardar cambios
+        </button>
       </div>
     </div>
   </div>

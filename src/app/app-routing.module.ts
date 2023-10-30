@@ -1,31 +1,34 @@
+// Importar módulos y servicios necesarios de Angular
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './auth.guard';
 
+// Definir las rutas de la aplicación
 const routes: Routes = [
   {
-    path: '',
+    path: '', // Ruta raíz
     loadChildren: () =>
-      import('../app/public/public.module').then((m) => m.PublicModule),
-  },
-  
-  {
-    path: '',
-    loadChildren: () =>
-      import('./administrador/administrador.module').then((a) => a.AdministradorModule),
-  },
-  {
-    path: '',
-    loadChildren: () =>
-      import('./elaborador/elaborador.module').then((e) => e.ElaboradorModule),
+      import('../app/public/public.module').then((m) => m.PublicModule), // Cargar el módulo PublicModule cuando se acceda a esta ruta
   },
 
-  //redirigir al login cuando se ponga una ruta no valida
+  {
+    path: '', // Ruta raíz
+    loadChildren: () =>
+      import('./administrador/administrador.module').then(
+        (a) => a.AdministradorModule
+      ), // Cargar el módulo AdministradorModule cuando se acceda a esta ruta
+  },
+  {
+    path: '', // Ruta raíz
+    loadChildren: () =>
+      import('./elaborador/elaborador.module').then((e) => e.ElaboradorModule), // Cargar el módulo ElaboradorModule cuando se acceda a esta ruta
+  },
+
+  // Redirigir al usuario a la ruta raíz ('') cuando se ingrese una ruta no válida
   { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)], // Configurar el enrutador de la aplicación con las rutas definidas
+  exports: [RouterModule], // Exportar el módulo de enrutamiento para que esté disponible en otros lugares de la aplicación
 })
 export class AppRoutingModule {}

@@ -1,10 +1,9 @@
 <form>
   <div class="div">
-  <h2 class="text-center">Crear requerimiento</h2>
-</div>
+    <h2 class="text-center">Crear requerimiento</h2>
+  </div>
 
   <div class="d-grid gap-2 col-2 mx-auto mt-5">
-
     <label for="exampleInputEmail1" class="form-label text-dark">Sistema</label>
 
     <div style="display: flex; align-items: center">
@@ -32,9 +31,9 @@
       </button>
     </div>
 
-
-
-    <label for="exampleInputEmail1" class="form-label text-dark">Descripción</label>
+    <label for="exampleInputEmail1" class="form-label text-dark"
+      >Descripción</label
+    >
     <textarea
       class="form-control"
       id="textAreaExample"
@@ -43,7 +42,9 @@
       name="descripcion"
     ></textarea>
 
-    <label for="exampleInputEmail1" class="form-label text-dark">Objetivo</label>
+    <label for="exampleInputEmail1" class="form-label text-dark"
+      >Objetivo</label
+    >
     <textarea
       class="form-control"
       id="textAreaExample"
@@ -52,9 +53,9 @@
       name="objetivo"
     ></textarea>
 
-    
-
-    <label for="exampleInputEmail1" class="form-label text-dark">Elaborador</label>
+    <label for="exampleInputEmail1" class="form-label text-dark"
+      >Elaborador</label
+    >
     <select
       class="form-select"
       aria-label="Default select example"
@@ -79,7 +80,6 @@
   </div>
 </form>
 
-
 <!-- Modal -->
 <div
   class="modal fade"
@@ -91,7 +91,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 text-dark"  id="exampleModalLabel">
+        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">
           Agregar sistema
         </h1>
         <button
@@ -110,7 +110,6 @@
           name="tipoCambio"
           aria-describedby="emailHelp"
           [(ngModel)]="sistema.Nombre"
-
         />
       </div>
       <br />

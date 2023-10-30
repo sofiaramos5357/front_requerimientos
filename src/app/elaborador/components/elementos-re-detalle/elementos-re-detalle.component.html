@@ -6,7 +6,7 @@
 </head>
 
 <div class="container justify-content-center align-items-center">
-  <h2 class="text-center ">Ingresar detalles del requerimiento</h2>
+  <h2 class="text-center">Ingresar detalles del requerimiento</h2>
 
   <div class="d-grid gap-2 col-2 mx-auto mt-4">
     <div class="border text-center">
@@ -231,7 +231,9 @@
               +
             </button>
           </div>
-          <label for="exampleInputEmail1" class="form-label text-dark">Objeto</label>
+          <label for="exampleInputEmail1" class="form-label text-dark"
+            >Objeto</label
+          >
           <input
             type="text"
             class="form-control"
@@ -240,7 +242,9 @@
             [(ngModel)]="requerimientoDetalle.Objeto"
           />
 
-          <label for="exampleInputEmail1" class="form-label text-dark">Ubicación</label>
+          <label for="exampleInputEmail1" class="form-label text-dark"
+            >Ubicación</label
+          >
           <input
             type="text"
             class="form-control"
@@ -249,7 +253,9 @@
             [(ngModel)]="requerimientoDetalle.Ubicacion"
           />
 
-          <label for="exampleInputEmail1" class="form-label text-dark">Actividad</label>
+          <label for="exampleInputEmail1" class="form-label text-dark"
+            >Actividad</label
+          >
           <textarea
             class="form-control"
             id="Actividad"
@@ -330,7 +336,9 @@
             </option>
           </select>
 
-          <label for="exampleInputEmail1" class="form-label text-dark">Objeto</label>
+          <label for="exampleInputEmail1" class="form-label text-dark"
+            >Objeto</label
+          >
           <input
             type="text"
             class="form-control"
@@ -339,7 +347,9 @@
             [(ngModel)]="detalleActual.Objeto"
           />
 
-          <label for="exampleInputEmail1" class="form-label text-dark">Ubicación</label>
+          <label for="exampleInputEmail1" class="form-label text-dark"
+            >Ubicación</label
+          >
           <input
             type="text"
             class="form-control"
@@ -348,7 +358,9 @@
             [(ngModel)]="detalleActual.Ubicacion"
           />
 
-          <label for="exampleInputEmail1" class="form-label text-dark">Actividad</label>
+          <label for="exampleInputEmail1" class="form-label text-dark"
+            >Actividad</label
+          >
           <textarea
             class="form-control"
             id="Actividad"
@@ -434,7 +446,7 @@
           type="button"
           class="btn btn-primary"
           (click)="crearTipoObjeto()"
-          [disabled]="tipoObjeto.Nombre === '' "
+          [disabled]="tipoObjeto.Nombre === ''"
         >
           Guardar
         </button>
