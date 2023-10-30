@@ -1,7 +1,17 @@
-.image-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: 200px; /* Añade margen si es necesario */
+body {
+    margin: 0;
+    padding: 0;
 }
-  
+
+.container {
+    position: relative;
+    height: 40vh;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente en el eje X */
+    align-items: center; /* Centra verticalmente en el eje Y */
+}
+
+.bottom-left-image {
+    width: 30%; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto;
+}

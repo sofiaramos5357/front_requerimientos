@@ -29,8 +29,7 @@ export class TablaReqDocumentarComponent implements OnInit {
   }
 
   requerimientosADocumentar(Id) {
-    this.crudService.getRequerimientosADocumentar(Id).subscribe((res: RequerimientoCreado[]) => {
-      // Filtrar los elementos que no tienen estadoId igual a 5 o 6
+    this.crudService.getRequerimientosADocumentar(Id).subscribe((res: RequerimientoCreado[]) => {      
       this.requerimientosaDocumentar = res      
     });
 }

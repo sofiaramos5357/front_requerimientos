@@ -4,13 +4,16 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Usuario } from 'src/app/models/usuario.model';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(public authService:AuthService, private datosUsuarioService:DatosUsuarioService){}
+  constructor(public authService:AuthService, private datosUsuarioService:DatosUsuarioService, private router: Router){}
 
   datosUsuario: Usuario;
 
@@ -28,4 +31,11 @@ export class NavbarComponent implements OnInit {
       }
     );
   }
+
+  reloadPageIfCurrentRoute(route: string) {
+    if (this.router.url === route) {
+      window.location.reload();
+    }
+  }
+  
 }

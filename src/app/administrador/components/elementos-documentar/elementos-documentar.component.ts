@@ -62,6 +62,7 @@ export class ElementosDocumentarComponent implements OnInit {
           // utilizar los datos de requerimiento en este componente
           this.datosRuta = requerimiento
           this.obtenerFichaTecnica(this.datosRuta.Id)
+          console.log(requerimiento)
 
         } catch (error) {
           console.error("Error al analizar JSON:", error);
@@ -175,8 +176,8 @@ export class ElementosDocumentarComponent implements OnInit {
                 { text: `${this.datosRuta.NombreElaborador} ${this.datosRuta.ApellidoElaborador}`, margin: [20, 0, 0, 15] }, // Margen inferior
               ],
               [
-                { text: 'Fecha de finalización:', margin: [20, 0, 0, 15] }, 
-                { text: this.formatDate(new Date(this.datosRuta.FechaEntrega)), margin: [20, 0, 0, 15] }, 
+                { text: 'Fecha Revisión:', margin: [20, 0, 0, 15] }, 
+                { text: this.formatDate(new Date(this.datosRuta.FechaRevision)), margin: [20, 0, 0, 15] }, 
               ],
               [
                 { text: '___________________________', margin: [20, 90, 0, 15] }, 

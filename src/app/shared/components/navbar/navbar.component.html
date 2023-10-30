@@ -24,30 +24,33 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" routerLink="/home/admin" routerLinkActive="active"
+        <a class="nav-link" routerLink="/home/admin" routerLinkActive="active" (click)="reloadPageIfCurrentRoute('/home/admin')"
           ><h6 style="color: #ffffff;">Inicio</h6></a
         >
         <a
           class="nav-link"
           routerLink="/crearsolicitud"
           routerLinkActive="active"
+          (click)="reloadPageIfCurrentRoute('/crearsolicitud')"
           ><h6 style="color: #ffffff;">Crear solicitud</h6></a
         >
-        <a class="nav-link" routerLink="/reportes" routerLinkActive="active"
+        <a class="nav-link" routerLink="/reportes" routerLinkActive="active" (click)="reloadPageIfCurrentRoute('/reportes')"
           ><h6 style="color: #ffffff;">Reportes</h6></a
         >
-        <a class="nav-link" routerLink="/documentos" routerLinkActive="active"
+        <a class="nav-link" routerLink="/documentos" routerLinkActive="active" (click)="reloadPageIfCurrentRoute('/documentos')"
           ><h6 style="color: #ffffff;">Documentos</h6></a
         >
-        <a class="nav-link" routerLink="/usuarios" routerLinkActive="active"
+        <a class="nav-link" routerLink="/usuarios" routerLinkActive="active" (click)="reloadPageIfCurrentRoute('/usuarios')"
           ><h6 style="color: #ffffff;">Usuarios</h6></a
         >
-        <a class="nav-link" routerLink="/sistemas" routerLinkActive="active"
+        <a class="nav-link" routerLink="/sistemas" routerLinkActive="active" (click)="reloadPageIfCurrentRoute('/sistemas')"
           ><h6 style="color: #ffffff;">Sistemas</h6></a
         >
       </div>
     </div>
-    <button style="color: #000000;" type="button" class="btn btn btn-just-icon btn-sm me-5" routerLink="/modificarusuario">
+    <button style="color: #000000;" type="button" class="btn btn btn-just-icon btn-sm me-5" routerLink="/modificarusuario"
+    (click)="reloadPageIfCurrentRoute('/modificarusuario')"
+    >
       <i class="material-icons">manage_accounts</i>
     </button>
     <button type="button" class="btn btn-danger">
@@ -75,16 +78,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" routerLink="/home/elaborador" routerLinkActive="active"
+        <a class="nav-link" routerLink="/home/elaborador" routerLinkActive="active" (click)="reloadPageIfCurrentRoute('/home/elaborador')"
           ><h6 style="color: #ffffff;">Inicio</h6></a
         >
-        <a class="nav-link" routerLink="/objetos" routerLinkActive="active"
+        <a class="nav-link" routerLink="/objetos" routerLinkActive="active" (click)="reloadPageIfCurrentRoute('/objetos')"
           ><h6 style="color: #ffffff;">Objetos</h6></a
         > 
       </div>
     </div>
 
-    <button style="color: #000000;" type="button" class="btn btn btn-just-icon btn-sm me-5" routerLink="/modificarusuario">
+    <button style="color: #000000;" type="button" class="btn btn btn-just-icon btn-sm me-5" routerLink="/modificarusuario"
+    (click)="reloadPageIfCurrentRoute('/modificarusuario')"
+    >
       <i class="material-icons">manage_accounts</i>
     </button>
 
