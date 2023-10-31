@@ -22,12 +22,17 @@ export class FormularioCambiarContrasenaComponent {
     const camposNoVacios = Object.values(this.nuevaContrasena).every(
       (campo) => !!campo
     );
-
+  
     if (
+      this.nuevaContrasena.Contrasena.length < 8
+    ) {
+      // La contraseña es menor de 8 caracteres, muestra un mensaje de error
+      alertifyjs.error('La contraseña debe tener 8 o más caracteres');
+    } else if (
       this.nuevaContrasena.Contrasena === this.contrasenaConfirmacion &&
       camposNoVacios
     ) {
-      // Las contraseñas coinciden, guardar la contraseña en nuevaContrasena.Contrasena
+      // Las contraseñas coinciden y la contraseña tiene al menos 8 caracteres, continuar con el registro
       this.nuevaContrasena.Contrasena = this.contrasenaConfirmacion;
       // Luego, puedes realizar la lógica de registro aquí
       this.crudService.nuevaContrasena(this.nuevaContrasena).subscribe(
@@ -54,6 +59,7 @@ export class FormularioCambiarContrasenaComponent {
       this.contrasenasCoinciden = false;
     }
   }
+  
 
   verificarContrasenas() {
     // Verificar si las contraseñas coinciden cada vez que se modifica contrasenaConfirmacion

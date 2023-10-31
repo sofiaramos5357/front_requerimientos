@@ -28,18 +28,17 @@ export class FormularioCrearUsuarioComponent {
       (campo) => !!campo
     );
 
-    if (
+    if (this.nuevoUsuario.Contrasena.length < 8) {
+      // La contraseña es demasiado corta, mostrar un mensaje de error
+      alertifyjs.error('La contraseña debe tener 8 o más caracteres');
+    } else if (
       this.nuevoUsuario.Contrasena === this.contrasenaConfirmacion &&
       camposNoVacios
     ) {
-      // Las contraseñas coinciden, guardar la contraseña en nuevoUsuario.Contrasena
+      // Las contraseñas coinciden y son lo suficientemente largas, continuar con el registro
       this.nuevoUsuario.Contrasena = this.contrasenaConfirmacion;
-      // Luego, puedes realizar la lógica de registro aquí
       this.crudService.crearUsuario(this.nuevoUsuario).subscribe(
         (res) => {
-          // Aquí puedes manejar la respuesta del backend si es necesario
-          //console.log('Registro exitoso', res);
-          // Limpia los campos del formulario u realiza otras acciones necesarias después del registro
           this.nuevoUsuario = {
             Identidad: '',
             Nombre: '',
@@ -54,22 +53,22 @@ export class FormularioCrearUsuarioComponent {
         },
         (error) => {
           // Manejar errores aquí
-          //console.error('Error en el registro', error.mensaje);
-          //alertifyjs.error(error)
+          console.error('Error en el registro', error.mensaje);
+          alertifyjs.error(error.message);
         }
       );
     }
+
     if (!camposNoVacios) {
       alertifyjs.error('Ingrese todos los campos');
     }
+
     if (this.nuevoUsuario.Contrasena !== this.contrasenaConfirmacion) {
-      // Las contraseñas no coinciden, muestra un mensaje de error o toma la acción adecuada
       this.contrasenasCoinciden = false;
     }
   }
 
   verificarContrasenas() {
-    // Verificar si las contraseñas coinciden cada vez que se modifica contrasenaConfirmacion
     this.contrasenasCoinciden =
       this.nuevoUsuario.Contrasena === this.contrasenaConfirmacion;
   }
