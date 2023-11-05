@@ -1,0 +1,26 @@
+/* Estilos generales que se aplicarán en todas las pantallas */
+div {
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Estilos específicos para dispositivos móviles (pantallas menores a 768px) */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 18px;
+    }
+  
+    form {
+      max-width: 100%;
+      padding: 10px;
+    }
+  }
+  
