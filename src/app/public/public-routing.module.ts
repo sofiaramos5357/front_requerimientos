@@ -18,13 +18,18 @@ const routes: Routes = [
     component: Layout4Component, // Utiliza Layout4Component como diseño
     children: [{ path: '', component: LoginComponent }], // Ruta raíz, muestra LoginComponent
   },
-
   {
     path: '',
-    component: Layout3Component, // Utiliza Layout3Component como diseño
+    component: Layout3Component, // Utiliza Layout2Component como diseño
     children: [
-      { path: 'crearusuario', component: CrearUsuarioComponent }, // Ruta para CrearUsuarioComponent
-      { path: 'recuperarcontrasena', component: RecuperarContrasenaComponent }, // Ruta para RecuperarContrasenaComponent
+      {
+        path: 'crearusuario',
+        component: CrearUsuarioComponent, // Ruta para ConfigUsuarioComponent
+      },
+      {
+        path: 'recuperarcontrasena',
+        component: RecuperarContrasenaComponent, // Ruta para CrearSolicitudComponent
+      },
     ],
   },
 ];
@@ -35,4 +40,3 @@ const routes: Routes = [
   exports: [RouterModule], // Exporta el módulo de rutas para su uso en otros lugares
 })
 export class PublicRoutingModule {}
-

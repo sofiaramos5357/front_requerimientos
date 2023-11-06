@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DatosUsuarioService {
-  private URL = 'http://localhost:8090/api';
+  //al momento de subir el servidor poner la direccion ip de donde estara alojado el backend
+  private URL = 'http://172.16.242.78:1054/api';
 
   constructor(private http: HttpClient) {}
 

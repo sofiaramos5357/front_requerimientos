@@ -3,3 +3,5 @@ observaciones
 -las variables deben ser iguales a como estan declaradas en la base de datos si no las funcionciones http no sabran cual dato es cual
 
 -si el id no esta en el query no sera afectado aunque el modelo lo incluya
+
+-para los enlaces usar routerLink="/" ya que href da problemas

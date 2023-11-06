@@ -24,7 +24,8 @@ import { Changelog } from '../models/changelog.model';
   providedIn: 'root',
 })
 export class CrudService {
-  private RestApi: string = 'http://localhost:8090/api';
+  //al momento de subir el servidor poner la direccion ip de donde estara alojado el backend
+  private RestApi: string = 'http://172.16.242.78:1054/api';
   httpHeaders = new HttpHeaders().set('content-type', 'application/json');
 
   constructor(private httpClient: HttpClient) {}
