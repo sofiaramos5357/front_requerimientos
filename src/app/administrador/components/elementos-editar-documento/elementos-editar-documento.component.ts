@@ -72,7 +72,8 @@ export class ElementosEditarDocumentoComponent implements OnInit {
 
   abrirPDF(Nombre): void {
     // Función para abrir un documento PDF en una nueva ventana o pestaña del navegador
-    const pdfUrl = `http://localhost:8090/${Nombre}`;
+    //direccion ip de donde esta alojado el backend
+    const pdfUrl = `http://172.16.242.78:1054/${Nombre}`;
     window.open(pdfUrl, '_blank');
   }
 
