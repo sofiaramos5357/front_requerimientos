@@ -30,6 +30,8 @@ export class TokenInterceptorService implements HttpInterceptor {
     return next.handle(tokenizeReq).pipe(
       catchError((error) => {
         // Manejar el error aquí y mostrarlo con AlertifyJS
+        //solo mostrar el error si el backen envia el mensaje de error
+        if (error.error && error.error.message) 
         alertify.error(error.error.message);
         // También puedes registrar el error en la consola para fines de depuración
         //console.error(error);

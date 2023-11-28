@@ -5,3 +5,5 @@ observaciones
 -si el id no esta en el query no sera afectado aunque el modelo lo incluya
 
 -para los enlaces usar routerLink="/" ya que href da problemas
+
+-en angular.json se agrego "allowedCommonJsDependencies":["alertifyjs", "pdfmake"] ya que ambas librerias mostraban un warning(de ejecucion) al iniciar la apliacion

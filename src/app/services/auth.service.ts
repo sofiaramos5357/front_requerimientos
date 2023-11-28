@@ -9,7 +9,7 @@ import jwt_decode from 'jwt-decode';
 })
 export class AuthService {
   //al momento de subir el servidor poner la direccion ip de donde estara alojado el backend
-  private URL = 'http://172.16.242.78:1054/api';
+  private URL = 'http://192.168.41.68:1054/api';
 
   constructor(private http: HttpClient, private router: Router) {}
 

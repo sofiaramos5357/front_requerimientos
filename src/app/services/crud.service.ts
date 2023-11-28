@@ -25,8 +25,13 @@ import { Changelog } from '../models/changelog.model';
 })
 export class CrudService {
   //al momento de subir el servidor poner la direccion ip de donde estara alojado el backend
-  private RestApi: string = 'http://172.16.242.78:1054/api';
+  private RestApi: string = 'http://192.168.41.68:1054/api';
   httpHeaders = new HttpHeaders().set('content-type', 'application/json');
+
+  //urls para iniciar el backend, se usan 2 puertos porque en iis se utilizaron 2 puertos para el backend
+  private RestApiInicio: string = 'http://192.168.41.68:1054';
+  private RestApiInicio2: string = 'http://192.168.41.68:8090';
+
 
   constructor(private httpClient: HttpClient) {}
 
@@ -43,6 +48,22 @@ export class CrudService {
     });
   }
   //----------------------------------------------------------------
+
+  //-------------Servicio para levantar el backen juntamente con angular--------
+ // Servicio para llamar a la ruta '/' del backend ya que llamando al backend se levanta juntamente con angular
+ getApiStatus(): Observable<any> {
+  return this.httpClient.get(`${this.RestApiInicio}`);
+}
+getApiStatus2(): Observable<any> {
+  return this.httpClient.get(`${this.RestApiInicio2}`);
+}
+//----------------------------------------------------------------------------
+
+//servicio para descargar los manuales-------------------
+descargaManuales(filePath: string): Observable<Blob> {
+  return this.httpClient.get(`${filePath}`, { responseType: 'blob' });
+}
+//-------------------------------
 
   //-----------Roles-----------------------
   getRoles() {

@@ -81,6 +81,13 @@
     <button
       type="button"
       class="btn btn btn-just-icon btn-sm me-5"
+      (click)="descargarManuales()"
+    >
+      <i class="material-icons">description</i>
+    </button>
+    <button
+      type="button"
+      class="btn btn btn-just-icon btn-sm me-5"
       routerLink="/modificarusuario"
       (click)="reloadPageIfCurrentRoute('/modificarusuario')"
     >
